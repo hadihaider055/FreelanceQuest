@@ -1,19 +1,29 @@
-import morgan from 'morgan'
+import cors from 'cors'
+import express, { ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
-import express, { Request, Response } from 'express'
-import cookieParser from 'cookie-parser'
+import morgan from 'morgan'
 import BaseRouter from './routes'
 
 // Init express
 const app = express()
 
 /**
+ * Setting up cors
+ */
+app.use(cors())
+
+/**
  * Set basic express settings
  */
 
-app.use(express.json())
+app.use(
+  express.json({
+    verify: (req: any, res, buf) => {
+      req.rawBody = buf
+    },
+  })
+)
 app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser())
 
 /**
  * Show routes details in dev output in console during development
@@ -37,6 +47,9 @@ if (process.env.NODE_ENV === 'production') {
  */
 app.use('/api/v1', BaseRouter)
 
+app.use('/', (req: Request, res: Response) =>
+  res.status(200).send('Welcome to the backend of Freelancing Platform!')
+)
 /**
  * Catch API errors throughout the application
  */
@@ -46,11 +59,18 @@ app.use((req: Request, res: Response, next: any) => {
   next(err)
 })
 
-app.use((err: any, req: Request, res: Response, next: any) => {
-  console.log(err)
-  if (err.status === 404) res.status(404).json({ message: 'Not found' })
-  else res.status(500).json({ message: 'Something looks wrong :( !!!' })
-})
+const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+  if (err.status === 404) {
+    res.status(404).json({ message: 'Not found' })
+  } else {
+    res.status(500).json({
+      success: false,
+      message: 'Something looks wrong :( !!!',
+      payload: { error: err.message },
+    })
+  }
+}
+app.use(errorHandler)
 
 /**
  * Exporting express app instance
