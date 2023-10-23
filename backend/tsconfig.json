@@ -15,7 +15,6 @@
     }
   },
   "include": ["src/**/*"],
-  "files": ["./custom.d.ts", "./express-session.d.ts"],
   "ts-node": {
     "files": true
   },

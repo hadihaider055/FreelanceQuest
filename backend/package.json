@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start:dev": "nodemon",
-    "start": "node -r module-alias/register ./dist --env=developement",
-    "build": "node build.js",
+    "start": " node ./dist",
+    "build": "tsc --build",
     "commit-a": "git add . && git cz",
     "commit": "git cz",
     "lint": "tslint --project \"tsconfig.json\"",
