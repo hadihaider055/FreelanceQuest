@@ -1,0 +1,7 @@
+### Create user summary
+POST http://localhost:8002/api/v1/user-summary
+Content-Type: application/json
+
+{
+    "username": "test-user"
+}
