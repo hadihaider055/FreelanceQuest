@@ -1,0 +1,34 @@
+version: "3"
+
+volumes:
+  pg_data:
+
+services:
+  backend:
+    image: fp/backend
+    command: npm run start:dev
+    volumes: 
+      - ./backend/:/backend/
+    ports:
+      - "8004:8001"
+    env_file:
+      - app.default.env
+
+  frontend:
+    image: fp/frontend
+    command: npm run dev
+    volumes: 
+      - ./frontend/:/frontend
+    ports:
+      - "3004:3000"
+    env_file:
+      - app.default.env
+
+  postgres:
+    image: postgres:13-alpine
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+       - "5432:5432"
+    env_file:
+      - app.default.env
