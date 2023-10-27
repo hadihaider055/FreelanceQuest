@@ -1,26 +1,26 @@
-import { DataTypes, Sequelize } from 'sequelize'
+import { DataTypes, Sequelize } from 'sequelize';
 
-const MYSQL_HOST = process.env.MYSQL_HOST || 'localhost'
-const MYSQL_USER = process.env.MYSQL_USER || 'root'
-const MYSQL_PASSWORD = process.env.MYSQL_PASSWORD || ''
-const MYSQL_DATABASE = process.env.MYSQL_DATABASE || 'your_database_name'
+const POSTGRES_HOST = process.env.POSTGRES_HOST || 'localhost'
+const POSTGRES_USER = process.env.POSTGRES_USER || 'root'
+const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || ''
+const POSTGRES_DATABASE = process.env.POSTGRES_DB || 'FreelancingPlatform'
 
 export const db = new Sequelize({
-  dialect: 'mysql',
-  host: MYSQL_HOST,
-  username: MYSQL_USER,
-  password: MYSQL_PASSWORD,
-  database: MYSQL_DATABASE,
+  dialect: 'postgres',
+  host: POSTGRES_HOST,
+  username: POSTGRES_USER,
+  password: POSTGRES_PASSWORD,
+  database: POSTGRES_DATABASE,
 })
 
 const sqlConnection = async () => {
   try {
     const connect = await db.authenticate() // Use authenticate() to check the connection
-    console.log('MySQL connected successfully')
+    console.log('POSTGRES connected successfully')
 
     return connect
   } catch (error) {
-    console.error('MySQL connection error', error)
+    console.error('POSTGRES connection error', error)
   }
 }
 
