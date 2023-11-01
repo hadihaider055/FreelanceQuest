@@ -1,9 +1,10 @@
-import { DataTypes, Sequelize } from 'sequelize';
+import { DataTypes, Sequelize } from 'sequelize'
 
 const POSTGRES_HOST = process.env.POSTGRES_HOST || 'localhost'
 const POSTGRES_USER = process.env.POSTGRES_USER || 'root'
 const POSTGRES_PASSWORD = process.env.POSTGRES_PASSWORD || ''
-const POSTGRES_DATABASE = process.env.POSTGRES_DB || 'FreelancingPlatform'
+const POSTGRES_DATABASE = process.env.POSTGRES_DB || 'Freelancing Platform'
+const POSTGRES_PORT = process.env.POSTGRES_PORT || 5432
 
 export const db = new Sequelize({
   dialect: 'postgres',
@@ -11,6 +12,7 @@ export const db = new Sequelize({
   username: POSTGRES_USER,
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE,
+  port: Number(POSTGRES_PORT),
 })
 
 const sqlConnection = async () => {
