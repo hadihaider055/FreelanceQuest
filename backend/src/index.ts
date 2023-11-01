@@ -1,6 +1,6 @@
 import './LoadEnv'
 import app from './Server'
-import mongoConnection from './config/db'
+import sqlConnection from './config/db'
 
 /**
  * Port at which server will run
@@ -10,7 +10,7 @@ const port = Number(process.env.PORT || 8001)
 /**
  * Connecting to Database
  */
-mongoConnection()
+sqlConnection()
 
 /**
  * Starting the server
