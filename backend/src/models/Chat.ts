@@ -1,5 +1,7 @@
 import { DataTypes, Model } from 'sequelize'
 import Message from './Message'
+
+// Database
 import { db } from '../config/db'
 
 class Chat extends Model {
@@ -7,9 +9,8 @@ class Chat extends Model {
   public name: string
 
   public readonly createdAt!: Date
+  public readonly updatedAt!: Date
 }
-
-Chat.hasMany(Message, {foreignKey: 'chatId'})
 
 Chat.init(
   {
@@ -23,8 +24,11 @@ Chat.init(
     }
   },
   {
-    tableName: 'chats',
+    tableName: 'Chats',
     sequelize: db,
   }
 )
+
+Chat.hasMany(Message, {foreignKey: 'chatId'})
+
 export default Chat
