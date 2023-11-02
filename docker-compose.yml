@@ -6,7 +6,7 @@ volumes:
 services:
   backend:
     image: fp/backend
-    command: npm run start:dev
+    command: yarn run start:dev
     volumes: 
       - ./backend/:/backend/
     ports:
@@ -16,7 +16,7 @@ services:
 
   frontend:
     image: fp/frontend
-    command: npm run dev
+    command: yarn run dev
     volumes: 
       - ./frontend/:/frontend
     ports:
