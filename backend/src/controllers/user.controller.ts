@@ -1,6 +1,9 @@
 import { AxiosError } from 'axios'
 import httpStatus from 'http-status'
 
+// JWT
+import jwt from 'jsonwebtoken'
+
 // Bcrypt
 import bcrypt from 'bcrypt'
 
@@ -78,10 +81,28 @@ export const loginController = generateController(
         raiseException(httpStatus.BAD_REQUEST, 'Invalid credentials')
       }
 
+      const token = jwt.sign(
+        {
+          id: user.id,
+          email: user.email,
+        },
+        process.env.JWT_SECRET || 'freelance-platform-secret',
+        { expiresIn: '7d' }
+      )
+
+      res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+      })
+
       return {
         message: 'Logged in successfully',
         payload: {
-          user,
+          user: {
+            id: user.id,
+            email: user.email,
+          },
+          token,
         },
       }
     } catch (e) {
