@@ -2,13 +2,21 @@ import express from 'express'
 import { validateBody } from '../middlewares/validateBody'
 
 // Controllers
-import { signupController } from '../controllers/user.controller'
+import {
+  loginController,
+  signupController,
+} from '../controllers/user.controller'
 
 // Schema
-import { createUserSchema } from '../schemaValidation/user.schema'
+import {
+  createUserSchema,
+  loginUserSchema,
+} from '../schemaValidation/user.schema'
 
 const routes = express.Router()
 
-routes.post('/', validateBody(createUserSchema), signupController)
+routes.post('/signup', validateBody(createUserSchema), signupController)
+
+routes.post('/signin', validateBody(loginUserSchema), loginController)
 
 export default routes

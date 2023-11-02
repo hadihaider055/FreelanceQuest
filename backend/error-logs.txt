@@ -1,0 +1,59 @@
+Time: Wed Nov 01 2023 13:16:25 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Wed Nov 01 2023 13:18:35 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Wed Nov 01 2023 13:20:07 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Thu Nov 02 2023 07:04:16 GMT+0500 (Pakistan Standard Time)
+
+Error: The argument passed to findOne must be an options object, use findByPk if you wish to pass a single primary key value
+    at Function.findOne (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:1972:13)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\controllers\user.controller.ts:22:34
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\controllers\user.controller.ts:18:38
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\src\utils\generateController.ts:8:71
+====================
+Time: Thu Nov 02 2023 07:13:45 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Thu Nov 02 2023 07:14:08 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
