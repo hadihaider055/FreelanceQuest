@@ -4,6 +4,8 @@ DOCKER_BUILD_IMAGE_NAME_BACKEND = fp/backend
 build: build-backend build-frontend
 
 build-backend:
+	cd backend && yarn
+	cd ..
 	docker build \
 		-t $(DOCKER_BUILD_IMAGE_NAME_BACKEND) \
 		backend
