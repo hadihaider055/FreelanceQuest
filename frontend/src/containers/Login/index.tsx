@@ -56,7 +56,7 @@ const LoginContainer = () => {
     <LoginStyled className="flex w-screen h-screen bg-gray-100 justify-between login-container">
       {/* Form Section */}
       <section className="pt-10 px-14 w-full md:w-1/2 flex flex-col gap-28">
-        <header className="flex items-center justify-between">
+        <header className="flex items-center justify-between flex-col sm:flex-row">
           <div>
             <Link href="/">
               <Image
@@ -114,7 +114,10 @@ const LoginContainer = () => {
           </div>
 
           <FormProvider {...form}>
-            <form className="w-[400px]" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className="max-w-[400px] w-full"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div>
                 <Input
                   id="email"

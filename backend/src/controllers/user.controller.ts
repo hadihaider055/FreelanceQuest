@@ -86,10 +86,10 @@ export const loginController = generateController(
         { expiresIn: '7d' }
       )
 
-      res.cookie('token', token, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-      })
+      // res.cookie('token', token, {
+      //   httpOnly: true,
+      //   secure: process.env.NODE_ENV === 'production',
+      // })
 
       return {
         message: 'Logged in successfully',

@@ -21,32 +21,14 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
-      firstName: string;
-      lastName: string;
       email: string;
-      image: string;
-      isDeleted: boolean;
-      city: string;
-      country: string;
-      address: string;
-      merchant_id?: string;
     };
-    quotes: any;
-    printers: any;
   }
 
-  // interface User {
-  //   id: string;
-  //   role: UserRoleEnum;
-  //   firstName: string;
-  //   lastName: string;
-  //   email: string;
-  //   image: string;
-  //   isDeleted: boolean;
-  //   city: string;
-  //   country: string;
-  //   address: string;
-  // }
+  interface User {
+    id: string;
+    email: string;
+  }
 }
 
 const fetchUserInfo = async (email: string) => {
@@ -127,7 +109,10 @@ export const authOptions: NextAuthOptions = {
 
       return {
         ...session,
-        user: {},
+        user: {
+          // id: newUser?.user?.id ?? "",
+          // email: newUser?.user?.email ?? "",
+        },
       };
     },
     jwt: ({ token }) => {

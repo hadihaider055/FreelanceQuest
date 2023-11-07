@@ -80,7 +80,7 @@ const Button: React.FC<ButtonProps> = ({
       {isLoading && (
         <i className={`icon-loading`}>
           <LoaderComponent
-            size={size === "md" ? 40 : 18}
+            size={size === "md" ? 16 : 14}
             color={
               [
                 "black",
@@ -91,7 +91,7 @@ const Button: React.FC<ButtonProps> = ({
                 "blue-dark",
               ].includes(variant)
                 ? "var(--white)"
-                : "var(--blue-dark)"
+                : "var(--black60)"
             }
           />
         </i>

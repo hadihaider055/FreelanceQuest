@@ -10,6 +10,8 @@ import Swal from "sweetalert2";
 
 // Cookies Next
 import { signIn, signOut } from "next-auth/react";
+import axiosInstances from "@/config/axios";
+import { Paths } from "@/config/Paths";
 
 type SignpThunkArgs = {
   firstName: string;
@@ -49,16 +51,21 @@ export const loginThunk = createAsyncThunk(
   "auth/login",
   async (args: LoginThunkArgs, { getState, dispatch }) => {
     try {
-      const user = await signIn("credentials", {
-        redirect: false,
-        email: args.email,
-        password: args.password,
-        callbackUrl: "/",
+      // const user = await signIn("credentials", {
+      //   redirect: false,
+      //   email: args.email,
+      //   password: args.password,
+      //   callbackUrl: "/",
+      // });
+
+      const user = await axiosInstances.default.post(Paths.default.LOGIN, {
+        email: args?.email,
+        password: args?.password,
       });
 
-      if (user?.error && !user?.ok) {
-        Swal.fire("", `<p>${user?.error}</p>`, "error");
-      }
+      // if (user?.error && !user?.ok) {
+      //   Swal.fire("", `<p>${user?.error}</p>`, "error");
+      // }
 
       return user;
     } catch (e: any) {
