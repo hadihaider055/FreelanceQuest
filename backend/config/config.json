@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "Educationkey1101",
+    "database": "Freelancing Platform",
+    "host": "localhost",
+    "dialect": "postgres",
+    "schema": "UserSchema"
+  }
+}

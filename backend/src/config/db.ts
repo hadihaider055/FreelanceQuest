@@ -13,6 +13,9 @@ export const db = new Sequelize({
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE,
   port: Number(POSTGRES_PORT),
+  define: {
+    schema: 'UserSchema',
+  },
 })
 
 const sqlConnection = async () => {

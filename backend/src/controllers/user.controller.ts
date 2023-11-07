@@ -7,9 +7,6 @@ import jwt from 'jsonwebtoken'
 // Bcrypt
 import bcrypt from 'bcrypt'
 
-// UUID
-import { v4 as uuidv4 } from 'uuid'
-
 // Model
 import User from '../models/User'
 
@@ -33,7 +30,6 @@ export const signupController = generateController(
       }
 
       const user = new User({
-        id: uuidv4(),
         email,
         password: bcrypt.hashSync(password, 10),
       })
@@ -50,7 +46,7 @@ export const signupController = generateController(
       ErrorLogger.write(e)
       const axiosError: AxiosError = e
 
-      let errorMessage = 'Failed to login'
+      let errorMessage = 'Failed to signup'
       if (e.message) {
         errorMessage = e.message
       }

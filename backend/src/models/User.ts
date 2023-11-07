@@ -15,8 +15,8 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.STRING(128),
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     email: {
@@ -31,6 +31,7 @@ User.init(
   {
     tableName: 'users',
     sequelize: db,
+    schema: 'UserSchema',
   }
 )
 

@@ -21,7 +21,7 @@ Chat.init(
     },
     name: {
       type: DataTypes.STRING,
-    }
+    },
   },
   {
     tableName: 'Chats',
@@ -29,6 +29,6 @@ Chat.init(
   }
 )
 
-Chat.hasMany(Message, {foreignKey: 'chatId'})
+Chat.hasMany(Message, { foreignKey: 'chatId' })
 
 export default Chat
