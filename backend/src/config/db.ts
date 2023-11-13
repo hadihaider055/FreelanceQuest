@@ -13,9 +13,9 @@ export const db = new Sequelize({
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE,
   port: Number(POSTGRES_PORT),
-  define: {
-    schema: 'UserSchema',
-  },
+  // define: {
+  //   schema: 'JobSchema',
+  // },
 })
 
 const sqlConnection = async () => {
@@ -24,7 +24,7 @@ const sqlConnection = async () => {
     console.log('POSTGRES connected successfully')
     // we can use migrations later, for now sync seems fine since we don't have any crucial data
     // TODO(FIX): This deletes the tables whenever server restarts, fix this later :(
-    // await db.sync({ force: true })
+    await db.sync({ force: true })
     return connect
   } catch (error) {
     console.error('POSTGRES connection error', error)

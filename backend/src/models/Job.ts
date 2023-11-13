@@ -71,6 +71,7 @@ Job.init(
   {
     tableName: 'Jobs',
     sequelize: db,
+    schema: 'JobSchema',
   }
 )
 
