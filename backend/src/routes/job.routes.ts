@@ -2,13 +2,28 @@ import express from 'express'
 import { validateBody } from '../middlewares/validateBody'
 
 // Controllers
-import { createJobController } from '../controllers/job.controller'
+import {
+  createJobController,
+  getAllJobsController,
+} from '../controllers/job.controller'
 
 // Schema
 import { createJobPostSchema } from '../schemaValidation/job.schema'
 
-const routes = express.Router()
+// Middlewares
+import { authMiddleware } from '../middlewares/auth'
 
-routes.post('/create', validateBody(createJobPostSchema), createJobController)
+const router = express.Router()
 
-export default routes
+// Get all Jobs
+router.get('/', authMiddleware(), getAllJobsController)
+
+// Create Job
+router.post(
+  '/create',
+  authMiddleware(),
+  validateBody(createJobPostSchema),
+  createJobController
+)
+
+export default router
