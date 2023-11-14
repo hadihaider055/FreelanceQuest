@@ -66,7 +66,11 @@ const Input: React.FC<InputProps> = ({
           <input
             type={type === "password" && passwordVisible ? "text" : type}
             id={id}
-            className={`input text-small-normal text-gray-900  ${inputClass}`}
+            className={`input text-small-normal text-gray-900  ${inputClass} ${
+              type === "password"
+                ? "pr-[45px] px-6 py-[19px]"
+                : "px-6 py-[19px]"
+            }`}
             placeholder={placeholder}
             value={value}
             onChange={(e) => onChange(e)}
@@ -76,9 +80,13 @@ const Input: React.FC<InputProps> = ({
         ) : (
           queryName && (
             <input
-              type={type}
+              type={type === "password" && passwordVisible ? "text" : type}
               id={id}
-              className={`input text-small-normal text-gray-900  ${inputClass}`}
+              className={`input text-small-normal text-gray-900  ${inputClass} ${
+                type === "password"
+                  ? "pr-[45px] px-6 py-[19px]"
+                  : "px-6 py-[19px]"
+              }`}
               placeholder={placeholder}
               value={router.query[queryName]}
               onChange={(e) => updatQuery(e, queryName)}

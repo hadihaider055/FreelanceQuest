@@ -20,7 +20,6 @@ export const InputStyled = styled.div<InputStyledProps>`
     outline: none;
 
     .input {
-      padding: 19px 24px;
       outline: none;
       border: none;
       width: 100%;
