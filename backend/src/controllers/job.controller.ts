@@ -67,3 +67,36 @@ export const getAllJobsController = generateController(
     }
   }
 )
+
+export const getJobById = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { id } = req.params
+
+      const job = await Job.findOne({
+        where: {
+          id,
+        },
+      })
+
+      console.log(job)
+
+      return {
+        message: 'Job fetched successfully',
+        payload: {
+          job,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to create job'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)

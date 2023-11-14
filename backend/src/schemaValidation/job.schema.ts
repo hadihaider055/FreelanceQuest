@@ -11,3 +11,7 @@ export const createJobPostSchema = joi.object().keys({
   location: joi.string().required(),
   category: joi.string().valid(...Object.values(JobTypeStatusEnum)),
 })
+
+export const getJobByIdSchema = joi.object().keys({
+  id: joi.string().uuid({ version: 'uuidv4' }).required(),
+})
