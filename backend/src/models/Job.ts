@@ -4,6 +4,9 @@ import { DataTypes, Model } from 'sequelize'
 import { db } from '../config/db'
 import User from './User'
 
+// Types
+import { Models } from 'model'
+
 export enum JobTypeStatusEnum {
   HOURLY = 'HOURLY',
   FIXED_PRICE = 'FIXED_PRICE',
@@ -13,13 +16,17 @@ class Job extends Model {
   public id!: number
   public title: string
   public description: string
-  public postedBy: string
+  public posted_by: string
   public price: number
   public location: string
   public category: JobTypeStatusEnum
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
+
+  static associate(models: Models) {
+    Job.belongsTo(models.User, { foreignKey: 'posted_by' })
+  }
 }
 
 Job.init(
@@ -37,7 +44,7 @@ Job.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    postedBy: {
+    posted_by: {
       type: DataTypes.UUIDV4,
       allowNull: false,
       references: {
@@ -59,22 +66,14 @@ Job.init(
       allowNull: false,
       values: Object.values(JobTypeStatusEnum),
     },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
   },
   {
-    tableName: 'Jobs',
+    tableName: 'jobs',
     sequelize: db,
     schema: 'JobSchema',
   }
 )
 
-Job.belongsTo(User, { foreignKey: 'postedBy' })
+Job.belongsTo(User, { foreignKey: 'posted_by' })
 
 export default Job

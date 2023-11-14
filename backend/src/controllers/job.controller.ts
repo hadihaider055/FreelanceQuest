@@ -11,13 +11,13 @@ import ErrorLogger from '../services/ErrorLogger'
 export const createJobController = generateController(
   async (req, res, raiseException) => {
     try {
-      const { title, description, postedBy, price, location, category } =
+      const { title, description, posted_by, price, location, category } =
         req.body
 
       const job = await Job.create({
         title,
         description,
-        postedBy,
+        posted_by,
         price,
         location,
         category,

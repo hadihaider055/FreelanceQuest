@@ -17,7 +17,7 @@ import ErrorLogger from '../services/ErrorLogger'
 export const signupController = generateController(
   async (req, res, raiseException) => {
     try {
-      const { email, password } = req.body
+      const { email, password, username } = req.body
 
       const isExist = await User.findOne({
         where: {
@@ -30,6 +30,7 @@ export const signupController = generateController(
       }
 
       const user = new User({
+        username,
         email,
         password: bcrypt.hashSync(password, 10),
       })
