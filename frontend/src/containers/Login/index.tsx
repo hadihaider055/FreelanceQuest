@@ -53,7 +53,7 @@ const LoginContainer = () => {
   };
 
   return (
-    <LoginStyled className="flex w-screen h-screen bg-gray-100 justify-between login-container">
+    <LoginStyled className="flex w-screen min-h-screen bg-gray-100 justify-between login-container">
       {/* Form Section */}
       <section className="pt-10 px-14 w-full md:w-1/2 flex flex-col gap-28">
         <header className="flex items-center justify-between flex-col sm:flex-row">

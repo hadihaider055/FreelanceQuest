@@ -1,33 +1,31 @@
-import { Request, Response, NextFunction } from 'express'
-import httpStatus from 'http-status'
-import jwt from 'jsonwebtoken'
+import { RequestHandler } from 'express'
 
-const { JWT_SECRET = '' } = process.env
+// http-status
+import httpStatus from 'http-status'
 
 /**
  * @name auth-middleware
  * @param {string} [token]
  */
 
-const authMiddleware = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  try {
-    let token = req.header('Authorization')
-    token = token?.replace('Bearer ', '')
+const authMiddleware = (): RequestHandler => {
+  return async (req, res, next) => {
+    try {
+      const token = req.headers.authorization?.replace('Bearer ', '')
+      const sessionMode = req.headers['session-mode']?.toString()?.toLowerCase()
 
-    if (token) {
-      const decoded = jwt.verify(token, JWT_SECRET)
+      if (!token) {
+        throw new Error('Token is required for authentication')
+      }
+
+      next()
+    } catch (e) {
+      return res.status(httpStatus.UNAUTHORIZED).json({
+        success: false,
+        message: e.message || 'Failed to authenticate',
+        payload: {},
+      })
     }
-
-    return next()
-  } catch (error) {
-    return res.status(httpStatus.INTERNAL_SERVER_ERROR).send({
-      success: false,
-      error: error.message || 'Token is not valid',
-    })
   }
 }
 

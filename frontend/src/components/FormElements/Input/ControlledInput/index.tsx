@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
+
+// React Icons
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 // Styled
 import { InputStyled } from "../BaseStyle/styled";
@@ -34,10 +37,12 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const router = useRouter();
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   // this function will update the query params and will run on change but conditionally on the basis of, if queryName prop is coming
   const updatQuery = (
     __e: React.ChangeEvent<HTMLInputElement>,
-    __queryName: string,
+    __queryName: string
   ) => {
     router.push({
       pathname: router.pathname,
@@ -59,9 +64,13 @@ const Input: React.FC<InputProps> = ({
       >
         {onChange ? (
           <input
-            type={type}
+            type={type === "password" && passwordVisible ? "text" : type}
             id={id}
-            className={`input text-small-normal text-gray-900  ${inputClass}`}
+            className={`input text-small-normal text-gray-900  ${inputClass} ${
+              type === "password"
+                ? "pr-[45px] px-6 py-[19px]"
+                : "px-6 py-[19px]"
+            }`}
             placeholder={placeholder}
             value={value}
             onChange={(e) => onChange(e)}
@@ -71,15 +80,38 @@ const Input: React.FC<InputProps> = ({
         ) : (
           queryName && (
             <input
-              type={type}
+              type={type === "password" && passwordVisible ? "text" : type}
               id={id}
-              className={`input text-small-normal text-gray-900  ${inputClass}`}
+              className={`input text-small-normal text-gray-900  ${inputClass} ${
+                type === "password"
+                  ? "pr-[45px] px-6 py-[19px]"
+                  : "px-6 py-[19px]"
+              }`}
               placeholder={placeholder}
               value={router.query[queryName]}
               onChange={(e) => updatQuery(e, queryName)}
               {...props}
             />
           )
+        )}
+        {type === "password" && (
+          <>
+            {!passwordVisible ? (
+              <span
+                className="absolute right-[23px] top-1/2 -translate-y-1/2 w-5 flex items-center justify-center text-[#B8B8B8] cursor-pointer"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                <AiOutlineEyeInvisible fontSize={23} />
+              </span>
+            ) : (
+              <span
+                className="absolute right-[23px] top-1/2 -translate-y-1/2 w-5 flex items-center justify-center text-[#B8B8B8] cursor-pointer"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                <AiOutlineEye fontSize={23} />
+              </span>
+            )}
+          </>
         )}
         {preInputText && (
           <span className="pre-input-text text-small-normal-gray">

@@ -1,4 +1,4 @@
-CREATE SCHEMA UserSchema;
+CREATE SCHEMA IF NOT EXISTS "UserSchema";
 
 CREATE TABLE UserSchema.users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

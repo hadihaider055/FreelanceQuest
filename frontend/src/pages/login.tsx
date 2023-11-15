@@ -16,7 +16,7 @@ const Login = () => {
   return (
     <>
       <Head>
-        <title>Tiedup - Login</title>
+        <title>FreelanceQuest - Login</title>
       </Head>
       <>
         <LoginContainer />

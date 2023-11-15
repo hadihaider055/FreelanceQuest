@@ -1,1 +1,0 @@
-<h1>Gamification Backend</h1>
