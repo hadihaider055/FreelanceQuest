@@ -3,9 +3,17 @@ import express, { ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
 import BaseRouter from './routes'
+import expressWs from "express-ws";
+import { createWsRoutes } from './routes/chat.ws.routes'
 
 // Init express
 const app = express()
+
+// Init express-ws
+const appWebsockets = expressWs(app);
+
+// Create web socket routes
+createWsRoutes(app);
 
 /**
  * Setting up cors
