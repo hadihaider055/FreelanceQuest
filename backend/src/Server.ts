@@ -2,18 +2,16 @@ import cors from 'cors'
 import express, { ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import BaseRouter from './routes'
 import expressWs from "express-ws";
-import { createWsRoutes } from './routes/chat.ws.routes'
 
 // Init express
 const app = express()
 
 // Init express-ws
-const appWebsockets = expressWs(app);
+const appWs = expressWs(app);
 
-// Create web socket routes
-createWsRoutes(app);
+// Impot base router after initiating websockets, otherwise typescript will throw error
+import BaseRouter from './routes'
 
 /**
  * Setting up cors
