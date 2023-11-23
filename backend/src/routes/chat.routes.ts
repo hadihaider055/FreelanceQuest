@@ -1,13 +1,8 @@
-// @ts-nocheck
-
 import express from 'express'
+import { chatSignalingController } from '../controllers/chat.controller';
 
 const router = express.Router()
 
-router.ws('/message/', function(ws, req) {
-  ws.on('message', function(msg) {
-    console.log(msg)
-  });
-});
+router.ws('/signaling/:from_username/', chatSignalingController)
 
 export default router
