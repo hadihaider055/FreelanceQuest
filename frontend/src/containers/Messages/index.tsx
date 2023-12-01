@@ -1,14 +1,28 @@
 import ChatList from "@/containers/ChatList";
+import ChatBox from "../ChatBox";
 
 const MessagesContainer = () => {
     return (
         <>
-            <div className="grid grid-cols-3 gap-3">
-                <div>
+            <div style={{
+                display: "grid",
+                gridTemplateColumns: "0.25fr 0.75fr",
+                height: "100%",
+                maxHeight: "100%",
+                position: "fixed",
+                overflowY: "hidden",
+                maxWidth: "100%",
+                width: "100%",
+            }}>
+                <div style={{
+                    height: "100%",
+                    maxHeight: "100%",
+                }}>
                     <ChatList />
                 </div>
-                <div>09</div>
-                <div>09</div>
+                <div>
+                    <ChatBox />
+                </div>
             </div>
         </>
     );
