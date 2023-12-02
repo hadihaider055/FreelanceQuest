@@ -13,7 +13,7 @@ export enum JobTypeStatusEnum {
 }
 
 class Job extends Model {
-  public id!: number
+  public id!: string
   public title: string
   public description: string
   public posted_by: string
@@ -32,8 +32,8 @@ class Job extends Model {
 Job.init(
   {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     title: {
