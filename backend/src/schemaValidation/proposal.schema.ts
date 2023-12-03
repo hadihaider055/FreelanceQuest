@@ -8,3 +8,8 @@ export const submitProposalSchema = joi.object().keys({
   proposed_price: joi.number().required(),
   cover_letter: joi.string().required(),
 })
+
+export const getAllProposalsSchema = joi.object({
+  jobId: joi.string().uuid({ version: 'uuidv4' }).optional(),
+  userId: joi.string().uuid({ version: 'uuidv4' }).optional(),
+})

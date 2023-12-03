@@ -4,6 +4,7 @@ import httpStatus from 'http-status'
 // Model
 import Proposal from '../models/Proposal'
 import Job from '../models/Job'
+import User from '../models/User'
 
 // Utils
 import ErrorLogger from '../services/ErrorLogger'
@@ -52,6 +53,82 @@ export const createProposalController = generateController(
       const axiosError: AxiosError = e
 
       let errorMessage = 'Failed to submit proposal'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)
+
+export const getAllProposalsController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { userId, jobId } = req.query
+
+      if (!userId && !jobId) {
+        raiseException(httpStatus.BAD_REQUEST, 'User or Job id is required')
+      }
+
+      let proposals = []
+
+      if (jobId) {
+        const job = await Job.findOne({
+          where: {
+            id: jobId,
+          },
+        })
+
+        if (!job) {
+          raiseException(httpStatus.BAD_REQUEST, 'Job does not exist')
+        }
+      }
+
+      if (userId) {
+        const user = await User.findOne({
+          where: {
+            id: userId,
+          },
+        })
+
+        if (!user) {
+          raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+        }
+      }
+
+      if (userId && jobId) {
+        proposals = await Proposal.findAll({
+          where: {
+            user_id: userId,
+            job_id: jobId,
+          },
+        })
+      } else if (userId) {
+        proposals = await Proposal.findAll({
+          where: {
+            user_id: userId,
+          },
+        })
+      } else {
+        proposals = await Proposal.findAll({
+          where: {
+            job_id: jobId,
+          },
+        })
+      }
+
+      return {
+        message: 'Proposals fetched successfully',
+        payload: {
+          proposals,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to create job'
       if (e.message) {
         errorMessage = e.message
       }

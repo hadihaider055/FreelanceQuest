@@ -1,14 +1,21 @@
 import express from 'express'
 
 // Controllers
-import { createProposalController } from '../controllers/proposal.controller'
+import {
+  createProposalController,
+  getAllProposalsController,
+} from '../controllers/proposal.controller'
 
 // Schema
-import { submitProposalSchema } from '../schemaValidation/proposal.schema'
+import {
+  getAllProposalsSchema,
+  submitProposalSchema,
+} from '../schemaValidation/proposal.schema'
 
 // Middlewares
 import { authMiddleware } from '../middlewares/auth'
 import { validateBody } from '../middlewares/validateBody'
+import { validateParams } from '../middlewares/validateParams'
 
 const router = express.Router()
 
@@ -18,6 +25,14 @@ router.post(
   authMiddleware(),
   validateBody(submitProposalSchema),
   createProposalController
+)
+
+// Get all Proposals
+router.get(
+  '/',
+  authMiddleware(),
+  validateParams(getAllProposalsSchema),
+  getAllProposalsController
 )
 
 export default router
