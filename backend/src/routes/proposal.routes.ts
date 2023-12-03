@@ -4,11 +4,13 @@ import express from 'express'
 import {
   createProposalController,
   getAllProposalsController,
+  getProposalByIdController,
 } from '../controllers/proposal.controller'
 
 // Schema
 import {
   getAllProposalsSchema,
+  getProposalByIdSchema,
   submitProposalSchema,
 } from '../schemaValidation/proposal.schema'
 
@@ -33,6 +35,14 @@ router.get(
   authMiddleware(),
   validateParams(getAllProposalsSchema),
   getAllProposalsController
+)
+
+// Get proposal by ID
+router.get(
+  '/:proposalId',
+  authMiddleware(),
+  validateParams(getProposalByIdSchema),
+  getProposalByIdController
 )
 
 export default router

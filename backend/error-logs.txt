@@ -974,3 +974,27 @@ Error: WHERE parameter "id" has invalid "undefined" value
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
+Time: Sun Dec 03 2023 22:18:27 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Job is associated to Proposal using an alias. You've included an alias (job), but it does not match the alias(es) defined in your association (Job).
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 22:18:48 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Job is associated to Proposal using an alias. You've included an alias (job_id), but it does not match the alias(es) defined in your association (Job).
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================

@@ -13,3 +13,7 @@ export const getAllProposalsSchema = joi.object({
   jobId: joi.string().uuid({ version: 'uuidv4' }).optional(),
   userId: joi.string().uuid({ version: 'uuidv4' }).optional(),
 })
+
+export const getProposalByIdSchema = joi.object({
+  proposalId: joi.string().uuid({ version: 'uuidv4' }).required(),
+})

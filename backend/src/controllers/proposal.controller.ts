@@ -137,3 +137,42 @@ export const getAllProposalsController = generateController(
     }
   }
 )
+
+export const getProposalByIdController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { proposalId } = req.params
+
+      const proposal = await Proposal.findOne({
+        where: {
+          id: proposalId,
+        },
+        include: [
+          { model: User, attributes: { exclude: ['createdAt', 'updatedAt'] } },
+          { model: Job, attributes: { exclude: ['createdAt', 'updatedAt'] } },
+        ],
+      })
+
+      if (!proposal) {
+        raiseException(httpStatus.BAD_REQUEST, 'Proposal does not exist')
+      }
+
+      return {
+        message: 'Proposal fetched successfully',
+        payload: {
+          proposal,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to create job'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)
