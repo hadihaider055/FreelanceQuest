@@ -669,3 +669,332 @@ Error
     at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
     at async User.save (C:\Users\haide\Documents\Development\Freelancing-Platform\backend\node_modules\sequelize\src\model.js:4153:35)
 ====================
+Time: Sat Dec 02 2023 22:37:09 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:37:35 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:42:17 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:42:29 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:43:41 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:44:16 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:50:19 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:51:49 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:53:44 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 02 2023 22:55:02 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:13:53 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:27:41 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:29:16 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:30:00 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Sun Dec 03 2023 21:30:32 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:30:34 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:31:14 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:31:31 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:32:23 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:32:37 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:32:45 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:32:55 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:54:44 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 21:58:07 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 22:04:12 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 22:18:27 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Job is associated to Proposal using an alias. You've included an alias (job), but it does not match the alias(es) defined in your association (Job).
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 03 2023 22:18:48 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Job is associated to Proposal using an alias. You've included an alias (job_id), but it does not match the alias(es) defined in your association (Job).
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================

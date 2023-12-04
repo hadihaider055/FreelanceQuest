@@ -7,7 +7,7 @@ const catchAsync =
     Promise.resolve(fn(req, res, next)).catch((err) => {
       console.log('error >>', err)
       return res
-        .status(httpStatus.BAD_REQUEST)
+        .status(HttpStatusCode.BadRequest)
         .json({ success: false, error: err?.message })
     })
   }

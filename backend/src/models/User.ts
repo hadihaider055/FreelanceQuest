@@ -7,7 +7,7 @@ import { db } from '../config/db'
 import { Models } from 'model'
 
 class User extends Model {
-  public id!: number
+  public id!: string
   public username!: string
   public email!: string
   public password!: string
