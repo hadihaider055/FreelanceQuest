@@ -115,3 +115,64 @@ export const loginController = generateController(
     }
   }
 )
+
+export const verifyUserController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { email, password } = req.body
+
+      console.log(req)
+
+      const user = await User.findOne({
+        where: {
+          email,
+        },
+      })
+
+      if (!user) {
+        raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+      }
+
+      const isMatch = bcrypt.compareSync(password, user.password)
+
+      if (!isMatch) {
+        raiseException(httpStatus.BAD_REQUEST, 'Invalid credentials')
+      }
+
+      const token = jwt.sign(
+        {
+          id: user.id,
+          email: user.email,
+        },
+        process.env.JWT_SECRET || 'freelance-platform-secret',
+        { expiresIn: '7d' }
+      )
+
+      // res.cookie('token', token, {
+      //   httpOnly: true,
+      //   secure: process.env.NODE_ENV === 'production',
+      // })
+
+      return {
+        message: 'Logged in successfully',
+        payload: {
+          user: {
+            id: user.id,
+            email: user.email,
+          },
+          token,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to login'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)

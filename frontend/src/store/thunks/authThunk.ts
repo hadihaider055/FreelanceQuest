@@ -46,26 +46,23 @@ export const signupThunk = createAsyncThunk(
 type LoginThunkArgs = {
   email: string;
   password: string;
+  rememberMe: boolean;
 };
 export const loginThunk = createAsyncThunk(
   "auth/login",
   async (args: LoginThunkArgs, { getState, dispatch }) => {
     try {
-      // const user = await signIn("credentials", {
-      //   redirect: false,
-      //   email: args.email,
-      //   password: args.password,
-      //   callbackUrl: "/",
-      // });
-
-      const user = await axiosInstances.default.post(Paths.default.LOGIN, {
-        email: args?.email,
-        password: args?.password,
+      const user = await signIn("credentials", {
+        redirect: false,
+        email: args.email,
+        password: args.password,
+        remember: args.rememberMe,
+        callback: "/",
       });
 
-      // if (user?.error && !user?.ok) {
-      //   Swal.fire("", `<p>${user?.error}</p>`, "error");
-      // }
+      if (user?.error && !user?.ok) {
+        Swal.fire("", `<p>${user?.error}</p>`, "error");
+      }
 
       return user;
     } catch (e: any) {
