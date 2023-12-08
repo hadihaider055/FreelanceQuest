@@ -45,7 +45,7 @@ Proposal.init(
       type: DataTypes.UUIDV4,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'users',
         key: 'id',
       },
     },
@@ -53,7 +53,7 @@ Proposal.init(
       type: DataTypes.UUIDV4,
       allowNull: false,
       references: {
-        model: 'Job',
+        model: 'jobs',
         key: 'id',
       },
     },

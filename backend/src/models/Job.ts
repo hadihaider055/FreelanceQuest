@@ -48,7 +48,7 @@ Job.init(
       type: DataTypes.UUIDV4,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'users',
         key: 'id',
       },
     },
