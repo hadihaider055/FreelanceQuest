@@ -43,11 +43,11 @@ const LoginContainer = () => {
   } = form;
 
   const onSubmit = async (values: FormValues) => {
-    console.log(values);
-    await dispatch(
+    const res = await dispatch(
       loginThunk({
         email: values.email,
         password: values.password,
+        rememberMe: remember,
       })
     );
   };

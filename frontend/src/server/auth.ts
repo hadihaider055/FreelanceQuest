@@ -31,53 +31,25 @@ declare module "next-auth" {
   }
 }
 
-const fetchUserInfo = async (email: string) => {
-  // const user = await prisma.user.findUnique({
-  //   where: {
-  //     email: email,
-  //   },
-  // });
-  // let printers: any = [];
-  // let quotes: any = [];
-  // if (user?.role === "ENDUSER") {
-  //   quotes = await prisma.quote.findMany({
-  //     where: {
-  //       userId: user?.id,
-  //       is_bought: false,
-  //     },
-  //   });
-  // } else {
-  //   let printers = await prisma.printer.findMany({
-  //     where: {
-  //       owner_id: user?.id,
-  //     },
-  //   });
-  // }
-  // return {
-  //   user,
-  //   quotes,
-  //   printers,
-  // };
-  return {};
-};
-
 export const authOptions: NextAuthOptions = {
   pages: {
-    signIn: "/signin",
+    signIn: "/login",
     signOut: "/",
+    error: "/login",
   },
   session: {
     strategy: "jwt",
   },
   providers: [
     CredentialsProvider({
-      name: "Sign in",
+      name: "FreelanceQuest",
       credentials: {
         email: {
           label: "Email",
           type: "email",
         },
         password: { label: "Password", type: "password" },
+        remember: { label: "Remember me", type: "checkbox" },
       },
       type: "credentials",
       id: "credentials",
@@ -86,32 +58,45 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Please provide both email and password!");
         }
 
-        const user = await axiosInstances.default.post(Paths.default.LOGIN, {
-          email: credentials?.email,
-          password: credentials?.password,
-        });
+        try {
+          const response = await axiosInstances.default.post(
+            "http://localhost:8001/api/v1/user/signin",
+            {
+              email: credentials.email,
+              password: credentials.password,
+            }
+          );
 
-        return user.data;
+          const { user, token } = response.data.payload;
+
+          if (user) {
+            if (credentials.remember) {
+              return {
+                id: user.id,
+                email: user.email,
+                expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+              };
+            } else {
+              return user;
+            }
+          } else {
+            return null;
+          }
+        } catch (err: any) {
+          throw new Error(
+            err?.response?.data?.message || "Something went wrong!"
+          );
+        }
       },
     }),
   ],
   callbacks: {
-    signIn: async ({ user, account, profile }) => {
-      console.log("user", user, account, profile);
-      // await axiosInstances.default.post(Paths.default.LOGIN, {
-      //   email: user?.email,
-      //   password: user?.password,
-      // });
-      return true;
-    },
     session: async ({ session, user, token }: any) => {
-      const newUser = await fetchUserInfo(session?.user.email);
-
       return {
         ...session,
         user: {
-          // id: newUser?.user?.id ?? "",
-          // email: newUser?.user?.email ?? "",
+          id: token?.sub ?? "",
+          email: session?.user?.email ?? "",
         },
       };
     },
