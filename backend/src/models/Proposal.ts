@@ -42,7 +42,7 @@ Proposal.init(
       defaultValue: 0,
     },
     user_id: {
-      type: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'users',
@@ -50,7 +50,7 @@ Proposal.init(
       },
     },
     job_id: {
-      type: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'jobs',

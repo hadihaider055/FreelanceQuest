@@ -45,7 +45,7 @@ Job.init(
       allowNull: false,
     },
     posted_by: {
-      type: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
         model: 'users',
