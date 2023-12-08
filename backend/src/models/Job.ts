@@ -45,10 +45,10 @@ Job.init(
       allowNull: false,
     },
     posted_by: {
-      type: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'users',
         key: 'id',
       },
     },
@@ -70,7 +70,7 @@ Job.init(
   {
     tableName: 'jobs',
     sequelize: db,
-    schema: 'JobSchema',
+//     schema: 'JobSchema',
   }
 )
 

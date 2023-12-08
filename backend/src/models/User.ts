@@ -47,7 +47,7 @@ User.init(
   {
     tableName: 'users',
     sequelize: db,
-    schema: 'UserSchema',
+//     schema: 'UserSchema',
   }
 )
 
