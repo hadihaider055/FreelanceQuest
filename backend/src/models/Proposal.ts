@@ -61,7 +61,7 @@ Proposal.init(
   {
     tableName: 'proposals',
     sequelize: db,
-    schema: 'ProposalSchema',
+//     schema: 'ProposalSchema',
   }
 )
 
