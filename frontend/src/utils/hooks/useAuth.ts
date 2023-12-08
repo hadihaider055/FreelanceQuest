@@ -14,7 +14,7 @@ const useAuth = ({ redirectOn, redirectTo }: UseAuthArgs) => {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
 
-  const { push } = useRouter();
+  const { push, pathname } = useRouter();
 
   const { data, status } = useSession({
     required: true,
@@ -33,7 +33,11 @@ const useAuth = ({ redirectOn, redirectTo }: UseAuthArgs) => {
     if (status === "authenticated" && !user) {
       dispatch(loginUser(data?.user));
     }
-  }, [status, data]);
+
+    if (status === "authenticated" && pathname === "/login") {
+      push("/");
+    }
+  }, [status, data, pathname]);
 
   return status;
 };
