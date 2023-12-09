@@ -21,7 +21,7 @@ const sqlConnection = async () => {
     console.log(`POSTGRES db: ${POSTGRES_DATABASE}  connected successfully`)
     // we can use migrations later, for now sync seems fine since we don't have any crucial data
     // TODO(FIX): This deletes the tables whenever server restarts, fix this later :(
-    // await db.sync({ force: true })
+    await db.sync({ force: false })
     return connect
   } catch (error) {
     console.error('POSTGRES connection error', error)

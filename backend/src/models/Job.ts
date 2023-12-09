@@ -13,7 +13,7 @@ export enum JobTypeStatusEnum {
 }
 
 class Job extends Model {
-  public id!: number
+  public id!: string
   public title: string
   public description: string
   public posted_by: string
@@ -32,8 +32,8 @@ class Job extends Model {
 Job.init(
   {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     title: {
@@ -45,10 +45,10 @@ Job.init(
       allowNull: false,
     },
     posted_by: {
-      type: DataTypes.UUIDV4,
+      type: DataTypes.UUID,
       allowNull: false,
       references: {
-        model: 'User',
+        model: 'users',
         key: 'id',
       },
     },
@@ -70,7 +70,7 @@ Job.init(
   {
     tableName: 'jobs',
     sequelize: db,
-    schema: 'JobSchema',
+//     schema: 'JobSchema',
   }
 )
 

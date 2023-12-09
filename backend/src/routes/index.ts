@@ -1,7 +1,10 @@
 import express, { Router } from 'express'
+
+// Routes
 import userRoutes from './user.routes'
 import jobRoutes from './job.routes'
 import chatRoutes from './chat.routes'
+import proposalRoutes from './proposal.routes'
 
 const router = express.Router()
 
@@ -13,7 +16,8 @@ interface RoutesMapper {
 const routesMapper: RoutesMapper[] = [
   { path: '/user', router: userRoutes },
   { path: '/job', router: jobRoutes },
-  { path: '/chat', router: chatRoutes}
+  { path: '/chat', router: chatRoutes},
+  { path: '/proposal', router: proposalRoutes },
 ]
 
 routesMapper.forEach((route) => {
