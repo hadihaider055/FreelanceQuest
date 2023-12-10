@@ -60,7 +60,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           const response = await axiosInstances.default.post(
-            "http://localhost:8001/api/v1/user/signin",
+            `${(process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1")}/user/signin`,
             {
               email: credentials.email,
               password: credentials.password,
