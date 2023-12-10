@@ -22,23 +22,36 @@ const SentMessageBoxStyled = styled.div<{align: string}>`
 
 const SendMessageInputStyled = styled.input`
     border: 1px solid #d9d9d9;
+    max-width: 100%;
+    bottom: 30px;
     width: 100%;
     padding: 15px;
     border-radius: 10px;
     outline: none;
     box-sizing: border-box;
+    height: 50px;
     &::placeholder {
         color: #9dafbd;
     }
 `;
 
+const ChatHistoryContainer = styled.div`
+    overflow-y: scroll;
+    max-height: 80vh;
+    margin-bottom: 30px;
+    @media (max-height: 690px) {
+        max-height: 70vh;
+    }
+`;
+
 const ReceivedMessageBoxStyled = styled.div`
-    background-color: var(--grey-light);
-    color: var(--blue-dark);
+    background-color: #dbd9d9;
+    color: black;
     max-width: 300px;
     border-radius: 10px;
     width: 100%;
     padding: 15px;
+    box-sizing: border-box;
 `;
 
 const ChatBox = () => {
@@ -70,9 +83,8 @@ const ChatBox = () => {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
         }}>
-            <div style={{overflowY: "scroll", maxHeight: "500px", marginBottom: "30px"}}>
+            <ChatHistoryContainer>
                 {messageHistory.map(message => 
                     message.sender == username ? 
                         <SentMessageBoxStyled align={"right"}>
@@ -80,7 +92,7 @@ const ChatBox = () => {
                         </SentMessageBoxStyled>
                     : <ReceivedMessageBoxStyled>{message.text}</ReceivedMessageBoxStyled>
                 )}
-            </div>
+            </ChatHistoryContainer>
             <SendMessageInputStyled placeholder="Type a message" />
         </div>
     </>
