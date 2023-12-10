@@ -5,6 +5,8 @@ import { db } from '../config/db'
 
 // Types
 import { Models } from 'model'
+import Chat from './Chat'
+import ChatMember from './ChatMember'
 
 class User extends Model {
   public id!: string
@@ -21,6 +23,7 @@ class User extends Model {
       constraints: false,
       as: 'jobs',
     })
+    User.belongsToMany(Chat, { through: ChatMember, foreignKey: 'user_id' })
   }
 }
 
