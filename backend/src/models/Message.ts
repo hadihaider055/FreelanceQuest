@@ -1,33 +1,55 @@
 import { DataTypes, Model } from 'sequelize'
-import User from './User';
+
+// Database
 import { db } from '../config/db'
-import Chat from './Chat';
+
+// Types
+import { Models } from '../types/model'
 
 class Message extends Model {
   public id!: number
   public content: string
 
   public readonly createdAt!: Date
+
+  static associate(models: Models) {
+    Message.belongsTo(models.Chat, { foreignKey: 'chat_id' })
+    Message.belongsTo(models.User, { foreignKey: 'user_id' })  
+  }
+
 }
 
 Message.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     content: {
       type: DataTypes.STRING,
-    }
+    },
+    user_id: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id',
+      },
+    },
+    chat_id: {
+      type: DataTypes.UUID,
+      allowNull: false,
+      references: {
+        model: 'chats',
+        key: 'id',
+      },
+    },
   },
   {
-    tableName: 'Messages',
+    tableName: 'messages',
     sequelize: db,
   }
 )
-
-Message.belongsTo(User, { foreignKey: 'userId' })
-Message.belongsTo(Chat, { foreignKey: 'chatId'})
 
 export default Message

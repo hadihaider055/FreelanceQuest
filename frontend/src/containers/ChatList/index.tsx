@@ -54,7 +54,7 @@ const ChatList = () => {
             maxHeight: "100%",
             maxWidth: "100%",
             width: "100%",
-            backgroundColor: "var(--grey-light)",
+            backgroundColor: "#dbd9d9",
         }}>
             <div style={{
                 padding: "30px",
