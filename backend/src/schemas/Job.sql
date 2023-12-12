@@ -8,8 +8,8 @@ CREATE TABLE JobSchema.jobs (
     location VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     posted_by UUID NOT NULL REFERENCES UserSchema.users(id),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    createdAt TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW()
   );
 
 

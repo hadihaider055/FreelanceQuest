@@ -4,7 +4,9 @@ import * as yup from "yup";
 import { getCharacterValidationError } from "@/utils/functions/getCharacterValidation";
 
 const loginSchema = yup.object().shape({
-  email: yup.string().email().required(),
+  firstName: yup.string().required("Last name is required"),
+  lastName: yup.string().required("First name is required"),
+  email: yup.string().email().required("Email is required"),
   password: yup
     .string()
     .required("Please enter a password")
@@ -12,6 +14,9 @@ const loginSchema = yup.object().shape({
     .matches(/[0-9]/, getCharacterValidationError("digit"))
     .matches(/[a-z]/, getCharacterValidationError("lowercase"))
     .matches(/[A-Z]/, getCharacterValidationError("uppercase")),
+  confirmPassword: yup
+    .string()
+    .oneOf([yup.ref("password")], "Passwords does not match"),
 });
 
 export default loginSchema;
