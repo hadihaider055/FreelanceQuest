@@ -1,7 +1,8 @@
 import { fetchUserChats } from "@/store/thunks/chatThunk";
+import { useAppSelector } from "@/utils/hooks/store";
+import { useAppDispatch } from "@/utils/hooks/store";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { styled } from "styled-components";
 
 const InputStyled = styled.div`
@@ -41,21 +42,27 @@ const StyledChatListRow = styled.div`
 `;
 
 const ChatList = () => {
-    const dispatch = useDispatch();
-
-    const [userChats, setUserChats] = useState([{
-        username: "", status: "online", displayPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s"
-    }]);
-
+    const dispatch = useAppDispatch();
+    const userChats = useAppSelector(state => state.chat.chats)
     const session = useSession();
+
+    // status: "online", displayPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s"
+
+    useEffect(() => {
+        console.log(userChats)
+    },[userChats])
+
+    const loadChats = async () => {
+        if (session?.data) {
+            await dispatch(fetchUserChats(session.data.user.id))
+        }
+    }
 
     useEffect(() => {
         if (session.status == "authenticated") {
-            dispatch(fetchUserChats(session.data.user.id))
+           loadChats()
         }
     }, [session])
-
-    // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s
 
     return (
         <div style={{
@@ -79,7 +86,7 @@ const ChatList = () => {
                     </div>
                 </InputStyled>
             </div>
-            {userChats.map(user =>
+            {/* {userChats.map(user =>
                 <StyledChatListRow className="flex">
                     <img style={{
                         width: "50px",
@@ -92,7 +99,7 @@ const ChatList = () => {
                         <p className="text-sm">{user.status}</p>
                     </div>
                 </StyledChatListRow>
-            )}
+            )} */}
         </div>
     );
 }
