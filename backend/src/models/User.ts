@@ -10,7 +10,8 @@ import ChatMember from './ChatMember'
 
 class User extends Model {
   public id!: string
-  public username!: string
+  public firstName!: string
+  public lastName!: string
   public email!: string
   public password!: string
 
@@ -34,7 +35,11 @@ User.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    username: {
+    firstName: {
+      type: DataTypes.STRING(128),
+      allowNull: false,
+    },
+    lastName: {
       type: DataTypes.STRING(128),
       allowNull: false,
     },
@@ -50,7 +55,7 @@ User.init(
   {
     tableName: 'users',
     sequelize: db,
-//     schema: 'UserSchema',
+    //     schema: 'UserSchema',
   }
 )
 

@@ -998,103 +998,113 @@ SequelizeEagerLoadingError: Job is associated to Proposal using an alias. You've
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 11:39:51 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:02:30 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 11:58:43 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:02:51 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:00:21 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:05:09 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:02:54 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:05:42 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:04:36 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:05:49 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:05:32 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:07:17 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:09:20 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:09:44 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:09:21 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:11:38 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:09:40 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:12:43 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
-Time: Fri Dec 08 2023 12:09:42 GMT+0000 (Coordinated Universal Time)
+Time: Tue Dec 12 2023 16:13:20 GMT+0500 (Pakistan Standard Time)
 
 Error
-    at Query.run (/backend/node_modules/sequelize/src/dialects/postgres/query.js:76:25)
-    at /backend/node_modules/sequelize/src/sequelize.js:650:28
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async PostgresQueryInterface.select (/backend/node_modules/sequelize/src/dialects/abstract/query-interface.js:1001:12)
-    at async Function.findAll (/backend/node_modules/sequelize/src/model.js:1824:21)
-    at async Function.findOne (/backend/node_modules/sequelize/src/model.js:1998:12)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Tue Dec 12 2023 16:13:50 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================

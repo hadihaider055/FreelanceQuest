@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Thunks
-import { loginThunk, logoutThunk, signupThunk } from "../thunks/authThunk";
+import {
+  freelancerSignupThunk,
+  loginThunk,
+  logoutThunk,
+} from "../thunks/authThunk";
 
 // Utils
 import { ActionTracker, initialActionTracker } from "../utils";
@@ -61,20 +65,21 @@ const authSlice = createSlice({
     });
 
     // Signup
-    builder.addCase(signupThunk.pending, (state) => {
+    builder.addCase(freelancerSignupThunk.pending, (state) => {
       state.signup = {
         ...initialActionTracker,
         isLoading: true,
       };
     });
-    builder.addCase(signupThunk.fulfilled, (state, { payload }) => {
+    builder.addCase(freelancerSignupThunk.fulfilled, (state, { payload }) => {
       state.signup = {
         ...initialActionTracker,
         isSuccess: true,
-        successMessage: "Siggned up successfully",
+        successMessage: "Logged in successfully",
       };
     });
-    builder.addCase(signupThunk.rejected, (state, { error }) => {
+
+    builder.addCase(freelancerSignupThunk.rejected, (state, { error }) => {
       state.signup = {
         ...initialActionTracker,
         errorMessage: error.message || "",

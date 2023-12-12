@@ -6,8 +6,8 @@ CREATE TABLE ProposalSchema.proposals (
     price INT NOT NULL CHECK (price >= 0),
     user_id UUID NOT NULL REFERENCES UserSchema.users(id),
     job_id UUID NOT NULL REFERENCES JobSchema.jobs(id),
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    createdAt TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW()
   );
 
 

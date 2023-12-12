@@ -78,6 +78,43 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
+type FreelancerSignupArgs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
+export const freelancerSignupThunk = createAsyncThunk(
+  "auth/freelancers-signup",
+  async (args: FreelancerSignupArgs, { getState, dispatch }) => {
+    try {
+      const user = await axiosInstances.default.post(
+        Paths.default.SIGNUP,
+        args
+      );
+
+      await signIn("credentials", {
+        redirect: false,
+        email: args.email,
+        password: args.password,
+        remember: true,
+        callback: "/",
+      });
+
+      return user;
+    } catch (e: any) {
+      console.log("error", e);
+      let errorMessage = e.message || "Failed to login";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);
+
 export const logoutThunk = createAsyncThunk(
   "auth/logout",
   async (_, { getState, dispatch }) => {
