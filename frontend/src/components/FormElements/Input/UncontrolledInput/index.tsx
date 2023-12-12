@@ -44,7 +44,7 @@ const Input: React.FC<InputBaseProps> = ({
     >
       {label && <label id={id}>{label}</label>}
       <div
-        className={`input-container ${error ? "border-error" : ""}`}
+        className={`input-container relative ${error ? "border-error" : ""}`}
         tabIndex={1}
       >
         <input
