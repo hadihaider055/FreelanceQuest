@@ -1,3 +1,8 @@
+// @ts-ignore
+// @ts-nocheck
+
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components"
 
 const SentMessageBoxStyled = styled.div<{align: string}>`
@@ -54,8 +59,56 @@ const ReceivedMessageBoxStyled = styled.div`
     box-sizing: border-box;
 `;
 
-const ChatBox = () => {
-    const username = "ubaidrmn"
+const ChatBox = (props) => {
+    const { activeChatData } = props;
+    const session = useSession();
+    const [signalingChannel, setSignalingChannel] = useState(null);
+
+    useEffect(() => {
+        if (session.data?.user.id) {
+            const signalingChannel = new WebSocket(`ws://localhost:8001/api/v1/chat/signaling/${session.data?.user.id}/`);
+    
+            signalingChannel.addEventListener("message", message => {
+                console.log(JSON.parse(message.data));
+            })
+        
+            signalingChannel.onopen = () => {
+                console.log("websocket connection established")
+            }
+    
+            setSignalingChannel(signalingChannel);
+        }
+    }, [session])
+
+    // async function makeCall() {
+    //     const configuration = {'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]}
+    //     const peerConnection = new RTCPeerConnection(configuration);
+    //     signalingChannel.addEventListener('message', async message => {
+    //         if (message.answer) {
+    //             const remoteDesc = new RTCSessionDescription(message.answer);
+    //             await peerConnection.setRemoteDescription(remoteDesc);
+    //         }
+    //     });
+    //     const offer = await peerConnection.createOffer();
+    //     await peerConnection.setLocalDescription(offer);
+    //     signalingChannel.send({receiver_id: activeChatData.recipient_member_id, data: {'offer': offer}});
+    // }
+
+    // signalingChannel.addEventListener('message', async message => {
+    //     if (message.offer) {
+    //         peerConnection.setRemoteDescription(new RTCSessionDescription(message.offer));
+    //         const answer = await peerConnection.createAnswer();
+    //         await peerConnection.setLocalDescription(answer);
+    //         signalingChannel.send({'answer': answer});
+    //     }
+    // });
+
+    const sendMessage = (msg) => {
+        if (signalingChannel && signalingChannel.OPEN && activeChatData != null) {
+            console.log("SENDING MESSAGE: " + msg)
+            signalingChannel.send(JSON.stringify({receiver_id: activeChatData.recipient_member_id, data: {'message': msg}}))
+        }
+    }
 
     const messageHistory = [
         {sender: "taha_zuberi", text: "Hello how are you doing!"},
@@ -77,24 +130,30 @@ const ChatBox = () => {
     ]
 
     return <>
-        <div style={{
-            backgroundColor: "white",
-            padding: "50px",
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-        }}>
-            <ChatHistoryContainer>
-                {messageHistory.map(message => 
-                    message.sender == username ? 
-                        <SentMessageBoxStyled align={"right"}>
-                            <div className="main-container"><div className="message-box">{message.text}</div></div>
-                        </SentMessageBoxStyled>
-                    : <ReceivedMessageBoxStyled>{message.text}</ReceivedMessageBoxStyled>
-                )}
-            </ChatHistoryContainer>
-            <SendMessageInputStyled placeholder="Type a message" />
-        </div>
+        { activeChatData && 
+            <div style={{
+                backgroundColor: "white",
+                padding: "50px",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+            }}>
+                <ChatHistoryContainer>
+                    {messageHistory.map(message => 
+                        message.sender == "ubaidrmn" ? 
+                            <SentMessageBoxStyled align={"right"}>
+                                <div className="main-container"><div className="message-box">{message.text}</div></div>
+                            </SentMessageBoxStyled>
+                        : <ReceivedMessageBoxStyled>{message.text}</ReceivedMessageBoxStyled>
+                    )}
+                </ChatHistoryContainer>
+                <SendMessageInputStyled onKeyDown={(e) => {
+                    if (e.key == 'Enter') {
+                        sendMessage(e.target.value)
+                    }
+                }} placeholder="Type a message" />
+            </div>
+        }
     </>
 }
 

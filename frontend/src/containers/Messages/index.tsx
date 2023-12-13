@@ -1,7 +1,11 @@
 import ChatList from "@/containers/ChatList";
 import ChatBox from "../ChatBox";
+import { useState } from "react";
 
 const MessagesContainer = () => {
+
+    const [activeChatData, setActiveChatData] = useState(null);
+
     return (
         <>
             <div style={{
@@ -18,10 +22,10 @@ const MessagesContainer = () => {
                     height: "100%",
                     maxHeight: "100%",
                 }}>
-                    <ChatList />
+                    <ChatList setActiveChatData={setActiveChatData} />
                 </div>
                 <div>
-                    <ChatBox />
+                    <ChatBox activeChatData={activeChatData} />
                 </div>
             </div>
         </>
