@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { fetchUserChats } from "@/store/thunks/chatThunk";
 import { useAppSelector } from "@/utils/hooks/store";
 import { useAppDispatch } from "@/utils/hooks/store";
@@ -41,7 +43,10 @@ const StyledChatListRow = styled.div`
     }
 `;
 
-const ChatList = () => {
+const ChatList = (props) => {
+
+    const { setActiveChatData } = props;
+
     const dispatch = useAppDispatch();
     const userChats = useAppSelector(state => state.chat.chats)
     const session = useSession();
@@ -86,20 +91,20 @@ const ChatList = () => {
                     </div>
                 </InputStyled>
             </div>
-            {/* {userChats.map(user =>
-                <StyledChatListRow className="flex">
+            {userChats.map(chat =>
+                <StyledChatListRow onClick={e => setActiveChatData(chat)} className="flex">
                     <img style={{
                         width: "50px",
                         height: "50px",
                         marginRight: "20px",
                         borderRadius: "100%"
-                    }} src={user.displayPicture} />
+                    }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s" />
                     <div className="flex-col">
-                        <p className="text-xl" style={{color: "var(--green-dark)"}}>{user.username}</p>
-                        <p className="text-sm">{user.status}</p>
+                        <p className="text-xl" style={{color: "var(--green-dark)"}}>{chat.recipient_name}</p>
+                        <p className="text-sm">{"online"}</p>
                     </div>
                 </StyledChatListRow>
-            )} */}
+            )}
         </div>
     );
 }

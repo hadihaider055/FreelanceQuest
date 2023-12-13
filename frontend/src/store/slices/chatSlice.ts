@@ -4,11 +4,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Chat } from "../../types/chat";
 
 type ChatState = {
-  chats: Array<Chat> | null,
+  chats: Array<Chat> | [],
 };
 
 const initialState: ChatState = {
-  chats: null,
+  chats: [],
 };
 
 const chatSlice = createSlice({

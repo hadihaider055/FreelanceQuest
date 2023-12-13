@@ -13,8 +13,8 @@ export const fetchUserChats = createAsyncThunk(
     "chat/fetchUserChats",
     async (userId: string, { dispatch }) => {
       try {
-        const chats = await axiosInstances.default.get(`/chat/user/${userId}`);
-        dispatch(setUserChats(chats.data.payload))
+        const chats = await axiosInstances.default.get(`/chat/user/${userId}/`);
+        dispatch(setUserChats(chats.data.payload.chats))
         // Swal.fire("Success", user.data.message, "success");
         return chats;
       } catch (e: any) {
@@ -24,7 +24,7 @@ export const fetchUserChats = createAsyncThunk(
           errorMessage = e.response.data.message;
           Swal.fire("", `<p>${errorMessage}</p>`, "error");
         }
-  
+
         throw new Error(errorMessage);
       }
     }
