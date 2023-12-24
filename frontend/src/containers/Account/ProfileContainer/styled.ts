@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ProfileContainerStyled = styled.section`
   margin-top: 50px;
+  padding: 20px 0;
 `;
 
 export const ProfileContainerWrapper = styled.div``;
@@ -33,7 +34,15 @@ export const ProfileContentLeft = styled.div`
 `;
 
 export const ProfileContentRight = styled.div`
-  padding: 30px 20px;
   border: 2px solid rgb(214 211 209 / 1);
   border-top: none;
+`;
+
+export const ProfileContentRightInfo = styled.div`
+  padding: 30px 20px;
+`;
+
+export const ProfileContentRightHistory = styled.div`
+  border-top: 2px solid rgb(214 211 209 / 1);
+  padding: 30px 20px 0 20px;
 `;
