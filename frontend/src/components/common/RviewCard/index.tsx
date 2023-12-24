@@ -27,17 +27,23 @@ const ReviewCard = () => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          {Array(5)
-            .fill(0)
-            .map((_, i) => (
-              <i className="text-green-500" key={i}>
-                <FaStar />
-              </i>
-            ))}
+          <div className="flex items-center gap-2">
+            {Array(5)
+              .fill(0)
+              .map((_, i) => (
+                <i className="text-green-500" key={i}>
+                  <FaStar />
+                </i>
+              ))}
+          </div>
+          <p className="font-poppins text-lg text-gray-500  font-bold">(5)</p>
         </div>
       </div>
 
       <div className="my-4">
+        <h1 className="font-poppins text-xl font-bold text-slate-600 pb-2">
+          Fullstack Developer Needed
+        </h1>
         <p
           className={`font-montserrat text-lg text-slate-600 line-clamp-[${lineClamp}]`}
         >

@@ -6,8 +6,10 @@ import Head from "next/head";
 // Components
 import Layout from "@/components/common/Layout";
 import ProfileContainer from "@/containers/Account/ProfileContainer";
+import useAuth from "@/utils/hooks/useAuth";
 
 const Profile = () => {
+  useAuth({ redirectTo: "/login", redirectOn: "logout" });
   return (
     <>
       <Head>

@@ -9,6 +9,7 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axiosInstances from "@/config/axios";
 import { Paths } from "@/config/Paths";
+import { User } from "@/types/user";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -19,17 +20,25 @@ import { Paths } from "@/config/Paths";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    user: DefaultSession["user"] & {
-      id: string;
-      email: string;
-    };
-  }
-
-  interface User {
-    id: string;
-    email: string;
+    user: DefaultSession["user"] & User;
   }
 }
+
+const fetchUserMetadata = async (token: string) => {
+  const response = await axiosInstances.default.get(
+    `${Paths.default.METADATA}`,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  console.log("response", response);
+  if (response.data.error) {
+    throw new Error(response.data.message);
+  }
+  return response.data.payload;
+};
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -60,7 +69,9 @@ export const authOptions: NextAuthOptions = {
 
         try {
           const response = await axiosInstances.default.post(
-            `${(process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1")}/user/signin`,
+            `${
+              process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1"
+            }/user/signin`,
             {
               email: credentials.email,
               password: credentials.password,
@@ -72,12 +83,12 @@ export const authOptions: NextAuthOptions = {
           if (user) {
             if (credentials.remember) {
               return {
-                id: user.id,
-                email: user.email,
+                ...user,
                 expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+                token,
               };
             } else {
-              return user;
+              return { user, token };
             }
           } else {
             return null;
@@ -91,17 +102,35 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    session: async ({ session, user, token }: any) => {
+    session: async ({ session, token, user, newSession }: any) => {
+      // const user1 = await fetchUserMetadata(token);
+      console.log("user", user, newSession, token);
       return {
         ...session,
         user: {
           id: token?.sub ?? "",
           email: session?.user?.email ?? "",
+          firstName: token?.user?.firstName ?? "",
+          lastName: token?.user?.lastName ?? "",
+          createdAt: token?.user?.createdAt ?? "",
+          updatedAt: token?.user?.updatedAt ?? "",
+          title: token?.user?.title ?? "",
+          description: token?.user?.description ?? "",
+          profileImage: token?.user?.profileImage ?? "",
+          hourlyRate: token?.user?.hourlyRate ?? 0,
+          languages: token?.user?.languages ?? [],
         },
       };
     },
-    jwt: ({ token }) => {
-      return token;
+    jwt: ({ token, user, account, profile }) => {
+      console.log("jwttt", user, account, profile, token);
+
+      return {
+        ...token,
+        user: {
+          ...user,
+        },
+      };
     },
   },
 };
