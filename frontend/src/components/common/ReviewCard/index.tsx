@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa";
 import { ReviewCardStyled } from "./styled";
 
 const ReviewCard = () => {
-  const [lineClamp, setLineClamp] = useState(8);
+  const [lineClamp, setLineClamp] = useState(5);
   return (
     <ReviewCardStyled className="border-b-2 border-stone-300 last:border-b-0">
       <div className="flex items-center justify-between mt-6">
@@ -79,7 +79,7 @@ const ReviewCard = () => {
         {lineClamp === 0 ? (
           <span
             className="cursor-pointer font-montserrat text-lg font-medium text-green-500 underline"
-            onClick={() => setLineClamp(8)}
+            onClick={() => setLineClamp(5)}
           >
             less
           </span>

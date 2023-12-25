@@ -29,6 +29,8 @@ const useAuth = ({ redirectOn, redirectTo }: UseAuthArgs) => {
     },
   });
 
+  console.log(data);
+
   useEffect(() => {
     if (status === "authenticated" && !user) {
       dispatch(loginUser(data?.user));

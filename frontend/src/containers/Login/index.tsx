@@ -48,15 +48,16 @@ const LoginContainer = () => {
   } = form;
 
   const onSubmit = async (values: FormValues) => {
-    const res = await dispatch(
+    const res: any = await dispatch(
       loginThunk({
         email: values.email,
         password: values.password,
         rememberMe: remember,
       })
     );
-
-    push("/account/profile");
+    if (res?.payload?.ok! as boolean) {
+      push("/account/profile");
+    }
   };
 
   return (

@@ -19,10 +19,17 @@ import {
 // Components
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
-import ReviewCard from "@/components/common/RviewCard";
+import ReviewCard from "@/components/common/ReviewCard";
+
+// Utils
+import { useAppSelector } from "@/utils/hooks/store";
+import Image from "next/image";
 
 const ProfileContainer: React.FC = () => {
   const [lineClamp, setLineClamp] = useState(8);
+
+  const { user } = useAppSelector((state) => state.auth);
+
   return (
     <ProfileContainerStyled>
       <Container>
@@ -37,16 +44,18 @@ const ProfileContainer: React.FC = () => {
             <div className="flex items-center justify-between border-b-2 pb-16 border-stone-300">
               <div className="flex items-center gap-[18px]">
                 <div className="w-[190px] h-[190px] rounded-[50%] overflow-hidden flex items-center justify-center bg-slate-200 shadow-profile-image">
-                  <img
-                    src="https://thumbs.dreamstime.com/b/vector-illustration-avatar-dummy-logo-collection-image-icon-stock-isolated-object-set-symbol-web-137160339.jpg"
+                  <Image
+                    src={user?.profileImage || ""}
                     alt="Dummy"
                     className="w-[170px] h-[170px] object-cover rounded-[50%]"
+                    width={170}
+                    height={170}
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
                   <h2 className="font-montserrat text-2xl font-bold text-slate-600">
-                    John Doe
+                    {user?.firstName} {user?.lastName}
                   </h2>
                   <h6 className="font-montserrat text-xl text-slate-600">
                     Product Design
@@ -56,7 +65,7 @@ const ProfileContainer: React.FC = () => {
                   </p>
                   <div className="flex items-center gap-4">
                     <p className="text-gray-500 text-lg font-medium font-montserrat">
-                      $20/hr
+                      ${user?.hourlyRate}/hr
                     </p>
                     <i className="cursor-pointer text-green-500">
                       <FaPen />
@@ -102,14 +111,13 @@ const ProfileContainer: React.FC = () => {
                   </h3>
 
                   <ul className="mt-4 flex flex-col gap-2">
-                    <li>
-                      <p className="text-black text-lg font-normal font-montserrat">
-                        English
-                      </p>
-                    </li>
-                    <p className="text-black text-lg font-normal font-montserrat">
-                      Urdu
-                    </p>
+                    {user?.languages.map((language, _index) => (
+                      <li key={_index}>
+                        <p className="text-black text-lg font-normal font-montserrat">
+                          {language}
+                        </p>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </ProfileContentLeft>
@@ -121,52 +129,21 @@ const ProfileContainer: React.FC = () => {
                       className="font-poppins text-3xl font-bold text-slate-600"
                       style={{ marginBottom: "1.5rem" }}
                     >
-                      MERN/JAM Stack || AWS Serverless || CMS Developer
+                      {user?.title}
                     </h2>
                   </div>
                   <div>
                     <p
-                      className={`font-montserrat text-lg text-slate-600 line-clamp-[${lineClamp}]`}
+                      className={`font-montserrat text-lg text-slate-600`}
+                      style={{
+                        WebkitLineClamp: lineClamp,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        display: "-webkit-box",
+                        lineClamp: lineClamp,
+                      }}
                     >
-                      ❓Looking for a Modern Blockchain, MERN Stack, JAMStack,
-                      or AWS Serverless Developer❓ Hello 👋, I&apos;m a Modern
-                      Full-Stack Web developer from Pakistan who loves to work
-                      in a challenging mode and crack great logic to create
-                      excellent web applications using state-of-the-art
-                      technologies. 🏆Over the past two years, I am constantly
-                      learning new technologies and building logical
-                      problem-solving projects. From development, optimization,
-                      security, and maintenance, I am providing all the possible
-                      solutions.🏆 ⚡ I love being challenged and always trying
-                      to achieve the highest level of code maintainability and
-                      extensibility. Not afraid to learn new technologies.
-                      Seeking a strong project and honest people to cooperate
-                      with.⚡ 🌟Here is a detailed description of my skills🌟 ✔
-                      Javascript, Typescript, Rust ✔ React.js, Next.js,
-                      Gatsby.js ✔ Vue.js, Nuxt.js ✔ Redux, Redux Toolkit ✔
-                      CSS/Sass/Scss/Tailwind CSS ✔ Node js, Express js ✔
-                      Cypress, Jest (E2E Testing) ✔ Solidity, Web3.js,
-                      Ethers.js, Hardhat, Remix, Ethereum, DAO, Metmask
-                      Integration, etc... ✔ NFTs (ERC 115 & ERC 721), tokens
-                      (ERC20), DApps, NFT Marketplace, etc... ✔ BigCommerce,
-                      Stencil ✔ Apollo, GraphQL ✔ Headless CMS(Contentful,
-                      Strapi, Sanity, etc...) ✔ Mongo DB, Fauna DB,
-                      Skynet/SkyDB, Firebase Database, DynamoDB ✔ Serverless
-                      Framework, AWS CDK, AWS S3, AWS EC2, AWS SQS/SNS, AWS
-                      CloudFront, AWS Amplify, etc... ✔ RestApi, Event Driven
-                      Architechture ✔I also had a great art of converting
-                      Websites to Progressive Web Apps (PWA). For a great,
-                      long-lasting user experience. ❓What makes me different❓
-                      ✔ I always aim at striking long-term working relations
-                      with outstanding clients and everything is notwithstanding
-                      premised on the quality that surpasses your expectations.
-                      ✔ I focus on providing value to all of my Clients and
-                      Earning their trust. The Client Reviews and Feedback on my
-                      Profile are immensely important to me and the value that I
-                      provide. ❤️ I love what I do and I hope my work reflects
-                      it. If you think we might work well together, please use
-                      the "Invite" button to contact me. I&apos;d love to hear
-                      from you! MEET YOU AT WORK!! Best Regards, Hadi Haider
+                      {user?.description}
                     </p>
 
                     <span

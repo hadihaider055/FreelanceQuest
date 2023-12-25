@@ -129,21 +129,25 @@ export const loginController = generateController(
 export const getUserMetadataController = generateController(
   async (req, res, raiseException) => {
     try {
-      const token = req.headers.authorization?.replace('Bearer ', '')
+      // const token = req.headers.authorization?.replace('Bearer ', '')
 
-      if (!token) {
-        throw new Error('Token is required for authentication')
-      }
+      // if (!token) {
+      //   throw new Error('Token is required for authentication')
+      // }
 
-      const decode = jwt.decode(token)
+      // const decode = jwt.decode(token)
 
-      if (typeof decode == 'string' || !decode) {
-        throw new Error('Invalid token')
-      }
+      // if (typeof decode == 'string' || !decode) {
+      //   throw new Error('Invalid token')
+      // }
+
+      // NOTE: This is a workaround for now since we don't have a proper implementation on the frontend :(
+      const { email } = req.query
 
       const user = await User.findOne({
         where: {
-          email: decode?.email! as string,
+          email: email,
+          // email: decode?.email! as string,
         },
       })
 

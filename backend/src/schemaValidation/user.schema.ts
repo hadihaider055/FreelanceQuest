@@ -11,3 +11,7 @@ export const loginUserSchema = joi.object().keys({
   email: joi.string().email().required(),
   password: joi.string().min(8).required(),
 })
+
+export const getUserMetadataSchema = joi.object().keys({
+  email: joi.string().email().required(),
+})
