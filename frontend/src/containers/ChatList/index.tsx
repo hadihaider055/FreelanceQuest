@@ -1,5 +1,6 @@
 // @ts-nocheck
 
+import { setActiveChat, setActiveChatMessages } from "@/store/slices/chatSlice";
 import { fetchUserChats } from "@/store/thunks/chatThunk";
 import { useAppSelector } from "@/utils/hooks/store";
 import { useAppDispatch } from "@/utils/hooks/store";
@@ -45,29 +46,11 @@ const StyledChatListRow = styled.div`
 
 const ChatList = (props) => {
 
-    const { setActiveChatData } = props;
-
+    const userChats = useAppSelector(state => state.chat.chats);
+    const activeChat = useAppSelector(state => state.chat.activeChat);
     const dispatch = useAppDispatch();
-    const userChats = useAppSelector(state => state.chat.chats)
-    const session = useSession();
 
     // status: "online", displayPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s"
-
-    useEffect(() => {
-        console.log(userChats)
-    },[userChats])
-
-    const loadChats = async () => {
-        if (session?.data) {
-            await dispatch(fetchUserChats(session.data.user.id))
-        }
-    }
-
-    useEffect(() => {
-        if (session.status == "authenticated") {
-           loadChats()
-        }
-    }, [session])
 
     return (
         <div style={{
@@ -91,8 +74,13 @@ const ChatList = (props) => {
                     </div>
                 </InputStyled>
             </div>
-            {userChats.map(chat =>
-                <StyledChatListRow onClick={e => setActiveChatData(chat)} className="flex">
+            {userChats && userChats.map(chat =>
+                <StyledChatListRow key={chat.chat_id} onClick={e => {
+                    if (!activeChat || (activeChat && activeChat.chat_id != chat.chat_id)) {
+                        dispatch(setActiveChat(chat));
+                        dispatch(setActiveChatMessages(null));
+                    }
+                }} className="flex">
                     <img style={{
                         width: "50px",
                         height: "50px",

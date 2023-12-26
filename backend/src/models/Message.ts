@@ -36,7 +36,7 @@ Message.init(
         model: 'users',
         key: 'id',
       },
-    },
+    }, // user id should be changed to sender_id (not doing it rn cz itll mess up the data)
     chat_id: {
       type: DataTypes.UUID,
       allowNull: false,

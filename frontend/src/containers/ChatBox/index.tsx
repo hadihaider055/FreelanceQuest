@@ -1,6 +1,8 @@
 // @ts-ignore
 // @ts-nocheck
 
+import { fetchChatMessages } from "@/store/thunks/chatThunk";
+import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components"
@@ -57,80 +59,39 @@ const ReceivedMessageBoxStyled = styled.div`
     width: 100%;
     padding: 15px;
     box-sizing: border-box;
+    margin-bottom: 15px;
 `;
 
 const ChatBox = (props) => {
-    const { activeChatData } = props;
+
+    const { sendMessage } = props;
+
+    const dispatch = useAppDispatch();
+    const activeChat = useAppSelector(state => state.chat.activeChat);
+    const activeChatMessages = useAppSelector(state => state.chat.activeChatMessages);
     const session = useSession();
-    const [signalingChannel, setSignalingChannel] = useState(null);
 
-    useEffect(() => {
-        if (session.data?.user.id) {
-            const signalingChannel = new WebSocket(`ws://localhost:8001/api/v1/chat/signaling/${session.data?.user.id}/`);
-    
-            signalingChannel.addEventListener("message", message => {
-                console.log(JSON.parse(message.data));
-            })
-        
-            signalingChannel.onopen = () => {
-                console.log("websocket connection established")
-            }
-    
-            setSignalingChannel(signalingChannel);
-        }
-    }, [session])
-
-    // async function makeCall() {
-    //     const configuration = {'iceServers': [{'urls': 'stun:stun.l.google.com:19302'}]}
-    //     const peerConnection = new RTCPeerConnection(configuration);
-    //     signalingChannel.addEventListener('message', async message => {
-    //         if (message.answer) {
-    //             const remoteDesc = new RTCSessionDescription(message.answer);
-    //             await peerConnection.setRemoteDescription(remoteDesc);
-    //         }
-    //     });
-    //     const offer = await peerConnection.createOffer();
-    //     await peerConnection.setLocalDescription(offer);
-    //     signalingChannel.send({receiver_id: activeChatData.recipient_member_id, data: {'offer': offer}});
-    // }
-
-    // signalingChannel.addEventListener('message', async message => {
-    //     if (message.offer) {
-    //         peerConnection.setRemoteDescription(new RTCSessionDescription(message.offer));
-    //         const answer = await peerConnection.createAnswer();
-    //         await peerConnection.setLocalDescription(answer);
-    //         signalingChannel.send({'answer': answer});
-    //     }
-    // });
-
-    const sendMessage = (msg) => {
-        if (signalingChannel && signalingChannel.OPEN && activeChatData != null) {
-            console.log("SENDING MESSAGE: " + msg)
-            signalingChannel.send(JSON.stringify({receiver_id: activeChatData.recipient_member_id, data: {'message': msg}}))
-        }
+    const scrollToBottomOfChat = () => {
+        try {
+            const messageHistoryContainer = document.getElementById("chat-history-container")
+            messageHistoryContainer.scrollTop = messageHistoryContainer.scrollHeight;
+        } catch (e) {}
     }
 
-    const messageHistory = [
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
-        {sender: "ubaidrmn", text: "Hello whatz upzzz ggg"},
-        {sender: "taha_zuberi", text: "Hello how are you doing!"},
+    useEffect(() => {
+        scrollToBottomOfChat();
+    }, [activeChatMessages])
 
-    ]
+    useEffect(() => {
+        console.log(activeChat);
+        if (activeChat) {
+            dispatch(fetchChatMessages(activeChat.chat_id));
+        }
+    }, [activeChat])
 
     return <>
-        { activeChatData && 
+        { activeChat && 
+            <>
             <div style={{
                 backgroundColor: "white",
                 padding: "50px",
@@ -138,21 +99,22 @@ const ChatBox = (props) => {
                 display: "flex",
                 flexDirection: "column",
             }}>
-                <ChatHistoryContainer>
-                    {messageHistory.map(message => 
-                        message.sender == "ubaidrmn" ? 
+                <ChatHistoryContainer id="chat-history-container">
+                    {activeChatMessages && session.data && activeChatMessages.map(message => 
+                        message.sender_id == session?.data?.user.id ? 
                             <SentMessageBoxStyled align={"right"}>
-                                <div className="main-container"><div className="message-box">{message.text}</div></div>
+                                <div className="main-container"><div className="message-box">{message.message}</div></div>
                             </SentMessageBoxStyled>
-                        : <ReceivedMessageBoxStyled>{message.text}</ReceivedMessageBoxStyled>
+                        : <ReceivedMessageBoxStyled>{message.message}</ReceivedMessageBoxStyled>
                     )}
                 </ChatHistoryContainer>
                 <SendMessageInputStyled onKeyDown={(e) => {
                     if (e.key == 'Enter') {
-                        sendMessage(e.target.value)
+                        sendMessage(activeChat.recipient_member_id, e.target.value, activeChat.chat_id)
                     }
                 }} placeholder="Type a message" />
             </div>
+            </>
         }
     </>
 }
