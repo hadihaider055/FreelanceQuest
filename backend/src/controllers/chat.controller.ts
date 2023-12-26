@@ -17,22 +17,23 @@ const connections = new Map()
 export const chatSignalingController = async (ws, req) => {
     const route = req.path
 
-    if ( !connections.get(route) ) {
-      connections.set(route, ws);
-    } 
+    ws.on('close', () => {
+      connections.delete(route);
+    })
+    connections.set(route, ws);
 
     ws.on('message', message => {
-      message = JSON.parse(message)
+      message = JSON.parse(message);
       const receiver_id = message.receiver_id;
-      const data = message.data
+      const data = message.data;
   
-      let receiver_connection = connections.get(`/signaling/${receiver_id}/.websocket`)
+      const receiver_connection = connections.get(`/signaling/${receiver_id}/.websocket`);
 
       if (receiver_connection) {
-        ws.send(JSON.stringify({"success": "message sent to user!"}))
+        ws.send(JSON.stringify({"success": "peer id sent to user!"}));
         receiver_connection.send(JSON.stringify(data))
       } else {
-        ws.send(JSON.stringify({"error": "user is not online :("}))
+        ws.send(JSON.stringify({"error": "user is not online :("}));
       }
     })
 
@@ -71,12 +72,6 @@ export const getChatsByUserId = generateController(
     try {
       const { user_id } = req.params
 
-      // const chats = await ChatMember.findAll({
-      //   where: {
-      //     member_id: user_id,
-      //   },
-      // })
-
       const sql = `SELECT * FROM (SELECT * FROM chat_members a inner join
         ( select member_id as recipient_member_id, chat_id from chat_members where 
           member_id != '${user_id}' ) b on a.chat_id = b.chat_id WHERE 
@@ -104,17 +99,19 @@ export const getChatsByUserId = generateController(
   }
 )
 
-export const getChatById = generateController(
+export const getChatMessages = generateController(
   async (req, res, raiseException) => {
     try {
       const { id } = req.params
 
       const chat = await Chat.findByPk(id)
+      const sql = `SELECT content as message, user_id as sender_id FROM messages WHERE chat_id = '${chat.id}' ORDER BY "createdAt"`
+      const messages = await db.query(sql, { type: QueryTypes.SELECT });
 
       return {
-        message: 'Chat fetched successfully',
+        message: 'Chat messages fetched successfully',
         payload: {
-          chat,
+          messages,
         },
       }
 
@@ -122,7 +119,7 @@ export const getChatById = generateController(
       ErrorLogger.write(e)
       const axiosError: AxiosError = e
 
-      let errorMessage = 'Failed to fetch chat'
+      let errorMessage = 'Failed to fetch chat messages'
       if (e.message) {
         errorMessage = e.message
       }
