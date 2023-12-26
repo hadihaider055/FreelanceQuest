@@ -111,6 +111,7 @@ const ChatBox = (props) => {
                 <SendMessageInputStyled onKeyDown={(e) => {
                     if (e.key == 'Enter') {
                         sendMessage(activeChat.recipient_member_id, e.target.value, activeChat.chat_id)
+                        e.target.value = "";
                     }
                 }} placeholder="Type a message" />
             </div>
