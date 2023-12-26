@@ -5,3 +5,8 @@ export type Chat = {
     recipient_member_id: string;
     id: string;
 }
+
+export type Message = {
+    message: string;
+    sender_id: string;
+}
