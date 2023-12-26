@@ -4,7 +4,7 @@ import express from 'express'
 import {
     chatSignalingController,
     createChatController,
-    getChatById,
+    getChatMessages,
     getChatsByUserId,
 } from '../controllers/chat.controller'
   
@@ -38,10 +38,10 @@ router.get(
 
 // Fetch chat by chat id
 router.get(
-  '/:id',
+  '/:id/messages/',
   authMiddleware(),
   validateParams(getChatByIdSchema),
-  getChatById
+  getChatMessages
 )
 
 export default router
