@@ -42,6 +42,8 @@ const MessagesContainer = () => {
     }, [incomingMessage])
 
     useEffect(() => {
+        setInterval(broadcastPeerIdToAllChats, 5000);
+
         const peer = new Peer('', {
             host: "localhost",
             port: 9000,
@@ -61,15 +63,16 @@ const MessagesContainer = () => {
                 }
 
                 if (data.connectionOpened) {
-                    conn.on("close", () => {
+                    if (!Object.keys(connections).includes(data.userId) || (!connections[data.userId])) {
+                        conn.on("close", () => {
+                            const newConnections = {...connections};
+                            newConnections[data.userId] = null;
+                            setConnections(newConnections);
+                        })
                         const newConnections = {...connections};
-                        newConnections[data.userId] = null;
+                        newConnections[data.userId] = conn;
                         setConnections(newConnections);
-                    })
-
-                    const newConnections = {...connections};
-                    newConnections[data.userId] = conn;
-                    setConnections(newConnections);
+                    }
                 }
 
                 console.log(data);
@@ -118,7 +121,8 @@ const MessagesContainer = () => {
             if (signalingChannel.readyState === WebSocket.OPEN) {
                 setSignalingChannelRunning(true);
             } else {
-                setTimeout(checkSignalingChannelRunning, 2000)
+                setSignalingChannelRunning(false);
+                setTimeout(checkSignalingChannelRunning, 2000);
             }
         }
     }
@@ -147,11 +151,16 @@ const MessagesContainer = () => {
             
             signalingChannel.addEventListener("message", e => {
                 const message = JSON.parse(e.data);
-                
+
                 if (message.peerId && message.userId) {
                     connectToPeer(message.peerId, message.userId)
                 }
             })
+
+            signalingChannel.onclose = e => {
+                setSignalingChannelRunning(false);
+                checkSignalingChannelRunning();
+            }
 
             setSignalingChannel(signalingChannel);
 
@@ -159,11 +168,11 @@ const MessagesContainer = () => {
         }
     }, [session])
 
-    const tryConnectingWithOtherPeers = () => {
+    const broadcastPeerIdToAllChats = () => {
         try {
             if (userChats && peerId && signalingChannel && signalingChannelRunning && session.data?.user.id) {
                 userChats.forEach(chat => {
-                    if (!connections || !(Object.keys(connections).includes(chat.recipient_member_id)) || !(connections[chat.recipient_member_id])) {
+                    if (!Object.keys(connections).includes(chat.recipient_member_id) || (!connections[chat.recipient_member_id])) {
                         const data = {
                             receiver_id: chat.recipient_member_id,
                             data: {
@@ -176,14 +185,13 @@ const MessagesContainer = () => {
                     }
                 })
             }
-
         } catch (err) {
             checkSignalingChannelRunning();
         }
     }
 
     useEffect(() => {
-        setInterval(tryConnectingWithOtherPeers, 5000);
+        broadcastPeerIdToAllChats();
     }, [userChats, peerId, signalingChannel, signalingChannelRunning, session])
 
     return (
@@ -202,7 +210,7 @@ const MessagesContainer = () => {
                     height: "100%",
                     maxHeight: "100%",
                 }}>
-                    <ChatList />
+                    <ChatList connections={connections} />
                 </div>
                 <div>
                     <ChatBox sendMessage={sendMessage} />
