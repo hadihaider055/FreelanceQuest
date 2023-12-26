@@ -1,11 +1,8 @@
 // @ts-nocheck
 
 import { setActiveChat, setActiveChatMessages } from "@/store/slices/chatSlice";
-import { fetchUserChats } from "@/store/thunks/chatThunk";
 import { useAppSelector } from "@/utils/hooks/store";
 import { useAppDispatch } from "@/utils/hooks/store";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 const InputStyled = styled.div`
@@ -60,7 +57,7 @@ const ChatList = (props) => {
             maxHeight: "100%",
             maxWidth: "100%",
             width: "100%",
-            backgroundColor: "#dbd9d9",
+            backgroundColor: "#f2f2f2",
         }}>
             <div style={{
                 padding: "30px",
@@ -95,6 +92,18 @@ const ChatList = (props) => {
                     </div>
                 </StyledChatListRow>
             )}
+
+
+            {!userChats || userChats.length <= 0 && 
+            <div style={{
+                padding: "30px",
+                paddingTop: "20px",
+                paddingBottom: "20px",
+            }}>
+                <p>You don't have any messages yet!</p>
+            </div>
+            }
+
         </div>
     );
 }

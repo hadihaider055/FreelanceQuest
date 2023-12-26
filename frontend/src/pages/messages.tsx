@@ -5,6 +5,7 @@ import Head from "next/head";
 
 // Utils
 import MessagesContainer from "@/containers/Messages";
+import Layout from "@/components/common/Layout";
 
 const Messages = () => {
 
@@ -28,6 +29,10 @@ const Messages = () => {
       </>
     </>
   );
+};
+
+Messages.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
 };
 
 export default Messages;

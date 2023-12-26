@@ -17,7 +17,7 @@ const SentMessageBoxStyled = styled.div<{align: string}>`
     }
 
     div.message-box {
-        background-color: var(--green-dark);
+        background-color: rgb(34 197 94);
         color: white;
         max-width: 300px;
         width: 100%;
@@ -52,7 +52,7 @@ const ChatHistoryContainer = styled.div`
 `;
 
 const ReceivedMessageBoxStyled = styled.div`
-    background-color: #dbd9d9;
+    background-color: #f2f2f2;
     color: black;
     max-width: 300px;
     border-radius: 10px;
