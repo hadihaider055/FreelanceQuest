@@ -6,6 +6,7 @@ const getAxiosInstance = (baseURL: string) => {
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
+      Authorization: "Bearer 123"
     },
   });
 };
