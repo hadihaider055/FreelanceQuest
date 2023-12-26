@@ -1,7 +1,7 @@
 import { DataTypes, Model } from 'sequelize'
-import User from './User';
+import User from './User'
 import { db } from '../config/db'
-import Chat from './Chat';
+import Chat from './Chat'
 
 class Message extends Model {
   public id!: number
@@ -19,7 +19,7 @@ Message.init(
     },
     content: {
       type: DataTypes.STRING,
-    }
+    },
   },
   {
     tableName: 'Messages',
@@ -28,6 +28,6 @@ Message.init(
 )
 
 Message.belongsTo(User, { foreignKey: 'userId' })
-Message.belongsTo(Chat, { foreignKey: 'chatId'})
+Message.belongsTo(Chat, { foreignKey: 'chatId' })
 
 export default Message

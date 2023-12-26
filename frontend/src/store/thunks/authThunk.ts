@@ -57,7 +57,7 @@ export const loginThunk = createAsyncThunk(
         email: args.email,
         password: args.password,
         remember: args.rememberMe,
-        callback: "/",
+        callback: "/account/profile",
       });
 
       if (user?.error && !user?.ok) {
@@ -98,7 +98,7 @@ export const freelancerSignupThunk = createAsyncThunk(
         email: args.email,
         password: args.password,
         remember: true,
-        callback: "/",
+        callback: "/account/profile",
       });
 
       return user;

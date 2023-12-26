@@ -1108,3 +1108,281 @@ Error
     at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
     at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
+Time: Sun Dec 24 2023 18:50:23 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:50:43 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:53:41 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:53:53 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:54:14 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:56:13 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:56:39 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:57:21 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:57:43 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:57:54 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:59:10 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 18:59:12 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sun Dec 24 2023 19:08:54 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Sun Dec 24 2023 19:09:37 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.insert (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:795:21)
+    at async User.save (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:4153:35)
+====================
+Time: Sun Dec 24 2023 19:39:35 GMT+0500 (Pakistan Standard Time)
+
+Error: Invalid token
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:141:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:42:28 GMT+0500 (Pakistan Standard Time)
+
+Error: Token is required for authentication
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:135:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:43:10 GMT+0500 (Pakistan Standard Time)
+
+Error: Token is required for authentication
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:135:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:44:54 GMT+0500 (Pakistan Standard Time)
+
+Error: Token is required for authentication
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:135:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:45:17 GMT+0500 (Pakistan Standard Time)
+
+Error: Token is required for authentication
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:135:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:46:12 GMT+0500 (Pakistan Standard Time)
+
+Error: Token is required for authentication
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:135:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:46:56 GMT+0500 (Pakistan Standard Time)
+
+Error: Invalid token
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:141:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:48:29 GMT+0500 (Pakistan Standard Time)
+
+Error: Invalid token
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:141:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 24 2023 19:48:52 GMT+0500 (Pakistan Standard Time)
+
+Error: Invalid token
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:141:15
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:130:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Mon Dec 25 2023 23:17:12 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "email" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================

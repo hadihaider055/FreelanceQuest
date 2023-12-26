@@ -59,7 +59,7 @@ const FreelancerSignupContainer = () => {
       })
     ).unwrap();
 
-    push("/account/settings");
+    push("/account/profile");
   };
 
   return (

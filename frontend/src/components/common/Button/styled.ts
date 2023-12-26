@@ -81,15 +81,19 @@ const generateButton = (variant: string) => {
 
     case "grey-transparent":
       return `
-        border: 1px solid var(--black60);
-        color: var(--black60);
-        background: transparent;
+        border: 1px solid #384D6C;
+        color: #384D6C;
+        background: var(--white);
+        font-weight: 700;
+        font-size: 16px;
         `;
 
     case "grey":
       return `
-        color: var(--blue-dark);
-        background: #E0E0E0;
+        color: var(--white);
+        background: #384D6C;
+        font-weight: 700;
+        font-size: 16px;
         `;
 
     default:
@@ -156,14 +160,18 @@ const generateHoverStyling = (variant: string) => {
 
     case "grey-transparent":
       return `
-        background: var(--black60);
-        color: var(--white);
+      color: var(--white);
+      background: #384D6C;
+      font-weight: 700;
+      font-size: 16px;
         `;
 
     case "grey":
       return `
-        color: var(--blue-dark);
-        background: #c1c1c1;
+      color: var(--white);
+      background: #415778;
+      font-weight: 700;
+      font-size: 16px; 
         `;
 
     default:

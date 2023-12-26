@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
     <ButtonStyled
       variant={variant}
       size={size}
-      className="inter-sm font-inter"
+      className="inter-sm font-montserrat"
       onClick={onClick}
       disabled={disabled}
       type={type}
