@@ -99,8 +99,78 @@ export const loginController = generateController(
           user: {
             id: user.id,
             email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
+            title: user.title,
+            description: user.description,
+            profileImage: user.profileImage,
+            languages: user.languages,
+            hourlyRate: user.hourlyRate,
           },
           token,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to login'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)
+
+export const getUserMetadataController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      // const token = req.headers.authorization?.replace('Bearer ', '')
+
+      // if (!token) {
+      //   throw new Error('Token is required for authentication')
+      // }
+
+      // const decode = jwt.decode(token)
+
+      // if (typeof decode == 'string' || !decode) {
+      //   throw new Error('Invalid token')
+      // }
+
+      // NOTE: This is a workaround for now since we don't have a proper implementation on the frontend :(
+      const { email } = req.query
+
+      const user = await User.findOne({
+        where: {
+          email: email,
+          // email: decode?.email! as string,
+        },
+      })
+
+      if (!user) {
+        raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+      }
+
+      return {
+        message: 'Fetched metadata successfully',
+        payload: {
+          user: {
+            id: user.id,
+            email: user.email,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            createdAt: user.createdAt,
+            updatedAt: user.updatedAt,
+            title: user.title,
+            description: user.description,
+            profileImage: user.profileImage,
+            languages: user.languages,
+            hourlyRate: user.hourlyRate,
+          },
         },
       }
     } catch (e) {

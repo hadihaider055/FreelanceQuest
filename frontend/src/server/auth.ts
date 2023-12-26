@@ -9,6 +9,8 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axiosInstances from "@/config/axios";
 import { Paths } from "@/config/Paths";
+import { User } from "@/types/user";
+import Swal from "sweetalert2";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -19,17 +21,24 @@ import { Paths } from "@/config/Paths";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
-    user: DefaultSession["user"] & {
-      id: string;
-      email: string;
-    };
-  }
-
-  interface User {
-    id: string;
-    email: string;
+    user: User & DefaultSession["user"];
   }
 }
+
+const fetchUserMetadata = async (email: string) => {
+  const response = await axiosInstances.default.get(
+    Paths.default.METADATA(email)
+  );
+
+  if (response.data.error) {
+    Swal.fire({
+      title: "Error!",
+      text: response.data.message || "Something went wrong!",
+      icon: "error",
+    });
+  }
+  return response.data.payload;
+};
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -60,7 +69,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           const response = await axiosInstances.default.post(
-            `${(process.env.BACKEND_BASE_URL_FOR_CONTAINER || "http://localhost:8001/api/v1")}/user/signin`,
+            Paths.default.LOGIN,
             {
               email: credentials.email,
               password: credentials.password,
@@ -72,12 +81,12 @@ export const authOptions: NextAuthOptions = {
           if (user) {
             if (credentials.remember) {
               return {
-                id: user.id,
-                email: user.email,
+                ...user,
                 expiration: new Date().getTime() + 7 * 24 * 60 * 60 * 1000,
+                token,
               };
             } else {
-              return user;
+              return { user, token };
             }
           } else {
             return null;
@@ -91,12 +100,23 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    session: async ({ session, user, token }: any) => {
+    session: async ({ session, token }: any) => {
+      const { user } = await fetchUserMetadata(token.email);
+
       return {
         ...session,
         user: {
           id: token?.sub ?? "",
           email: session?.user?.email ?? "",
+          firstName: user?.firstName ?? "",
+          lastName: user?.lastName ?? "",
+          createdAt: user?.createdAt ?? "",
+          updatedAt: user?.updatedAt ?? "",
+          title: user?.title ?? "",
+          description: user?.description ?? "",
+          profileImage: user?.profileImage ?? "",
+          hourlyRate: user?.hourlyRate ?? 0,
+          languages: user?.languages ?? [],
         },
       };
     },

@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  images: {
+    domains: ["thumbs.dreamstime.com"],
+  },
+
   env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_JWT_SECRET: process.env.NEXTAUTH_JWT_SECRET,

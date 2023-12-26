@@ -14,6 +14,11 @@ class User extends Model {
   public lastName!: string
   public email!: string
   public password!: string
+  public title: string
+  public description: string
+  public languages: string[]
+  public hourlyRate: number
+  public profileImage: string
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -49,6 +54,41 @@ User.init(
     },
     password: {
       type: DataTypes.STRING(128),
+      allowNull: false,
+    },
+    title: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+      defaultValue: '',
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+      defaultValue: '',
+    },
+    languages: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+      defaultValue: [],
+    },
+    hourlyRate: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 0,
+    },
+    profileImage: {
+      type: DataTypes.STRING(256),
+      allowNull: true,
+      defaultValue: '',
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
       allowNull: false,
     },
   },

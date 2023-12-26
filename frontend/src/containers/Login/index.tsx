@@ -5,20 +5,23 @@ import { FormProvider, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // Next
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
 // Components
 import { FacebookIcon, GoogleIcon } from "@/components/icons";
 import Input from "@/components/FormElements/Input/UncontrolledInput";
+import CheckboxSwitch from "@/components/FormElements/Switch";
+import Button from "@/components/common/Button";
 
 // Styled
 import { LoginStyled } from "./styled";
 
 // Schema
 import loginSchema from "./schema";
-import CheckboxSwitch from "@/components/FormElements/Switch";
-import Button from "@/components/common/Button";
+
+// Utils
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { loginThunk } from "@/store/thunks/authThunk";
 
@@ -33,6 +36,8 @@ const LoginContainer = () => {
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector((state) => state.auth.login);
 
+  const { push } = useRouter();
+
   const form = useForm<FormValues>({
     resolver: yupResolver(loginSchema),
   });
@@ -43,13 +48,16 @@ const LoginContainer = () => {
   } = form;
 
   const onSubmit = async (values: FormValues) => {
-    const res = await dispatch(
+    const res: any = await dispatch(
       loginThunk({
         email: values.email,
         password: values.password,
         rememberMe: remember,
       })
     );
+    if (res?.payload?.ok! as boolean) {
+      push("/account/profile");
+    }
   };
 
   return (

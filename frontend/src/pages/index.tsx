@@ -1,9 +1,10 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import { ReactElement } from "react";
-import useAuth from "@/utils/hooks/useAuth";
 
-const inter = Inter({ subsets: ["latin"] });
+// Components
+import Layout from "@/components/common/Layout";
+
+// Utils
+import useAuth from "@/utils/hooks/useAuth";
 
 export default function Home() {
   useAuth({
@@ -14,5 +15,5 @@ export default function Home() {
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
-  return <>{page}</>;
+  return <Layout>{page}</Layout>;
 };

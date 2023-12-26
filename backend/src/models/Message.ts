@@ -1,7 +1,9 @@
 import { DataTypes, Model } from 'sequelize'
+import User from './User'
 
 // Database
 import { db } from '../config/db'
+import Chat from './Chat'
 
 // Types
 import { Models } from '../types/model'
@@ -14,7 +16,7 @@ class Message extends Model {
 
   static associate(models: Models) {
     Message.belongsTo(models.Chat, { foreignKey: 'chat_id' })
-    Message.belongsTo(models.User, { foreignKey: 'user_id' })  
+    Message.belongsTo(models.User, { foreignKey: 'user_id' })
   }
 
 }
