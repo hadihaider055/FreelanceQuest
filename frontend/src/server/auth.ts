@@ -69,7 +69,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           const response = await axiosInstances.default.post(
-            (process.env.BACKEND_BASE_URL_FOR_CONTAINER || "") + Paths.default.LOGIN,
+            Paths.default.LOGIN,
             {
               email: credentials.email,
               password: credentials.password,
@@ -92,6 +92,7 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
         } catch (err: any) {
+          console.log(err)
           throw new Error(
             err?.response?.data?.message || "Something went wrong!"
           );
