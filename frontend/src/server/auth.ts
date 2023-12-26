@@ -69,7 +69,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           const response = await axiosInstances.default.post(
-            Paths.default.LOGIN,
+            (process.env.BACKEND_BASE_URL_FOR_CONTAINER || "") + Paths.default.LOGIN,
             {
               email: credentials.email,
               password: credentials.password,
