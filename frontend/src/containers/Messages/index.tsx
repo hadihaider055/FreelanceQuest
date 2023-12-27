@@ -3,11 +3,15 @@
 import ChatList from "@/containers/ChatList";
 import ChatBox from "../ChatBox";
 import { useEffect, useState } from "react";
-import Peer from "peerjs";
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { useSession } from "next-auth/react";
 import { fetchUserChats, postMessage } from "@/store/thunks/chatThunk";
 import { setActiveChatMessages } from "@/store/slices/chatSlice";
+
+let Peer = null;
+if (typeof navigator !== "undefined") {
+  Peer = require("peerjs").default;
+}
 
 const MessagesContainer = () => {
   // utils
