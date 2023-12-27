@@ -1386,3 +1386,33 @@ Error: WHERE parameter "email" has invalid "undefined" value
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
+Time: Thu Dec 28 2023 01:02:18 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Thu Dec 28 2023 01:02:18 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Thu Dec 28 2023 01:02:40 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================

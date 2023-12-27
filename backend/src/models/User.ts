@@ -19,6 +19,7 @@ class User extends Model {
   public languages: string[]
   public hourlyRate: number
   public profileImage: string
+  public category: string
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -78,6 +79,11 @@ User.init(
     },
     profileImage: {
       type: DataTypes.STRING(256),
+      allowNull: true,
+      defaultValue: '',
+    },
+    category: {
+      type: DataTypes.STRING(128),
       allowNull: true,
       defaultValue: '',
     },

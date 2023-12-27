@@ -10,4 +10,5 @@ export type User = {
   profileImage: string;
   hourlyRate: number;
   languages: string[];
+  category: string;
 };
