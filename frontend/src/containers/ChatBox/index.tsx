@@ -110,7 +110,7 @@ const ChatBox = (props) => {
                 session.data &&
                 activeChatMessages.map((message, _id) => (
                   <React.Fragment key={_id}>
-                    message.sender_id == session?.data?.user.id ? (
+                    { message.sender_id == session?.data?.user.id ? (
                     <SentMessageBoxStyled align={"right"}>
                       <div className="main-container">
                         <div className="message-box">{message.message}</div>
@@ -120,7 +120,7 @@ const ChatBox = (props) => {
                     <ReceivedMessageBoxStyled>
                       {message.message}
                     </ReceivedMessageBoxStyled>
-                    )
+                    ) }
                   </React.Fragment>
                 ))}
             </ChatHistoryContainer>
