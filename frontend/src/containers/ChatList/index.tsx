@@ -1,46 +1,12 @@
 // @ts-nocheck
 
+// Utils
 import { setActiveChat, setActiveChatMessages } from "@/store/slices/chatSlice";
 import { useAppSelector } from "@/utils/hooks/store";
 import { useAppDispatch } from "@/utils/hooks/store";
-import { styled } from "styled-components";
 
-const InputStyled = styled.div`
-  position: relative;
-
-  .input-container {
-    width: 100%;
-    height: 100%;
-    border: 1px solid #d9d9d9;
-    border-radius: 10px;
-    overflow: hidden;
-    outline: none;
-
-    .input {
-      outline: none;
-      padding: 15px;
-      border: none;
-      width: 100%;
-      height: 100%;
-
-      &::placeholder {
-        color: #9dafbd;
-      }
-    }
-  }
-`;
-
-const StyledChatListRow = styled.div`
-  padding: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  cursor: pointer;
-  transition: 0.25s;
-  &:hover {
-    background: var(--black60);
-    color: var(--white);
-  }
-`;
+// Styled
+import { InputStyled, StyledChatListRow } from "./styled";
 
 const ChatList = (props) => {
   const { connections } = props;
@@ -48,8 +14,6 @@ const ChatList = (props) => {
   const userChats = useAppSelector((state) => state.chat.chats);
   const activeChat = useAppSelector((state) => state.chat.activeChat);
   const dispatch = useAppDispatch();
-
-  // status: "online", displayPicture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s"
 
   return (
     <div
