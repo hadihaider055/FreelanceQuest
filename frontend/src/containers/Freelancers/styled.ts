@@ -39,7 +39,7 @@ export const FreelancerSearchInput = styled.div`
     button {
         padding-left: 15px;
         padding-right: 15px;
-        background-color: #22C55E;
+        background: #239852;
         color: white;
         height: 40px;
         border-radius: 5px;
@@ -112,4 +112,27 @@ export const FreelancerTag = styled.div`
     font-size: 12px;
     margin-right: 5px;
     margin-left: 5px;
+`;
+
+export const FreelancerPagination = styled.div`
+    display: flex;
+    justify-content: center;
+
+    a {
+        cursor: pointer;
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .25s;
+    }
+
+    a.active {
+        background-color: #0A0A0A;
+        color: white;
+    }
+
+    a:hover:not(.active) {
+        background-color: rgb(242, 242, 242);
+    }
 `;

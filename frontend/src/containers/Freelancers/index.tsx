@@ -1,5 +1,5 @@
 import Container from "@/components/common/Container";
-import { FreelancerBox, FreelancerBoxHeader, FreelancerBoxesGrid, FreelancerSearchInput, FreelancerTag, FreelancerTagContainer } from "./styled";
+import { FreelancerBox, FreelancerBoxHeader, FreelancerBoxesGrid, FreelancerPagination, FreelancerSearchInput, FreelancerTag, FreelancerTagContainer } from "./styled";
 import { FaSearch } from "react-icons/fa";
 
 const FreelancersContainer: React.FC = () => {
@@ -35,6 +35,14 @@ const FreelancersContainer: React.FC = () => {
                 </FreelancerBox>
                 }) }
             </FreelancerBoxesGrid>
+            <br/>
+            <FreelancerPagination>
+                <a href="#">&laquo;</a>
+                <a className="active">1</a>
+                <a>2</a>
+                <a>3</a>
+                <a href="#">&raquo;</a>
+            </FreelancerPagination>
         </Container>
     </>
 }
