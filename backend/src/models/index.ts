@@ -1,2 +1,5 @@
 export * from './User'
 export * from './Job'
+export * from './Chat'
+export * from './Message'
+export * from './ChatMember'

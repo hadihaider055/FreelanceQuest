@@ -4,13 +4,19 @@ volumes:
   pg_data:
 
 services:
+  peerserver:
+    image: peerjs/peerjs-server
+    command: peerjs --port 9000
+    ports:
+      - 9000:9000
+  
   backend:
     image: fp/backend
     command: yarn run start:dev
     volumes: 
       - ./backend/:/backend/
     ports:
-      - "8004:8001"
+      - "8001:8001"
     env_file:
       - app.default.env
 
@@ -29,6 +35,6 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
     ports:
-       - "5432:5432"
+       - "5433:5432"
     env_file:
       - app.default.env

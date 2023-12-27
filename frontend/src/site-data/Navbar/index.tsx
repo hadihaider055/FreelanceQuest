@@ -11,4 +11,8 @@ export const NavbarData = [
     title: "Find Talent",
     link: "/freelancers",
   },
+  {
+    title: "Messages",
+    link: "/messages",
+  },
 ];

@@ -48,9 +48,11 @@
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.33.0",
     "snyk": "^1.729.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "express-ws": "^5.0.2"
   },
   "devDependencies": {
+    "@types/express-ws": "^3.0.4",
     "@types/bcrypt": "^5.0.1",
     "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.15",

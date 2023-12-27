@@ -2,10 +2,16 @@ import cors from 'cors'
 import express, { ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import BaseRouter from './routes'
+import expressWs from "express-ws";
 
 // Init express
 const app = express()
+
+// Init express-ws
+const appWs = expressWs(app);
+
+// Impot base router after initiating websockets, otherwise typescript will throw error
+import BaseRouter from './routes'
 
 /**
  * Setting up cors
