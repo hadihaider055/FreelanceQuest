@@ -1,3 +1,3 @@
 import styled from "styled-components";
 
-export const LoginStyled = styled.main``;
+export const SignupStyled = styled.main``;
