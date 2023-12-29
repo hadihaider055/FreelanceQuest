@@ -2,7 +2,10 @@ import { DataTypes, Model } from 'sequelize'
 
 // Database
 import { db } from '../config/db'
+
+// Models
 import User from './User'
+import Proposal from './Proposal'
 
 // Types
 import { Models } from 'model'
@@ -20,12 +23,16 @@ class Job extends Model {
   public price: number
   public location: string
   public category: JobTypeStatusEnum
+  public featured: boolean
+  public skills?: string[]
 
+  public readonly proposals?: Proposal[]
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
 
   static associate(models: Models) {
     Job.belongsTo(models.User, { foreignKey: 'posted_by' })
+    Job.hasMany(models.Proposal, { foreignKey: 'job_id', as: 'proposals' })
   }
 }
 
@@ -66,11 +73,20 @@ Job.init(
       allowNull: false,
       values: Object.values(JobTypeStatusEnum),
     },
+    featured: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
+    skills: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: true,
+    },
   },
   {
     tableName: 'jobs',
     sequelize: db,
-//     schema: 'JobSchema',
+    //     schema: 'JobSchema',
   }
 )
 

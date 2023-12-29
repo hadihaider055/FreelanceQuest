@@ -6,5 +6,6 @@ export const Paths = {
     FETCH_USER_CHAT: (userId: string) => `/chat/user/${userId}`,
     FETCH_CHAT_MESSAGES: (chatId: string) => `/chat/${chatId}/messages`,
     SEND_MESSAGE: "/message",
+    GET_ALL_JOBS: (featured: boolean) => `/job?featured=${featured}`,
   },
 };

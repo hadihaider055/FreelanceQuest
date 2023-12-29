@@ -9,8 +9,7 @@ type TagProps = {
   icon?: React.ReactNode | string;
   text: string;
   rounded?: string;
-  paddingX?: string;
-  paddingY?: string;
+  padding?: string;
 };
 
 const Tag: React.FC<TagProps> = ({
@@ -24,14 +23,12 @@ const Tag: React.FC<TagProps> = ({
   text,
   /* Rounded */
   rounded = "rounded-[14px]",
-  /* Padding y-axis */
-  paddingY = "py-0",
-  /* Padding x-axis */
-  paddingX = "px-3",
+  /* Padding */
+  padding = "px-3 py-0",
 }) => {
   return (
     <TagStyled
-      className={`${bgColor} ${rounded} flex items-center gap-[3px] ${paddingX} ${paddingY} justify-center`}
+      className={`${bgColor} ${rounded} flex items-center gap-[3px] ${padding} justify-center w-fit`}
     >
       {icon && <span>{icon}</span>}
       <span className={`${color} font-inter text-xs font-normal`}>{text}</span>

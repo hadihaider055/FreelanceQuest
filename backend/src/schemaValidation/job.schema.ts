@@ -10,6 +10,8 @@ export const createJobPostSchema = joi.object().keys({
   price: joi.number().required(),
   location: joi.string().required(),
   category: joi.string().valid(...Object.values(JobTypeStatusEnum)),
+  featured: joi.boolean().optional(),
+  skills: joi.array().optional(),
 })
 
 export const getJobByIdSchema = joi.object().keys({

@@ -62,7 +62,7 @@ const LoginContainer = () => {
 
   return (
     <LoginStyled className="w-screen bg-gray-100 login-container h-full overflow-hidden">
-      <div className="block lg:flex w-screen h-full">
+      <div className="block lg:flex w-screen h-full z-10 relative">
         {/* Form Section */}
         <section className="pt-10 px-14 w-full lg:w-1/2 flex flex-col gap-28">
           <header className="flex items-center justify-between flex-col sm:flex-row">
@@ -181,6 +181,7 @@ const LoginContainer = () => {
         </section>
         {/* Design Section */}
         <section className="relative none hidden lg:block lg:w-1/2 max-h-screen">
+          <div className="w-[453px] h-[453px] bg-green-500 bg-opacity-40 rounded-full blur-[50px] absolute -bottom-10 -left-[200px] -z-10"></div>
           <img
             src="/images/login/cover-image.png"
             alt="Cover Image"

@@ -13,36 +13,6 @@ import { signIn, signOut } from "next-auth/react";
 import axiosInstances from "@/config/axios";
 import { Paths } from "@/config/Paths";
 
-type SignpThunkArgs = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-};
-
-export const signupThunk = createAsyncThunk(
-  "auth/signup",
-  async (args: SignpThunkArgs, { dispatch }) => {
-    try {
-      const user = await axios.post("/api/auth/signup", {
-        ...args,
-      });
-
-      // Swal.fire("Success", user.data.message, "success");
-      return user;
-    } catch (e: any) {
-      console.log(e);
-      let errorMessage = e.message || "Failed to signup";
-      if (e?.response?.data?.message) {
-        errorMessage = e.response.data.message;
-        Swal.fire("", `<p>${errorMessage}</p>`, "error");
-      }
-
-      throw new Error(errorMessage);
-    }
-  }
-);
-
 type LoginThunkArgs = {
   email: string;
   password: string;
