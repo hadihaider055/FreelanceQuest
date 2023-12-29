@@ -27,9 +27,10 @@ const JobCard: React.FC<JobCardProps> = ({
   proposalcount,
   createdAt,
   skills,
+  id,
 }) => {
   return (
-    <Link href="/">
+    <Link href={`/job/${id}`}>
       <JobCardStyled className="bg-white rounded-[10px] p-7">
         <div className="flex flex-col">
           <p className="text-neutral-500 text-xs font-inter mt-3">
