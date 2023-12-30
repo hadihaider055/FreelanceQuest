@@ -3,11 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 // Reducer
 import chatReducer from "./slices/chatSlice";
 import authReducer from "./slices/authSlice";
+import jobSlice from "./slices/jobSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    chat: chatReducer
+    chat: chatReducer,
+    job: jobSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

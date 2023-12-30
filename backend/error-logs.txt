@@ -1386,3 +1386,535 @@ Error: WHERE parameter "email" has invalid "undefined" value
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
 ====================
+Time: Thu Dec 28 2023 01:02:18 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Thu Dec 28 2023 01:02:18 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Thu Dec 28 2023 01:02:40 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Fri Dec 29 2023 21:53:04 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: User is associated to Job using an alias. You've included an alias (posted_by), but it does not match the alias(es) defined in your association (User).
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:751:15)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 21:55:23 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 21:57:36 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 21:57:37 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 21:58:10 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 21:59:29 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 21:59:50 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 21:59:58 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:00:21 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:01:33 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:02:48 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:02:49 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:03:17 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:04:10 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:04:24 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:05:59 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:07:48 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:11:53 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:11:58 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:12:11 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:13:31 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:13:49 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:15:55 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:16:07 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:17:16 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:17:26 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:19:53 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:20:07 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:20:42 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:21:31 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:21:41 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+====================
+Time: Fri Dec 29 2023 22:21:52 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:22:25 GMT+0500 (Pakistan Standard Time)
+
+SequelizeEagerLoadingError: Proposal is not associated to Job!
+    at Function._getIncludedAssociation (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:742:13)
+    at Function._validateIncludedElement (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:646:53)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:542:37
+    at Array.map (<anonymous>)
+    at Function._validateIncludedElements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:537:39)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1794:12)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 22:23:46 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 23:29:46 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 23:30:30 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 23:30:41 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 23:32:56 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Fri Dec 29 2023 23:52:48 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Sat Dec 30 2023 04:58:00 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1001:12)
+    at async Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:21)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
+Time: Sat Dec 30 2023 05:00:08 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Sat Dec 30 2023 05:00:10 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Sat Dec 30 2023 05:00:45 GMT+0500 (Pakistan Standard Time)
+
+Error
+    at Query.run (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\postgres\query.js:76:25)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:650:28
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
+Time: Sat Dec 30 2023 05:52:26 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 05:53:08 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 05:53:53 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 05:55:27 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 05:55:41 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 05:55:59 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading 'id')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:74:31
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:71:43
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sat Dec 30 2023 07:13:16 GMT+0500 (Pakistan Standard Time)
+
+Error: Named replacement ":userCategory" has no entry in the replacement map.
+    at injectReplacements (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\utils\sql.ts:176:15)
+    at Sequelize.query (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\sequelize.js:612:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:218:40
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+====================
