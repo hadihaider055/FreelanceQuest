@@ -20,6 +20,12 @@ class User extends Model {
   public hourlyRate: number
   public profileImage: string
   public category: string
+  public address: {
+    country: string
+    city: string
+    state: string
+    zip: number
+  }
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -96,6 +102,11 @@ User.init(
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
       allowNull: false,
+    },
+    address: {
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: {},
     },
   },
   {

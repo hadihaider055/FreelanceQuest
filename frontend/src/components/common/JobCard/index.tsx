@@ -1,21 +1,28 @@
 import React from "react";
 
+// Next
+import { useRouter } from "next/router";
+
+// React Icons
+import { SlLocationPin } from "react-icons/sl";
+import { SiStarship } from "react-icons/si";
+
 // Moment
 import moment from "moment";
 
 // Components
 import Tag from "../Tag";
+import JobModal from "@/containers/Modals/JobModal";
 
 // Styled
 import { JobCardStyled } from "./styled";
 
 // Utils
+import { convertToSentenceCase } from "@/utils/functions/toSentenceCase";
 import { getProposalsText } from "@/utils/functions/getProposalsText";
-import Link from "next/link";
 
 // Types
 import { JobType } from "@/types/job";
-import { convertToSentenceCase } from "@/utils/functions/toSentenceCase";
 
 type JobCardProps = JobType;
 
@@ -28,11 +35,69 @@ const JobCard: React.FC<JobCardProps> = ({
   createdAt,
   skills,
   id,
+  type,
+  address,
+  featured,
 }) => {
+  const { query, push } = useRouter();
+
+  const handleCloseModal = () => {
+    delete query.id;
+
+    push(
+      {
+        query,
+      },
+      undefined,
+      {
+        shallow: true,
+      }
+    );
+  };
+
+  const handleOpenModal = () => {
+    push(
+      {
+        query: { ...query, id },
+      },
+      undefined,
+      {
+        shallow: true,
+      }
+    );
+  };
+
   return (
-    <Link href={`/job/${id}`}>
-      <JobCardStyled className="bg-white rounded-[10px] p-7">
+    <>
+      {query.id === id && (
+        <JobModal
+          onClose={handleCloseModal}
+          data={{
+            title,
+            description,
+            category,
+            price,
+            proposalcount,
+            createdAt,
+            skills,
+            id,
+            type,
+            address,
+            featured,
+          }}
+        />
+      )}
+      <JobCardStyled
+        className="bg-white rounded-[10px] p-7 cursor-pointer"
+        onClick={handleOpenModal}
+      >
         <div className="flex flex-col">
+          {featured && (
+            <div className="flex items-center gap-2">
+              <SiStarship className="text-green-500" />
+              <p className="text-green-500 text-[11px] font-inter">Featured</p>
+            </div>
+          )}
           <p className="text-neutral-500 text-xs font-inter mt-3">
             {moment(createdAt).startOf("hour").fromNow()}
           </p>
@@ -40,8 +105,12 @@ const JobCard: React.FC<JobCardProps> = ({
             {title}
           </h3>
           <div className="flex items-center">
-            <span className="text-neutral-400 text-xs font-inter font-medium">
-              {convertToSentenceCase(category)} - ${price}
+            <span className="text-neutral-400 text-[11px] font-inter font-medium flex items-center">
+              {convertToSentenceCase(type)}: ${price} - {category},{" "}
+              <span className="flex items-center ml-1">
+                <SlLocationPin />
+                <span className="ml-[1px]">{address.country}</span>
+              </span>
             </span>
           </div>
           <p className="text-black text-base font-normal font-inter mt-3">
@@ -50,7 +119,7 @@ const JobCard: React.FC<JobCardProps> = ({
         </div>
 
         <div className="my-5">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             {skills?.map((skill, i) => (
               <Tag
                 key={i}
@@ -71,7 +140,7 @@ const JobCard: React.FC<JobCardProps> = ({
           </p>
         </div>
       </JobCardStyled>
-    </Link>
+    </>
   );
 };
 

@@ -20,21 +20,31 @@ export const createJobController = generateController(
         description,
         posted_by,
         price,
-        location,
         category,
         featured,
         skills,
+        type,
       } = req.body
+
+      const user = await User.findOne({
+        where: {
+          id: posted_by,
+        },
+      })
+
+      if (!user) {
+        raiseException(httpStatus.BAD_REQUEST, 'User not found')
+      }
 
       const job = await Job.create({
         title,
         description,
         posted_by,
         price,
-        location,
         category,
         featured,
         skills,
+        type,
       })
 
       return {
@@ -69,15 +79,16 @@ export const getAllJobsController = generateController(
           jobs.description,
           jobs.posted_by,
           jobs.price,
-          jobs.location,
           jobs.category,
           jobs."createdAt",
           jobs."updatedAt",
           jobs.featured,
           jobs.skills,
+          jobs.type,
           COUNT(DISTINCT proposals.id) AS proposalCount,
           users."firstName",
-          users."lastName"
+          users."lastName",
+          users.address
         FROM
           jobs
         LEFT JOIN
@@ -90,10 +101,15 @@ export const getAllJobsController = generateController(
           jobs.id, users.id
         ORDER BY
           jobs."createdAt" DESC;
-      `
+    `
+
+      const replacements = {
+        featured:
+          featured === 'true' ? true : featured === 'false' ? false : null,
+      }
 
       const jobs = await Job.sequelize.query(query, {
-        replacements: { featured: featured === 'true' ? true : null },
+        replacements,
         type: QueryTypes.SELECT,
       })
 
@@ -146,6 +162,81 @@ export const getJobById = generateController(
       }
 
       raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)
+
+export const getUserJobFeedController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { id } = req.params
+
+      const user = await User.findOne({
+        where: {
+          id,
+        },
+      })
+
+      if (!user) {
+        raiseException(httpStatus.BAD_REQUEST, 'User not found')
+      }
+
+      const query = `
+      SELECT
+        jobs.id,
+        jobs.title,
+        jobs.description,
+        jobs.posted_by,
+        jobs.price,
+        jobs.category,
+        jobs."createdAt",
+        jobs."updatedAt",
+        jobs.featured,
+        jobs.skills,
+        jobs.type,
+        COUNT(DISTINCT proposals.id) AS proposalCount,
+        users."firstName",
+        users."lastName",
+        users.address
+      FROM
+        jobs
+      LEFT JOIN
+        users ON jobs.posted_by = users.id
+      LEFT JOIN
+        proposals ON jobs.id = proposals.job_id
+      WHERE
+        (jobs.category = :userCategory OR :userCategory IS NULL)
+      GROUP BY
+        jobs.id, users.id
+      ORDER BY
+        jobs."createdAt" DESC;
+  `
+
+      const replacements = {
+        userCategory: user.category,
+      }
+
+      const jobs = await Job.sequelize.query(query, {
+        replacements,
+        type: QueryTypes.SELECT,
+      })
+
+      return {
+        message: 'Jobs fetched successfully',
+        payload: {
+          jobs,
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to fetch jobs'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, errorMessage)
     }
   }
 )

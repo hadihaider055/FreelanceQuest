@@ -14,7 +14,7 @@ const JobsRight = () => {
   const { renderActiveComponent } = queryTabs;
 
   return (
-    <JobsRightStyled className="w-full mr-10">
+    <JobsRightStyled className="w-full">
       <JobsRightWrapper>
         {/* Header Job Listing */}
         <JobsRightHeader controlTabs={queryTabs} />

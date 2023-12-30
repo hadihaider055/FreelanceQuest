@@ -21,10 +21,10 @@ class Job extends Model {
   public description: string
   public posted_by: string
   public price: number
-  public location: string
-  public category: JobTypeStatusEnum
+  public category: string
   public featured: boolean
   public skills?: string[]
+  public type: JobTypeStatusEnum
 
   public readonly proposals?: Proposal[]
   public readonly createdAt!: Date
@@ -64,14 +64,14 @@ Job.init(
       allowNull: false,
       defaultValue: 0,
     },
-    location: {
-      type: DataTypes.TEXT,
+    type: {
+      type: DataTypes.STRING,
       allowNull: false,
+      values: Object.values(JobTypeStatusEnum),
     },
     category: {
       type: DataTypes.STRING,
       allowNull: false,
-      values: Object.values(JobTypeStatusEnum),
     },
     featured: {
       type: DataTypes.BOOLEAN,

@@ -10,10 +10,12 @@ import Container from "@/components/common/Container";
 
 const JobsContainer = () => {
   return (
-    <JobsContainerStyled className="bg-gray-100 min-h-screen pt-12">
+    <JobsContainerStyled className="bg-gray-100 min-h-screen pt-12 relative">
       <Container size="sm">
-        <article className="flex">
-          <JobsRight />
+        <article className="flex relative">
+          <div className="max-w-[1022px] w-full  mr-10">
+            <JobsRight />
+          </div>
           <div className="hidden md:block">
             <JobsLeft />
           </div>

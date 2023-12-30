@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Next
 import Link from "next/link";
@@ -18,11 +18,31 @@ import { useAppSelector } from "@/utils/hooks/store";
 
 const JobsLeft = () => {
   const { user } = useAppSelector((state) => state.auth);
+  const [sticky, setSticky] = useState(false);
+
+  const handlePositionSticky = () => {
+    if (window.scrollY > 110) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handlePositionSticky);
+  }, []);
+
   return (
-    <JobsLeftStyled className="">
-      <JobsLeftWrapper className="flex items-center gap-4 flex-col">
+    <JobsLeftStyled className="relative">
+      <JobsLeftWrapper
+        className={`flex items-center gap-4 flex-col ${
+          sticky ? "fixed top-5" : ""
+        }`}
+      >
         {/* Profile Section */}
-        <article className="w-[258px] bg-white rounded-[10px] flex items-center justify-center flex-col shadow-sm gap-4 p-6">
+        <article
+          className={`w-[258px] bg-white rounded-[10px] flex items-center justify-center flex-col shadow-sm gap-4 p-6`}
+        >
           <div className="w-[74px] h-[74px] rounded-full overflow-hidden">
             <img
               src={user?.profileImage || ""}
