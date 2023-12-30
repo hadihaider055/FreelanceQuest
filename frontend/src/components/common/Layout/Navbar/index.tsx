@@ -7,13 +7,13 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 // Components
-import { NavbarStyled, NavbarWrapper } from "./styled";
+import { NavbarProfileImage, NavbarStyled, NavbarWrapper } from "./styled";
 
 // Site Data
 import { NavbarData } from "@/site-data/Navbar";
 
 const Navbar: React.FC = () => {
-  const { status } = useSession();
+  const { status, data } = useSession();
 
   const { push } = useRouter();
 
@@ -62,11 +62,21 @@ const Navbar: React.FC = () => {
               </Link>
             </>
           ) : (
-            <div
-              className="bg-green-500 rounded-3xl p-2 w-36 flex items-center justify-center text-zinc-50 hover:shadow-lg transition-all ease-in-out duration-300 cursor-pointer"
-              onClick={handleLogout}
-            >
-              Log out
+            <div style={{
+              display: "flex"
+            }}>
+              <div
+                className="bg-green-500 rounded-3xl p-2 w-36 flex items-center justify-center text-zinc-50 hover:shadow-lg transition-all ease-in-out duration-300 cursor-pointer"
+                onClick={handleLogout}
+              >
+                Log out
+              </div>
+              <div>
+                <Link href="/account/profile">
+                  <NavbarProfileImage style={{
+                  }} src={data?.user.profileImage} />
+                </Link>
+              </div>
             </div>
           )}
         </article>
