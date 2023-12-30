@@ -24,6 +24,13 @@ export const createProposalController = generateController(
         raiseException(httpStatus.BAD_REQUEST, 'Job does not exist')
       }
 
+      if (jobExist.posted_by === user_id) {
+        raiseException(
+          httpStatus.BAD_REQUEST,
+          'You cannot submit a proposal to your own job'
+        )
+      }
+
       const isSubmitted = await Proposal.findOne({
         where: {
           job_id,

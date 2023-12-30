@@ -16,7 +16,7 @@ interface LoaderComponentProps {
 const LoaderComponent: React.FC<LoaderComponentProps> = ({
   size = 150,
   text = "Loading",
-  color = "var(--blue-dark)",
+  color = "var(--black)",
   isFullPage = false,
 }) => {
   return (
