@@ -6,5 +6,7 @@ export const Paths = {
     FETCH_USER_CHAT: (userId: string) => `/chat/user/${userId}`,
     FETCH_CHAT_MESSAGES: (chatId: string) => `/chat/${chatId}/messages`,
     SEND_MESSAGE: "/message",
+    SUBMIT_PROPOSAL: "/proposal/submit",
+    UPDATE_PROFILE_PICTURE: "/user/update-profile-picture",
   },
 };

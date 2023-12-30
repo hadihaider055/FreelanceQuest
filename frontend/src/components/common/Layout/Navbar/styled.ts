@@ -45,3 +45,13 @@ export const NavbarWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const NavbarProfileImage = styled.img`
+  min-height: 50px;
+  min-width: 50px;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 100%;
+  margin-left: 10px;
+  cursor: pointer;
+`;

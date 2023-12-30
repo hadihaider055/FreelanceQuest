@@ -13,6 +13,49 @@ import User from '../models/User'
 // Utils
 import { generateController } from '../utils/generateController'
 import ErrorLogger from '../services/ErrorLogger'
+import multer from 'multer'
+
+const upload = multer({ dest: 'uploads/profile_pictures/' })
+const saveProfilePicture = upload.single('profile_picture');
+
+export const updateProfilePictureController = generateController(
+  async (req, res, raiseException) => {
+    try {
+
+      const { user_id } = req.body;
+
+      saveProfilePicture(req, res, async (err) => {
+        if (err) {
+          raiseException(httpStatus.BAD_REQUEST, err)
+        }
+
+        const user = await User.findOne({
+          where: {
+            id: user_id
+          }
+        })
+
+        user.profileImage = req.file.path
+        user.save();
+      })
+
+      return {
+        message: 'Profile picture updated successfuly',
+        payload: {},
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to update profile picture'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(httpStatus.BAD_REQUEST, e.message)
+    }
+  }
+)
 
 export const signupController = generateController(
   async (req, res, raiseException) => {

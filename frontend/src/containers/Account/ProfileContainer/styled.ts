@@ -46,3 +46,21 @@ export const ProfileContentRightHistory = styled.div`
   border-top: 2px solid rgb(214 211 209 / 1);
   padding: 30px 20px 0 20px;
 `;
+
+export const UploadProfilePictureLabelStyled = styled.label`
+  cursor: pointer;
+  position: relative;
+  transition: ease-out all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 10px;
+  gap: 8px;
+  width: 100%;
+  background: var(--blue-dark) 0% 0% no-repeat padding-box;
+  color: white;
+  border: none;
+  white-space: nowrap;
+`;
