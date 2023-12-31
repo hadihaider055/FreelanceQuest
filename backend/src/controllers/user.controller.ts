@@ -20,7 +20,7 @@ import User from '../models/User'
 import { generateController } from '../utils/generateController'
 import ErrorLogger from '../services/ErrorLogger'
 import multer from 'multer'
-import { uploadFile } from '../config/s3'
+import { deleteFile, uploadFile } from '../config/s3'
 
 // const upload = multer({ dest: 'uploads/profile_pictures/' })
 // const saveProfilePicture = upload.single('profile_picture')
@@ -199,6 +199,7 @@ export const getUserMetadataController = generateController(
     }
   }
 )
+
 type ControllerFunction = (
   req: any,
   res: any,
@@ -317,3 +318,58 @@ export const updateProfilePictureController: ControllerFunction = async (
     }
   })
 }
+
+export const deleteProfilePictureController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { userId } = req.params
+
+      const user = await User.findOne({
+        where: {
+          id: userId,
+        },
+      })
+
+      if (!user) {
+        raiseException(400, 'User does not exist')
+      }
+
+      const oldFilename = user.profileImage.split('/').pop().split('?')[0]
+      const oldUrlKey = `users/${user.id}/profile-image/${oldFilename}`
+
+      const response = await deleteFile(oldUrlKey)
+
+      console.log('response>>', response)
+
+      const updatedUser = await User.update(
+        {
+          profileImage:
+            'https://fafen.org/wp-content/uploads/2023/01/dummy.jpg',
+        },
+        {
+          returning: true,
+          where: {
+            id: user.id,
+          },
+        }
+      )
+
+      return {
+        message: 'Profile image deleted successfully',
+        payload: {
+          user: updatedUser[1][0],
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to login'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(400, e.message)
+    }
+  }
+)

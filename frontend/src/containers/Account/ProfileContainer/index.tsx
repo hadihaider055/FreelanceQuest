@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 
+// Next
+import Image from "next/image";
+import { useSession } from "next-auth/react";
+
 // React Icons
 import { FaPen } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
@@ -26,10 +30,10 @@ import ReviewCard from "@/components/common/ReviewCard";
 
 // Utils
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
-import Image from "next/image";
-import { useSession } from "next-auth/react";
-import { updateProfilePictureThunk } from "@/store/thunks/userThunk";
-import Swal from "sweetalert2";
+import {
+  deleteProfilePictureThunk,
+  updateProfilePictureThunk,
+} from "@/store/thunks/authThunk";
 
 const ProfileContainer: React.FC = () => {
   const [lineClamp, setLineClamp] = useState(8);
@@ -37,7 +41,9 @@ const ProfileContainer: React.FC = () => {
   const session = useSession();
   const dispatch = useAppDispatch();
 
-  const { user, updateProfilePicture } = useAppSelector((state) => state.auth);
+  const { user, updateProfilePicture, deleteProfilePicture } = useAppSelector(
+    (state) => state.auth
+  );
 
   const uploadProfilePicture = async (e) => {
     const fileInput = e.target;
@@ -57,6 +63,23 @@ const ProfileContainer: React.FC = () => {
           (user = {
             ...user,
             profileImage: res.profileImage,
+          })
+      );
+    }
+  };
+
+  const handleDeleteProfilePicture = async () => {
+    if (session?.data) {
+      const updated = await dispatch(
+        deleteProfilePictureThunk({ userId: session.data.user.id })
+      ).unwrap();
+
+      session.update(
+        "user",
+        (user) =>
+          (user = {
+            ...user,
+            profileImage: updated?.profileImage,
           })
       );
     }
@@ -121,13 +144,22 @@ const ProfileContainer: React.FC = () => {
                       isLoading={updateProfilePicture?.isLoading}
                       disabled={updateProfilePicture?.isLoading}
                       variant="grey"
+                      size="md"
                     >
                       Upload New Photo
                     </Button>
                   </UploadProfilePictureLabelStyled>
                 </div>
                 <div className="btns">
-                  <Button variant="grey-transparent">Delete</Button>
+                  <Button
+                    variant="grey-transparent"
+                    onClick={handleDeleteProfilePicture}
+                    disabled={deleteProfilePicture?.isLoading}
+                    isLoading={deleteProfilePicture?.isLoading}
+                    size="md"
+                  >
+                    Delete
+                  </Button>
                 </div>
               </div>
             </div>

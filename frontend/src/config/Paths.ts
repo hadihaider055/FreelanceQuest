@@ -11,5 +11,7 @@ export const Paths = {
     GET_ALL_JOBS: (featured: boolean | null) =>
       `/job${featured ? "?featured=true" : ""}`,
     GET_USER_JOBS_FEED: (userId: string) => `/job/user/${userId}`,
+    DELETE_PROFILE_PICTURE: (userId: string) =>
+      `/user/profile-picture/${userId}`,
   },
 };

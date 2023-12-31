@@ -2,9 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Thunks
 import {
+  deleteProfilePictureThunk,
   freelancerSignupThunk,
   loginThunk,
   logoutThunk,
+  updateProfilePictureThunk,
 } from "../thunks/authThunk";
 
 // Utils
@@ -12,13 +14,13 @@ import { ActionTracker, initialActionTracker } from "../utils";
 
 // Types
 import { User } from "../../types/user";
-import { updateProfilePictureThunk } from "../thunks/userThunk";
 
 type AuthState = {
   login: ActionTracker;
   signup: ActionTracker;
   logout: ActionTracker;
   updateProfilePicture: ActionTracker;
+  deleteProfilePicture: ActionTracker;
 
   user: User | null;
 };
@@ -28,6 +30,7 @@ const initialState: AuthState = {
   signup: initialActionTracker,
   logout: initialActionTracker,
   updateProfilePicture: initialActionTracker,
+  deleteProfilePicture: initialActionTracker,
 
   user: null,
 };
@@ -131,6 +134,30 @@ const authSlice = createSlice({
     });
     builder.addCase(updateProfilePictureThunk.rejected, (state, { error }) => {
       state.updateProfilePicture = {
+        ...initialActionTracker,
+        isError: true,
+        errorMessage: error.message || "",
+      };
+    });
+
+    // Delete Profile Picture
+    builder.addCase(deleteProfilePictureThunk.pending, (state) => {
+      state.deleteProfilePicture = {
+        ...initialActionTracker,
+        isLoading: true,
+      };
+    });
+    builder.addCase(deleteProfilePictureThunk.fulfilled, (state, action) => {
+      state.deleteProfilePicture = {
+        ...initialActionTracker,
+        isSuccess: true,
+        successMessage: "Profile picture updated successfully",
+      };
+
+      state.user = action.payload;
+    });
+    builder.addCase(deleteProfilePictureThunk.rejected, (state, { error }) => {
+      state.deleteProfilePicture = {
         ...initialActionTracker,
         isError: true,
         errorMessage: error.message || "",

@@ -2016,3 +2016,45 @@ AccessControlListNotSupported: The bucket does not allow ACLs
     at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
     at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
 ====================
+Time: Sun Dec 31 2023 22:39:06 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:221:44
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:31:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:27:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:216:48
+    at zalgoSafe (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\dezalgo\dezalgo.js:20:10)
+    at f (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\once\once.js:25:25)
+    at IncomingForm.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\formidable\dist\index.cjs:1210:7)
+    at IncomingForm.emit (node:events:514:28)
+====================
+Time: Sun Dec 31 2023 22:39:48 GMT+0500 (Pakistan Standard Time)
+
+TypeError: Cannot read properties of undefined (reading '0')
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:221:44
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:31:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:27:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:216:48
+    at zalgoSafe (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\dezalgo\dezalgo.js:20:10)
+    at f (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\once\once.js:25:25)
+    at IncomingForm.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\formidable\dist\index.cjs:1210:7)
+    at IncomingForm.emit (node:events:514:28)
+====================
+Time: Sun Dec 31 2023 22:40:33 GMT+0500 (Pakistan Standard Time)
+
+Error: WHERE parameter "id" has invalid "undefined" value
+    at PostgresQueryGenerator.whereItemQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2445:13)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2434:25
+    at Array.forEach (<anonymous>)
+    at PostgresQueryGenerator.whereItemsQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2432:35)
+    at PostgresQueryGenerator.getWhereConditions (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:2860:19)
+    at PostgresQueryGenerator.selectQuery (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-generator.js:1460:28)
+    at PostgresQueryInterface.select (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\dialects\abstract\query-interface.js:1002:27)
+    at Function.findAll (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1824:47)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Function.findOne (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\sequelize\src\model.js:1998:12)
+====================
