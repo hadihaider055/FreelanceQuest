@@ -5,6 +5,7 @@ export const SubmitProposalStyled = styled.section`
     width: 100%;
     background-color: rgb(243 244 246);
     height: 100%;
+    font-family: Inter, sans-serif;
 
     a {
         text-decoration: underline;
@@ -13,14 +14,14 @@ export const SubmitProposalStyled = styled.section`
     }
 
     h1, h2, h3, p {
-        font-family: Montserrat;
+        font-family: Inter, sans-serif;
         color: black;
     }
 
     h2 {
         font-size: 24px;
         font-weight: 500;
-        font-family: Montserrat;
+        font-family: Inter, sans-serif;
     }
 
     h3 {
@@ -91,18 +92,14 @@ export const SubmitProposalCoverLetterInput = styled.textarea`
 `;
 
 export const SubmitProposalButton = styled.button<{ variant?: string }>`
-    background-color: ${props => props.variant !== "dark" ? "#239852" : "#424242"};
-    padding: 15px;
-    border-radius: 30px;
+    background-color: ${props => props.variant !== "dark" ? "#239852" : "#333333" };
+    padding: 10px;
+    border-radius: 5px;
     padding-left: 30px;
     padding-right: 30px;
     font-weight: 500;
-    font-family: Montserrat;
+    font-family: Inter, sans-serif;
     color: white;
     transition: 0.25s;
     margin-right: 15px;
-
-    &:hover {
-        filter: brightness(120%);
-    }
 `;

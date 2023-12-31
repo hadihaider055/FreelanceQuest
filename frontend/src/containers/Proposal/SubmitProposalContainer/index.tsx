@@ -2,11 +2,12 @@
 
 import Container from "@/components/common/Container";
 import { SubmitProposalBidInput, SubmitProposalButton, SubmitProposalCategoryContainer, SubmitProposalCoverLetterInput, SubmitProposalSection, SubmitProposalStyled } from "./styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/utils/hooks/store";
 import { useRouter } from "next/router";
 import { submitProposal } from "@/store/thunks/proposalThunk";
 import { useSession } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 
 const SubmitProposalContainer: React.FC = () => {
     const [coverLetter, setCoverLetter] = useState("");
@@ -14,13 +15,14 @@ const SubmitProposalContainer: React.FC = () => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const session = useSession();
+    const params = useSearchParams();
     
     const cancelAction = () => {
         router.push("/");
     }
 
     const submitProposalAction = () => {
-        const jobId = router.query['job_id'];
+        const jobId = params.get('job_id');
 
         if (session.data && jobId) {
             dispatch(submitProposal({
