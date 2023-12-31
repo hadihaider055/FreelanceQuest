@@ -40,7 +40,7 @@ const SubmitProposalContainer: React.FC = () => {
         <SubmitProposalStyled>
             <Container>
                 <br/><br/>
-                <h2 className="font-montserrat">Submit a proposal</h2>
+                <h2>Submit a proposal</h2>
                 <br/>
 
                 <SubmitProposalSection>

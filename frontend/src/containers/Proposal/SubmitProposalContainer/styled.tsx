@@ -14,14 +14,12 @@ export const SubmitProposalStyled = styled.section`
     }
 
     h1, h2, h3, p {
-        font-family: Inter, sans-serif;
         color: black;
     }
 
     h2 {
         font-size: 24px;
         font-weight: 500;
-        font-family: Inter, sans-serif;
     }
 
     h3 {
