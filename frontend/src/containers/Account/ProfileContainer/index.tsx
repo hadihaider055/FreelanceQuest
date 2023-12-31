@@ -33,22 +33,34 @@ import Swal from "sweetalert2";
 
 const ProfileContainer: React.FC = () => {
   const [lineClamp, setLineClamp] = useState(8);
+
   const session = useSession();
   const dispatch = useAppDispatch();
 
-  const { user } = useAppSelector((state) => state.auth);
+  const { user, updateProfilePicture } = useAppSelector((state) => state.auth);
 
-  const uploadProfilePicture = (e) => {
+  const uploadProfilePicture = async (e) => {
     const fileInput = e.target;
     const file = fileInput.files[0];
 
     if (file && session.data) {
-      const formData = new FormData();
-      formData.append('user_id', session.data.user.id);
-      formData.append('profile_picture', file);
-      dispatch(updateProfilePictureThunk(formData));
+      const res = await dispatch(
+        updateProfilePictureThunk({
+          userId: session.data.user.id,
+          profile_image: file,
+        })
+      ).unwrap();
+
+      session.update(
+        "user",
+        (user) =>
+          (user = {
+            ...user,
+            profileImage: res.profileImage,
+          })
+      );
     }
-  }
+  };
 
   return (
     <ProfileContainerStyled>
@@ -96,8 +108,23 @@ const ProfileContainer: React.FC = () => {
 
               <div className="flex items-center gap-14">
                 <div className="btns">
-                  <input id="profile-picture-input" onChange={uploadProfilePicture} style={{ display: "none" }} type="file" />
-                  <UploadProfilePictureLabelStyled for="profile-picture-input">Upload New Photo</UploadProfilePictureLabelStyled>
+                  {!updateProfilePicture?.isLoading && (
+                    <input
+                      id="profile-picture-input"
+                      onChange={uploadProfilePicture}
+                      style={{ display: "none" }}
+                      type="file"
+                    />
+                  )}
+                  <UploadProfilePictureLabelStyled for="profile-picture-input">
+                    <Button
+                      isLoading={updateProfilePicture?.isLoading}
+                      disabled={updateProfilePicture?.isLoading}
+                      variant="grey"
+                    >
+                      Upload New Photo
+                    </Button>
+                  </UploadProfilePictureLabelStyled>
                 </div>
                 <div className="btns">
                   <Button variant="grey-transparent">Delete</Button>

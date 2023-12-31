@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
 
   images: {
-    domains: ["thumbs.dreamstime.com"],
+    domains: ["thumbs.dreamstime.com", "freelancequest.s3.amazonaws.com"],
   },
 
   env: {

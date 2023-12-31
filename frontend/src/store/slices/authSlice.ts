@@ -12,11 +12,13 @@ import { ActionTracker, initialActionTracker } from "../utils";
 
 // Types
 import { User } from "../../types/user";
+import { updateProfilePictureThunk } from "../thunks/userThunk";
 
 type AuthState = {
   login: ActionTracker;
   signup: ActionTracker;
   logout: ActionTracker;
+  updateProfilePicture: ActionTracker;
 
   user: User | null;
 };
@@ -25,6 +27,7 @@ const initialState: AuthState = {
   login: initialActionTracker,
   signup: initialActionTracker,
   logout: initialActionTracker,
+  updateProfilePicture: initialActionTracker,
 
   user: null,
 };
@@ -104,6 +107,30 @@ const authSlice = createSlice({
     });
     builder.addCase(logoutThunk.rejected, (state, { error }) => {
       state.logout = {
+        ...initialActionTracker,
+        isError: true,
+        errorMessage: error.message || "",
+      };
+    });
+
+    // Update Profile Picture
+    builder.addCase(updateProfilePictureThunk.pending, (state) => {
+      state.updateProfilePicture = {
+        ...initialActionTracker,
+        isLoading: true,
+      };
+    });
+    builder.addCase(updateProfilePictureThunk.fulfilled, (state, action) => {
+      state.updateProfilePicture = {
+        ...initialActionTracker,
+        isSuccess: true,
+        successMessage: "Profile picture updated successfully",
+      };
+
+      state.user = action.payload;
+    });
+    builder.addCase(updateProfilePictureThunk.rejected, (state, { error }) => {
+      state.updateProfilePicture = {
         ...initialActionTracker,
         isError: true,
         errorMessage: error.message || "",

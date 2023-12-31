@@ -54,13 +54,18 @@ export const UploadProfilePictureLabelStyled = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
   font-size: 16px;
   border-radius: 10px;
   gap: 8px;
   width: 100%;
-  background: var(--blue-dark) 0% 0% no-repeat padding-box;
   color: white;
   border: none;
   white-space: nowrap;
+  height: 60px;
+  position: relative;
+
+  button {
+    position: absolute;
+    z-index: -1;
+  }
 `;

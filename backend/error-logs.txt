@@ -1918,3 +1918,101 @@ Error: Named replacement ":userCategory" has no entry in the replacement map.
     at fulfilled (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\job.controller.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)
 ====================
+Time: Sun Dec 31 2023 18:51:24 GMT+0500 (Pakistan Standard Time)
+
+TypeError: formidable_1.default.IncomingForm is not a constructor
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:202:20
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:200:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 31 2023 18:55:46 GMT+0500 (Pakistan Standard Time)
+
+TypeError: formidable_1.default.IncomingForm is not a constructor
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:202:20
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:4:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\controllers\user.controller.ts:200:38
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:32:37
+    at Generator.next (<anonymous>)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\src\utils\generateController.ts:8:71
+    at new Promise (<anonymous>)
+====================
+Time: Sun Dec 31 2023 20:05:27 GMT+0500 (Pakistan Standard Time)
+
+AccessControlListNotSupported: The bucket does not allow ACLs
+    at Request.extractError (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\services\s3.js:711:35)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
+====================
+Time: Sun Dec 31 2023 20:06:16 GMT+0500 (Pakistan Standard Time)
+
+AccessControlListNotSupported: The bucket does not allow ACLs
+    at Request.extractError (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\services\s3.js:711:35)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
+====================
+Time: Sun Dec 31 2023 20:13:36 GMT+0500 (Pakistan Standard Time)
+
+AccessControlListNotSupported: The bucket does not allow ACLs
+    at Request.extractError (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\services\s3.js:711:35)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
+====================
+Time: Sun Dec 31 2023 20:18:24 GMT+0500 (Pakistan Standard Time)
+
+AccessControlListNotSupported: The bucket does not allow ACLs
+    at Request.extractError (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\services\s3.js:711:35)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
+====================
+Time: Sun Dec 31 2023 20:31:40 GMT+0500 (Pakistan Standard Time)
+
+AccessControlListNotSupported: The bucket does not allow ACLs
+    at Request.extractError (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\services\s3.js:711:35)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:106:20)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:78:10)
+    at Request.emit (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:686:14)
+    at Request.transition (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:22:10)
+    at AcceptorStateMachine.runTo (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:14:12)
+    at C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\state_machine.js:26:10
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:38:9)
+    at Request.<anonymous> (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\request.js:688:12)
+    at Request.callListeners (C:\Users\haide\Documents\Development\FreelanceQuest\backend\node_modules\aws-sdk\lib\sequential_executor.js:116:18)
+====================

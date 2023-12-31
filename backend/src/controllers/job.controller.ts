@@ -33,7 +33,7 @@ export const createJobController = generateController(
       })
 
       if (!user) {
-        raiseException(httpStatus.BAD_REQUEST, 'User not found')
+        raiseException(400, 'User not found')
       }
 
       const job = await Job.create({
@@ -62,7 +62,7 @@ export const createJobController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -128,7 +128,7 @@ export const getAllJobsController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, errorMessage)
+      raiseException(400, errorMessage)
     }
   }
 )
@@ -161,7 +161,7 @@ export const getJobById = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -178,7 +178,7 @@ export const getUserJobFeedController = generateController(
       })
 
       if (!user) {
-        raiseException(httpStatus.BAD_REQUEST, 'User not found')
+        raiseException(400, 'User not found')
       }
 
       const query = `
@@ -236,7 +236,7 @@ export const getUserJobFeedController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, errorMessage)
+      raiseException(400, errorMessage)
     }
   }
 )
