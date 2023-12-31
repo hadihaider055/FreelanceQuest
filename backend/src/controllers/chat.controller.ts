@@ -11,41 +11,41 @@ import Message from '../models/Message'
 import ChatMember from '../models/ChatMember'
 import { db } from '../config/db'
 
-
 const connections = new Map()
 
 export const chatSignalingController = async (ws, req) => {
-    const route = req.path
+  const route = req.path
 
-    ws.on('close', () => {
-      connections.delete(route);
-    })
-    connections.set(route, ws);
+  ws.on('close', () => {
+    connections.delete(route)
+  })
+  connections.set(route, ws)
 
-    ws.on('message', message => {
-      message = JSON.parse(message);
-      const receiver_id = message.receiver_id;
-      const data = message.data;
-  
-      const receiver_connection = connections.get(`/signaling/${receiver_id}/.websocket`);
+  ws.on('message', (message) => {
+    message = JSON.parse(message)
+    const receiver_id = message.receiver_id
+    const data = message.data
 
-      if (receiver_connection) {
-        ws.send(JSON.stringify({"success": "peer id sent to user!"}));
-        receiver_connection.send(JSON.stringify(data))
-      } else {
-        ws.send(JSON.stringify({"error": "user is not online :("}));
-      }
-    })
+    const receiver_connection = connections.get(
+      `/signaling/${receiver_id}/.websocket`
+    )
 
+    if (receiver_connection) {
+      ws.send(JSON.stringify({ success: 'peer id sent to user!' }))
+      receiver_connection.send(JSON.stringify(data))
+    } else {
+      ws.send(JSON.stringify({ error: 'user is not online :(' }))
+    }
+  })
 }
 
 export const createChatController = generateController(
   async (req, res, raiseException) => {
     try {
       const { client_id, freelancer_id } = req.body
-      const chat = await Chat.create();
-      await ChatMember.create({ chat_id: chat.id, member_id: client_id})
-      await ChatMember.create({ chat_id: chat.id, member_id: freelancer_id})
+      const chat = await Chat.create()
+      await ChatMember.create({ chat_id: chat.id, member_id: client_id })
+      await ChatMember.create({ chat_id: chat.id, member_id: freelancer_id })
 
       return {
         message: 'Chat created successfully',
@@ -62,7 +62,7 @@ export const createChatController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -78,7 +78,7 @@ export const getChatsByUserId = generateController(
           member_id = '${user_id}') c inner join (select id, 
           concat("firstName", ' ', "lastName") as recipient_name from users) d 
           on c.recipient_member_id = d.id`
-      const chats = await db.query(sql, { type: QueryTypes.SELECT });
+      const chats = await db.query(sql, { type: QueryTypes.SELECT })
       return {
         message: 'Chats fetched successfully',
         payload: {
@@ -94,7 +94,7 @@ export const getChatsByUserId = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -106,7 +106,7 @@ export const getChatMessages = generateController(
 
       const chat = await Chat.findByPk(id)
       const sql = `SELECT content as message, user_id as sender_id FROM messages WHERE chat_id = '${chat.id}' ORDER BY "createdAt"`
-      const messages = await db.query(sql, { type: QueryTypes.SELECT });
+      const messages = await db.query(sql, { type: QueryTypes.SELECT })
 
       return {
         message: 'Chat messages fetched successfully',
@@ -114,7 +114,6 @@ export const getChatMessages = generateController(
           messages,
         },
       }
-
     } catch (e) {
       ErrorLogger.write(e)
       const axiosError: AxiosError = e
@@ -124,7 +123,7 @@ export const getChatMessages = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )

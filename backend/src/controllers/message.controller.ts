@@ -12,7 +12,11 @@ export const createMessageController = generateController(
     try {
       const { chat_id, sender_id, message } = req.body
 
-      const msg = Message.create({ user_id: sender_id, content: message, chat_id: chat_id })
+      const msg = Message.create({
+        user_id: sender_id,
+        content: message,
+        chat_id: chat_id,
+      })
 
       return {
         message: 'Message posted successfully',
@@ -29,7 +33,7 @@ export const createMessageController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )

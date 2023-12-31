@@ -86,7 +86,7 @@ User.init(
     profileImage: {
       type: DataTypes.STRING(256),
       allowNull: true,
-      defaultValue: '',
+      defaultValue: 'https://fafen.org/wp-content/uploads/2023/01/dummy.jpg',
     },
     category: {
       type: DataTypes.STRING(128),

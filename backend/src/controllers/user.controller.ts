@@ -1,8 +1,14 @@
 import { AxiosError } from 'axios'
 import httpStatus from 'http-status'
 
+// UUID
+import { UUIDV4 } from 'sequelize'
+
 // JWT
 import jwt from 'jsonwebtoken'
+
+// Formidable
+import * as formidable from 'formidable'
 
 // Bcrypt
 import bcrypt from 'bcrypt'
@@ -13,6 +19,11 @@ import User from '../models/User'
 // Utils
 import { generateController } from '../utils/generateController'
 import ErrorLogger from '../services/ErrorLogger'
+import multer from 'multer'
+import { deleteFile, uploadFile } from '../config/s3'
+
+// const upload = multer({ dest: 'uploads/profile_pictures/' })
+// const saveProfilePicture = upload.single('profile_picture')
 
 export const signupController = generateController(
   async (req, res, raiseException) => {
@@ -26,7 +37,7 @@ export const signupController = generateController(
       })
 
       if (isExist) {
-        raiseException(httpStatus.BAD_REQUEST, 'Email already exists')
+        raiseException(400, 'Email already exists')
       }
 
       const user = new User({
@@ -53,7 +64,7 @@ export const signupController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -70,13 +81,13 @@ export const loginController = generateController(
       })
 
       if (!user) {
-        raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+        raiseException(400, 'User does not exist')
       }
 
       const isMatch = bcrypt.compareSync(password, user.password)
 
       if (!isMatch) {
-        raiseException(httpStatus.BAD_REQUEST, 'Invalid credentials')
+        raiseException(400, 'Invalid credentials')
       }
 
       const token = jwt.sign(
@@ -122,7 +133,7 @@ export const loginController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -153,7 +164,7 @@ export const getUserMetadataController = generateController(
       })
 
       if (!user) {
-        raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+        raiseException(400, 'User does not exist')
       }
 
       return {
@@ -184,7 +195,181 @@ export const getUserMetadataController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
+    }
+  }
+)
+
+type ControllerFunction = (
+  req: any,
+  res: any,
+  raiseException: any
+) => Promise<any>
+
+export const updateProfilePictureController: ControllerFunction = async (
+  req,
+  res,
+  raiseException
+) => {
+  const form = new formidable.IncomingForm()
+
+  form.parse(req, async (err, fields, files) => {
+    try {
+      console.log('file>>', req.body, files, fields)
+
+      const { user_id } = fields
+      const file: any = files.profile_image[0]
+
+      const userExist = await User.findOne({
+        where: {
+          id: user_id,
+        },
+      })
+
+      if (!userExist) {
+        return res.status(400).json({
+          message: 'User does not exist',
+          success: false,
+          payload: {},
+        })
+      }
+
+      if (Array.isArray(file)) {
+        return res.status(400).json({
+          message: 'Only single file is allowed',
+          success: false,
+          payload: {},
+        })
+      }
+
+      if (!file) {
+        return res.status(400).json({
+          message: '"file" is required',
+          success: false,
+          payload: {},
+        })
+      }
+
+      if (err) {
+        return res.status(400).json({
+          message: 'Failed to parse body',
+          success: false,
+          payload: {
+            err,
+          },
+        })
+      }
+
+      if (
+        !['image/jpg'].includes(file?.mimetype || '') &&
+        !['image/jpeg'].includes(file?.mimetype || '') &&
+        !['image/png'].includes(file?.mimetype || '')
+      ) {
+        return res.status(400).json({
+          message: 'Unsupported file format',
+          success: false,
+          payload: {},
+        })
+      }
+
+      const fileUniqueName = `users/${user_id}/profile-image/${UUIDV4()}-${
+        file.originalFilename
+      }`
+
+      const oldFilename = userExist.profileImage.split('/').pop().split('?')[0]
+      const oldUrlKey = `users/${user_id}/profile-image/${oldFilename}`
+
+      const response = await uploadFile(
+        file.filepath,
+        fileUniqueName,
+        null,
+        oldUrlKey
+      )
+
+      const user = await User.update(
+        {
+          profileImage: response.publicUrl,
+        },
+        {
+          returning: true,
+          where: {
+            id: user_id,
+          },
+        }
+      )
+
+      return res.status(200).json({
+        message: 'Profile picture updated successfuly',
+        success: true,
+        payload: {
+          user: user[1][0],
+        },
+      })
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to update profile picture'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(400, e.message)
+    }
+  })
+}
+
+export const deleteProfilePictureController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { userId } = req.params
+
+      const user = await User.findOne({
+        where: {
+          id: userId,
+        },
+      })
+
+      if (!user) {
+        raiseException(400, 'User does not exist')
+      }
+
+      const oldFilename = user.profileImage.split('/').pop().split('?')[0]
+      const oldUrlKey = `users/${user.id}/profile-image/${oldFilename}`
+
+      const response = await deleteFile(oldUrlKey)
+
+      console.log('response>>', response)
+
+      const updatedUser = await User.update(
+        {
+          profileImage:
+            'https://fafen.org/wp-content/uploads/2023/01/dummy.jpg',
+        },
+        {
+          returning: true,
+          where: {
+            id: user.id,
+          },
+        }
+      )
+
+      return {
+        message: 'Profile image deleted successfully',
+        payload: {
+          user: updatedUser[1][0],
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to login'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(400, e.message)
     }
   }
 )

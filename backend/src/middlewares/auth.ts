@@ -20,7 +20,7 @@ const authMiddleware = (): RequestHandler => {
 
       next()
     } catch (e) {
-      return res.status(httpStatus.UNAUTHORIZED).json({
+      return res.status(401).json({
         success: false,
         message: e.message || 'Failed to authenticate',
         payload: {},

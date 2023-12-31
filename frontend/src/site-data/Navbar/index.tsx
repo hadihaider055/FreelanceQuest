@@ -1,3 +1,7 @@
+import { FaArrowRightToBracket } from "react-icons/fa6";
+import { TbSettingsCog } from "react-icons/tb";
+import { VscAccount } from "react-icons/vsc";
+
 export const NavbarData = [
   {
     title: "Home",
@@ -11,8 +15,17 @@ export const NavbarData = [
     title: "Find Talent",
     link: "/freelancers",
   },
+];
+
+export const NavbarDropdownData = [
   {
-    title: "Messages",
-    link: "/messages",
+    title: "Profile",
+    link: "/account/profile",
+    icon: <VscAccount fontSize={14} />,
+  },
+  {
+    title: "Settings",
+    link: "/settings",
+    icon: <TbSettingsCog fontSize={14} />,
   },
 ];
