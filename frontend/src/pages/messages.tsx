@@ -4,7 +4,7 @@ import React, { ReactElement } from "react";
 import Head from "next/head";
 
 // Utils
-import MessagesContainer from "@/containers/Messages";
+import MessagesContainer from "@/containers/Messages/Container";
 import Layout from "@/components/common/Layout";
 import useAuth from "@/utils/hooks/useAuth";
 
