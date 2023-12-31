@@ -15,10 +15,10 @@ export const ProfileContainerContent = styled.article`
   }
 
   .btns {
-    width: 176px;
+    width: 196px;
 
     button {
-      width: 176px;
+      width: 196px;
       height: 60px;
     }
   }

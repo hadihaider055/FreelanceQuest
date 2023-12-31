@@ -151,6 +151,7 @@ export const loginController = generateController(
             profileImage: user.profileImage,
             languages: user.languages,
             hourlyRate: user.hourlyRate,
+            category: user.category,
           },
           token,
         },
@@ -213,6 +214,7 @@ export const getUserMetadataController = generateController(
             profileImage: user.profileImage,
             languages: user.languages,
             hourlyRate: user.hourlyRate,
+            category: user.category,
           },
         },
       }

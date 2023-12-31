@@ -21,7 +21,8 @@ interface ButtonProps {
     | "black"
     | "blue-dark"
     | "grey-transparent"
-    | "grey";
+    | "grey"
+    | "light-grey";
   size?: "sm" | "md";
   onClick?: () => void;
   iconStart?: React.ReactNode | string;
@@ -62,7 +63,7 @@ const Button: React.FC<ButtonProps> = ({
           )}
         </>
       )}
-      <ButtonText className="font-normal font-poppins leading-none">
+      <ButtonText className="font-normal font-inter leading-none">
         {children}
       </ButtonText>
       {iconEnd && (

@@ -78,7 +78,7 @@ const ProfileContainer: React.FC = () => {
                     {user?.firstName} {user?.lastName}
                   </h2>
                   <h6 className="font-montserrat text-xl text-slate-600">
-                    Product Design
+                    {user?.category}
                   </h6>
                   <p className="text-gray-500 text-lg font-normal font-montserrat">
                     Eastern European Time (EET), Cairo UTC +3

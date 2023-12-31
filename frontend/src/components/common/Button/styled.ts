@@ -11,7 +11,8 @@ type ButtonStyledProps = {
     | "black"
     | "blue-dark"
     | "grey-transparent"
-    | "grey";
+    | "grey"
+    | "light-grey";
   size: "sm" | "md";
 };
 
@@ -96,6 +97,14 @@ const generateButton = (variant: string) => {
         font-size: 16px;
         `;
 
+    case "light-grey":
+      return `
+        color:var(--black);
+        background: var(--black60);
+        font-weight: 700;
+        font-size: 16px;
+        `;
+
     default:
       return `
         background: var(--white) 0% 0% no-repeat padding-box;
@@ -173,6 +182,14 @@ const generateHoverStyling = (variant: string) => {
       font-weight: 700;
       font-size: 16px; 
         `;
+
+    case "light-grey":
+      return `
+      color:var(--black);
+      background: var(--black70);
+      font-weight: 700;
+      font-size: 16px;      
+      `;
 
     default:
       return `

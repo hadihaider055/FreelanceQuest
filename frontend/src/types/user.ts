@@ -10,4 +10,11 @@ export type User = {
   profileImage: string;
   hourlyRate: number;
   languages: string[];
+  category: string;
+  address: {
+    country: string;
+    city: string;
+    state: string;
+    zip: number;
+  };
 };
