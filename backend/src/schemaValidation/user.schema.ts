@@ -15,3 +15,7 @@ export const loginUserSchema = joi.object().keys({
 export const getUserMetadataSchema = joi.object().keys({
   email: joi.string().email().required(),
 })
+
+export const updateProfilePictureSchema = joi.object().keys({
+  user_id: joi.string().uuid({ version: 'uuidv4' }),
+})

@@ -1,4 +1,10 @@
+// @ts-nocheck
+
 import { useState } from "react";
+
+// Next
+import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 // React Icons
 import { FaPen } from "react-icons/fa";
@@ -14,6 +20,7 @@ import {
   ProfileContentRight,
   ProfileContentRightHistory,
   ProfileContentRightInfo,
+  UploadProfilePictureLabelStyled,
 } from "./styled";
 
 // Components
@@ -22,13 +29,61 @@ import Button from "@/components/common/Button";
 import ReviewCard from "@/components/common/ReviewCard";
 
 // Utils
-import { useAppSelector } from "@/utils/hooks/store";
-import Image from "next/image";
+import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
+import {
+  deleteProfilePictureThunk,
+  updateProfilePictureThunk,
+} from "@/store/thunks/authThunk";
 
 const ProfileContainer: React.FC = () => {
   const [lineClamp, setLineClamp] = useState(8);
 
-  const { user } = useAppSelector((state) => state.auth);
+  const session = useSession();
+  const dispatch = useAppDispatch();
+
+  const { user, updateProfilePicture, deleteProfilePicture } = useAppSelector(
+    (state) => state.auth
+  );
+
+  const uploadProfilePicture = async (e) => {
+    const fileInput = e.target;
+    const file = fileInput.files[0];
+
+    if (file && session.data) {
+      const res = await dispatch(
+        updateProfilePictureThunk({
+          userId: session.data.user.id,
+          profile_image: file,
+        })
+      ).unwrap();
+
+      session.update(
+        "user",
+        (user) =>
+          (user = {
+            ...user,
+            profileImage: res.profileImage,
+          })
+      );
+    }
+  };
+
+  const handleDeleteProfilePicture = async () => {
+    if (session?.data) {
+      const updated = await dispatch(
+        deleteProfilePictureThunk({ userId: session.data.user.id })
+      ).unwrap();
+
+      session.update(
+        "user",
+        (user) =>
+          (user = {
+            ...user,
+            profileImage: updated?.profileImage,
+          })
+      );
+    }
+  };
 
   return (
     <ProfileContainerStyled>
@@ -76,10 +131,35 @@ const ProfileContainer: React.FC = () => {
 
               <div className="flex items-center gap-14">
                 <div className="btns">
-                  <Button variant="grey">Upload New Photo</Button>
+                  {!updateProfilePicture?.isLoading && (
+                    <input
+                      id="profile-picture-input"
+                      onChange={uploadProfilePicture}
+                      style={{ display: "none" }}
+                      type="file"
+                    />
+                  )}
+                  <UploadProfilePictureLabelStyled for="profile-picture-input">
+                    <Button
+                      isLoading={updateProfilePicture?.isLoading}
+                      disabled={updateProfilePicture?.isLoading}
+                      variant="grey"
+                      size="md"
+                    >
+                      Upload New Photo
+                    </Button>
+                  </UploadProfilePictureLabelStyled>
                 </div>
                 <div className="btns">
-                  <Button variant="grey-transparent">Delete</Button>
+                  <Button
+                    variant="grey-transparent"
+                    onClick={handleDeleteProfilePicture}
+                    disabled={deleteProfilePicture?.isLoading}
+                    isLoading={deleteProfilePicture?.isLoading}
+                    size="md"
+                  >
+                    Delete
+                  </Button>
                 </div>
               </div>
             </div>

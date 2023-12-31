@@ -21,14 +21,11 @@ export const createProposalController = generateController(
       })
 
       if (!jobExist) {
-        raiseException(httpStatus.BAD_REQUEST, 'Job does not exist')
+        raiseException(400, 'Job does not exist')
       }
 
       if (jobExist.posted_by === user_id) {
-        raiseException(
-          httpStatus.BAD_REQUEST,
-          'You cannot submit a proposal to your own job'
-        )
+        raiseException(400, 'You cannot submit a proposal to your own job')
       }
 
       const isSubmitted = await Proposal.findOne({
@@ -39,7 +36,7 @@ export const createProposalController = generateController(
       })
 
       if (isSubmitted) {
-        raiseException(httpStatus.BAD_REQUEST, 'Proposal already submitted')
+        raiseException(400, 'Proposal already submitted')
       }
 
       const proposal = await Proposal.create({
@@ -64,7 +61,7 @@ export const createProposalController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -75,7 +72,7 @@ export const getAllProposalsController = generateController(
       const { userId, jobId } = req.query
 
       if (!userId && !jobId) {
-        raiseException(httpStatus.BAD_REQUEST, 'User or Job id is required')
+        raiseException(400, 'User or Job id is required')
       }
 
       let proposals = []
@@ -88,7 +85,7 @@ export const getAllProposalsController = generateController(
         })
 
         if (!job) {
-          raiseException(httpStatus.BAD_REQUEST, 'Job does not exist')
+          raiseException(400, 'Job does not exist')
         }
       }
 
@@ -100,7 +97,7 @@ export const getAllProposalsController = generateController(
         })
 
         if (!user) {
-          raiseException(httpStatus.BAD_REQUEST, 'User does not exist')
+          raiseException(400, 'User does not exist')
         }
       }
 
@@ -140,7 +137,7 @@ export const getAllProposalsController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
@@ -161,7 +158,7 @@ export const getProposalByIdController = generateController(
       })
 
       if (!proposal) {
-        raiseException(httpStatus.BAD_REQUEST, 'Proposal does not exist')
+        raiseException(400, 'Proposal does not exist')
       }
 
       return {
@@ -179,7 +176,7 @@ export const getProposalByIdController = generateController(
         errorMessage = e.message
       }
 
-      raiseException(httpStatus.BAD_REQUEST, e.message)
+      raiseException(400, e.message)
     }
   }
 )
