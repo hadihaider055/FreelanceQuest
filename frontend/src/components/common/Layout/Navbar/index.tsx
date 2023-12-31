@@ -1,18 +1,42 @@
+import { useState } from "react";
+
 // Next
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
+// React Icons
+import { FaPlay } from "react-icons/fa";
+import { TbMessageBolt } from "react-icons/tb";
+
 // Styled
 import Link from "next/link";
 
 // Components
-import { NavbarProfileImage, NavbarStyled, NavbarWrapper } from "./styled";
+import {
+  NavbarStyled,
+  NavbarWrapper,
+  NavbarSigninArrow,
+  NavbarSigninArrowIcon,
+  NavbarSigninDiv,
+  NavbarSigninDropdown,
+  NavbarSigninName,
+  NavbarSigninProfile,
+  NavbarSigninProfileImg,
+  NavbarSigninProfilePic,
+} from "./styled";
+
+// Utils
+import { useAppSelector } from "@/utils/hooks/store";
 
 // Site Data
-import { NavbarData } from "@/site-data/Navbar";
+import { NavbarData, NavbarDropdownData } from "@/site-data/Navbar";
+import { FaArrowRightToBracket } from "react-icons/fa6";
+import PulseLoading from "../../PulseLoading";
 
 const Navbar: React.FC = () => {
+  const [dropdown, setDropdown] = useState(false);
+  const { user, login } = useAppSelector((state) => state.auth);
   const { status, data } = useSession();
 
   const { push } = useRouter();
@@ -37,14 +61,11 @@ const Navbar: React.FC = () => {
 
         <article className="flex items-center gap-8 font-poppins text-lg text-black hover:text-gray-900">
           {NavbarData.map((item, index) => (
-            <div
-              key={index}
-              className="navbar-border-bottom mx-[8px] relative h-full"
-            >
-              <Link href={item.link} className="">
+            <Link href={item.link} className="" key={index}>
+              <div className="navbar-border-bottom mx-[8px] relative h-full">
                 {item.title}
-              </Link>
-            </div>
+              </div>
+            </Link>
           ))}
         </article>
 
@@ -62,21 +83,62 @@ const Navbar: React.FC = () => {
               </Link>
             </>
           ) : (
-            <div style={{
-              display: "flex"
-            }}>
-              <div
-                className="bg-green-500 rounded-3xl p-2 w-36 flex items-center justify-center text-zinc-50 hover:shadow-lg transition-all ease-in-out duration-300 cursor-pointer"
-                onClick={handleLogout}
-              >
-                Log out
-              </div>
-              <div>
-                <Link href="/account/profile">
-                  <NavbarProfileImage style={{
-                  }} src={data?.user.profileImage} />
-                </Link>
-              </div>
+            <div>
+              {user && (
+                <NavbarSigninDiv>
+                  <Link href="/messages">
+                    <div>
+                      <TbMessageBolt fontSize={26} />
+                    </div>
+                  </Link>
+                  <NavbarSigninProfile onClick={() => setDropdown(!dropdown)}>
+                    <NavbarSigninProfilePic>
+                      <NavbarSigninProfileImg src={user?.profileImage} />
+                    </NavbarSigninProfilePic>
+
+                    {dropdown && (
+                      <NavbarSigninDropdown>
+                        <NavbarSigninArrowIcon>
+                          <FaPlay color="var(--white)" />
+                        </NavbarSigninArrowIcon>
+
+                        <div className="flex flex-col gap-3">
+                          {NavbarDropdownData.map((item, index) => (
+                            <Link key={index} href={item.link}>
+                              <div className="flex items-center gap-2">
+                                <span className="w-5 flex items-center justify-center">
+                                  {item.icon}
+                                </span>
+                                <p
+                                  className={`cursor-pointer font-montserrat text-xs text-black60`}
+                                >
+                                  {item.title}
+                                </p>
+                              </div>
+                            </Link>
+                          ))}
+                          <div
+                            className="flex items-center gap-2"
+                            onClick={handleLogout}
+                          >
+                            <span className="w-5 flex items-center justify-center">
+                              <FaArrowRightToBracket fontSize={14} />
+                            </span>
+                            <p
+                              className={`cursor-pointer font-montserrat text-xs text-black60`}
+                            >
+                              Logout
+                            </p>
+                          </div>
+                        </div>
+                      </NavbarSigninDropdown>
+                    )}
+                  </NavbarSigninProfile>
+                </NavbarSigninDiv>
+              )}
+              {login.isLoading && (
+                <PulseLoading backgroundColor="var(--black60)" />
+              )}
             </div>
           )}
         </article>
