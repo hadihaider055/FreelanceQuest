@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { submitProposal } from "@/store/thunks/proposalThunk";
 import { useSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
+import { getJobByIdThunk } from "@/store/thunks/jobThunk";
 
 const SubmitProposalContainer: React.FC = () => {
     const [coverLetter, setCoverLetter] = useState("");
@@ -16,7 +17,23 @@ const SubmitProposalContainer: React.FC = () => {
     const dispatch = useAppDispatch();
     const session = useSession();
     const params = useSearchParams();
-    
+    const [job, setJob] = useState(null);
+
+    const fetchJob = async (id) => {
+        const res = await dispatch(getJobByIdThunk(id));
+        return res;
+    }
+
+    useEffect(() => {
+        const jobId = params.get('job_id');
+
+        if (jobId) {
+            fetchJob(jobId)
+            .then(res => setJob(res.payload));
+        }
+
+    }, [params])
+
     const cancelAction = () => {
         router.push("/");
     }
@@ -37,10 +54,11 @@ const SubmitProposalContainer: React.FC = () => {
     }
 
     return <>
+        {job &&  
         <SubmitProposalStyled>
             <Container>
                 <br/><br/>
-                <h2>Submit a proposal</h2>
+                <h1>Submit a proposal</h1>
                 <br/>
 
                 <SubmitProposalSection>
@@ -48,22 +66,15 @@ const SubmitProposalContainer: React.FC = () => {
                         <h3>Job details</h3>
                     </div>
                     <div className="submit-proposal-section-body">
-                        <h3>HR Consultant: Career Ladder Development</h3>
+                        <h3>{job.title}</h3>
                         <br/>
                         <SubmitProposalCategoryContainer>
-                            <div>HR</div>
-                            <div>Business Development</div>
+                            {job.skills && job.skills.map(skill => <div>{skill}</div>)}
                         </SubmitProposalCategoryContainer>
                         <br/>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                            Quisquam, repellendus. Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. Quisquam, repellendus. Lorem ipsum dolor sit 
-                            amet consectetur adipisicing elit. Quisquam, repellendus. elit 
-                            Quisquam, repellendus. Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. Quisquam, repellendus. Lorem ipsum dolor sit 
-                            amet consectetur adipisicing elit. Quisquam, repellendus.</p>
+                        <p>{job.description}</p>
                         <br/>
-                        <p><a href="/jobs/123">View job posting</a></p>
+                        <p><a href={`/jobs/${job.id}`}>View job posting</a></p>
                     </div>
                 </SubmitProposalSection>
 
@@ -96,7 +107,7 @@ const SubmitProposalContainer: React.FC = () => {
 
                 <br/><br/><br/><br/>
             </Container>
-        </SubmitProposalStyled>
+        </SubmitProposalStyled>}
     </>
 }
 

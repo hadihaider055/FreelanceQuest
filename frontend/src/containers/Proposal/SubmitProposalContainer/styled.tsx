@@ -17,6 +17,11 @@ export const SubmitProposalStyled = styled.section`
         color: black;
     }
 
+    h1 {
+        font-size: 36px;
+        font-weight: 500;
+    }
+
     h2 {
         font-size: 24px;
         font-weight: 500;
