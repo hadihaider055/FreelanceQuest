@@ -13,5 +13,7 @@ export const Paths = {
     GET_USER_JOBS_FEED: (userId: string) => `/job/user/${userId}`,
     DELETE_PROFILE_PICTURE: (userId: string) =>
       `/user/profile-picture/${userId}`,
+    GET_SUBMITTED_PROPOSALS: (userId: string) => `/proposal/?userId=${userId}`,
+    GET_PROPOSAL_BY_ID: (id: string) => `/proposal/${id}`,
   },
 };
