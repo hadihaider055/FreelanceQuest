@@ -8,6 +8,11 @@ import { Models } from 'model'
 import Chat from './Chat'
 import ChatMember from './ChatMember'
 
+export enum UserRoleEnum {
+  FREELANCER = 'FREELANCER',
+  CLIENT = 'CLIENT',
+}
+
 class User extends Model {
   public id!: string
   public firstName!: string
@@ -26,6 +31,7 @@ class User extends Model {
     state: string
     zip: number
   }
+  public role!: UserRoleEnum
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -107,6 +113,11 @@ User.init(
       type: DataTypes.JSON,
       allowNull: true,
       defaultValue: {},
+    },
+    role: {
+      type: DataTypes.ENUM('FREELANCER', 'CLIENT'),
+      allowNull: false,
+      defaultValue: 'FREELANCER',
     },
   },
   {

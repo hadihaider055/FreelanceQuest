@@ -2,7 +2,7 @@ import { FaArrowRightToBracket } from "react-icons/fa6";
 import { TbSettingsCog } from "react-icons/tb";
 import { VscAccount } from "react-icons/vsc";
 
-export const NavbarData = [
+export const FreelancerNavbarData = [
   {
     title: "Home",
     link: "/",
@@ -10,6 +10,25 @@ export const NavbarData = [
   {
     title: "Find Work",
     link: "/jobs",
+  },
+  {
+    title: "Find Talent",
+    link: "/freelancers",
+  },
+];
+
+export const ClientNavbarData = [
+  {
+    title: "Home",
+    link: "/",
+  },
+  {
+    title: "Post a Job",
+    link: "/client/post-job",
+  },
+  {
+    title: "My Jobs",
+    link: "/client/my-jobs",
   },
   {
     title: "Find Talent",

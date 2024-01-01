@@ -1,3 +1,6 @@
+// Next Auth
+import { signIn, signOut } from "next-auth/react";
+
 // Redux
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "..";
@@ -8,10 +11,12 @@ import axios, { AxiosError } from "axios";
 // Swal
 import Swal from "sweetalert2";
 
-// Cookies Next
-import { signIn, signOut } from "next-auth/react";
+// Utils
 import axiosInstances from "@/config/axios";
 import { Paths } from "@/config/Paths";
+
+// Types
+import { UserRoleEnum } from "@/types/user";
 
 type LoginThunkArgs = {
   email: string;
@@ -48,15 +53,16 @@ export const loginThunk = createAsyncThunk(
   }
 );
 
-type FreelancerSignupArgs = {
+type SignupArgs = {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
+  role: UserRoleEnum;
 };
-export const freelancerSignupThunk = createAsyncThunk(
-  "auth/freelancers-signup",
-  async (args: FreelancerSignupArgs, { getState, dispatch }) => {
+export const signupThunk = createAsyncThunk(
+  "auth/signup",
+  async (args: SignupArgs, { getState, dispatch }) => {
     try {
       const user = await axiosInstances.default.post(
         Paths.default.SIGNUP,

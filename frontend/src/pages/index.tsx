@@ -8,8 +8,8 @@ import useAuth from "@/utils/hooks/useAuth";
 
 export default function Home() {
   useAuth({
-    redirectTo: "/login",
-    redirectOn: "logout",
+    redirectTo: "",
+    redirectOn: "",
   });
   return <main>Hello World</main>;
 }

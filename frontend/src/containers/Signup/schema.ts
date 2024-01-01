@@ -3,7 +3,10 @@ import * as yup from "yup";
 // Utils
 import { getCharacterValidationError } from "@/utils/functions/getCharacterValidation";
 
-const loginSchema = yup.object().shape({
+// Types
+import { UserRoleEnum } from "@/types/user";
+
+const signupSchema = yup.object().shape({
   firstName: yup.string().required("Last name is required"),
   lastName: yup.string().required("First name is required"),
   email: yup.string().email().required("Email is required"),
@@ -17,6 +20,10 @@ const loginSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password")], "Passwords does not match"),
+  role: yup
+    .string()
+    .required("Role is required")
+    .oneOf(Object.values(UserRoleEnum)),
 });
 
-export default loginSchema;
+export default signupSchema;

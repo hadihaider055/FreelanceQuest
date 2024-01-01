@@ -13,16 +13,18 @@ import { useRouter } from "next/router";
 import { FacebookIcon, GoogleIcon } from "@/components/icons";
 import Input from "@/components/FormElements/Input/UncontrolledInput";
 import Button from "@/components/common/Button";
+import Select from "@/components/FormElements/Select";
 
 // Styled
 import { SignupStyled } from "./styled";
 
 // Schema
-import loginSchema from "./schema";
+import signupSchema from "./schema";
 
 // Utils
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
-import { freelancerSignupThunk, loginThunk } from "@/store/thunks/authThunk";
+import { signupThunk, loginThunk } from "@/store/thunks/authThunk";
+import { UserRoleEnum } from "@/types/user";
 
 type FormValues = {
   firstName: string;
@@ -30,18 +32,22 @@ type FormValues = {
   email: string;
   password: string;
   confirmPassword?: string;
+  role: UserRoleEnum;
 };
 
-const FreelancerSignupContainer = () => {
+const SignupContainer = () => {
   const [remember, SetRemember] = useState(false);
+  const [role, setRole] = useState("");
 
-  const { push } = useRouter();
+  const { push, asPath, pathname, query } = useRouter();
+
+  console.log(" asPath, pathname, query", asPath, pathname, query);
 
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector((state) => state.auth.signup);
 
   const form = useForm<FormValues>({
-    resolver: yupResolver(loginSchema),
+    resolver: yupResolver(signupSchema),
   });
 
   const {
@@ -51,13 +57,16 @@ const FreelancerSignupContainer = () => {
 
   const onSubmit = async (values: FormValues) => {
     const res = await dispatch(
-      freelancerSignupThunk({
+      signupThunk({
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
         password: values.password,
+        role: values.role,
       })
     ).unwrap();
+
+    console.log("Res", res);
 
     push("/account/profile");
   };
@@ -173,6 +182,25 @@ const FreelancerSignupContainer = () => {
                     error={errors?.email?.message}
                   />
                 </div>
+                <div className="w-full">
+                  <Select
+                    id="role"
+                    options={[
+                      {
+                        label: "Freelancer",
+                        value: UserRoleEnum.FREELANCER,
+                      },
+                      {
+                        label: "Client",
+                        value: UserRoleEnum.CLIENT,
+                      },
+                    ]}
+                    initialValue={UserRoleEnum.FREELANCER}
+                    disabled={false}
+                    required
+                    marginBottom={21}
+                  />
+                </div>
                 <div>
                   <Input
                     id="password"
@@ -219,4 +247,4 @@ const FreelancerSignupContainer = () => {
   );
 };
 
-export default FreelancerSignupContainer;
+export default SignupContainer;

@@ -48,7 +48,6 @@ export const ProfileContentRightHistory = styled.div`
 `;
 
 export const UploadProfilePictureLabelStyled = styled.label`
-  cursor: pointer;
   position: relative;
   transition: ease-out all 0.3s;
   display: flex;
