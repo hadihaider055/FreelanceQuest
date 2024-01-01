@@ -28,7 +28,7 @@ import { deleteFile, uploadFile } from '../config/s3'
 export const signupController = generateController(
   async (req, res, raiseException) => {
     try {
-      const { email, password, firstName, lastName } = req.body
+      const { email, password, firstName, lastName, role } = req.body
 
       const isExist = await User.findOne({
         where: {
@@ -45,6 +45,7 @@ export const signupController = generateController(
         lastName,
         email,
         password: bcrypt.hashSync(password, 10),
+        role,
       })
 
       await user.save()
@@ -120,6 +121,7 @@ export const loginController = generateController(
             languages: user.languages,
             hourlyRate: user.hourlyRate,
             category: user.category,
+            role: user.role,
           },
           token,
         },
@@ -183,6 +185,7 @@ export const getUserMetadataController = generateController(
             languages: user.languages,
             hourlyRate: user.hourlyRate,
             category: user.category,
+            role: user?.role,
           },
         },
       }

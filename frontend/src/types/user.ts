@@ -17,4 +17,10 @@ export type User = {
     state: string;
     zip: number;
   };
+  role: UserRoleEnum;
 };
+
+export enum UserRoleEnum {
+  FREELANCER = "FREELANCER",
+  CLIENT = "CLIENT",
+}

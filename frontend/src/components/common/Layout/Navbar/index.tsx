@@ -4,15 +4,17 @@ import { useState } from "react";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 // React Icons
 import { FaPlay } from "react-icons/fa";
 import { TbMessageBolt } from "react-icons/tb";
-
-// Styled
-import Link from "next/link";
+import { FaArrowRightToBracket } from "react-icons/fa6";
 
 // Components
+import PulseLoading from "../../PulseLoading";
+
+// Styled
 import {
   NavbarStyled,
   NavbarWrapper,
@@ -27,24 +29,32 @@ import {
 } from "./styled";
 
 // Utils
-import { useAppSelector } from "@/utils/hooks/store";
+import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
+import { UserRoleEnum } from "@/types/user";
+import { logoutUser } from "@/store/slices/authSlice";
 
 // Site Data
-import { NavbarData, NavbarDropdownData } from "@/site-data/Navbar";
-import { FaArrowRightToBracket } from "react-icons/fa6";
-import PulseLoading from "../../PulseLoading";
+import {
+  ClientNavbarData,
+  FreelancerNavbarData,
+  NavbarDropdownData,
+} from "@/site-data/Navbar";
 
 const Navbar: React.FC = () => {
   const [dropdown, setDropdown] = useState(false);
   const { user, login } = useAppSelector((state) => state.auth);
   const { status, data } = useSession();
 
+  const dispatch = useAppDispatch();
+
   const { push } = useRouter();
 
   const handleLogout = async () => {
     await signOut({ redirect: false, callbackUrl: "/" });
+    dispatch(logoutUser());
     push("/");
   };
+
   return (
     <NavbarStyled>
       <NavbarWrapper>
@@ -60,7 +70,10 @@ const Navbar: React.FC = () => {
         </article>
 
         <article className="flex items-center gap-8 font-poppins text-lg text-black hover:text-gray-900">
-          {NavbarData.map((item, index) => (
+          {(user?.role === UserRoleEnum.CLIENT
+            ? ClientNavbarData
+            : FreelancerNavbarData
+          ).map((item, index) => (
             <Link href={item.link} className="" key={index}>
               <div className="navbar-border-bottom mx-[8px] relative h-full">
                 {item.title}

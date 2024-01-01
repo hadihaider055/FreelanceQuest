@@ -2,13 +2,13 @@ import cors from 'cors'
 import express, { ErrorRequestHandler, Request, Response } from 'express'
 import helmet from 'helmet'
 import morgan from 'morgan'
-import expressWs from "express-ws";
+import expressWs from 'express-ws'
 
 // Init express
 const app = express()
 
 // Init express-ws
-const appWs = expressWs(app);
+const appWs = expressWs(app)
 
 // Impot base router after initiating websockets, otherwise typescript will throw error
 import BaseRouter from './routes'
@@ -54,7 +54,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/v1', BaseRouter)
 
 app.use('/', (req: Request, res: Response) =>
-  res.status(200).send('Welcome to the backend of Freelancing Platform!')
+  res.status(200).send('Welcome to the backend of FreelanceQuest!')
 )
 /**
  * Catch API errors throughout the application
