@@ -113,6 +113,12 @@ export const getAllProposalsController = generateController(
           where: {
             user_id: userId,
           },
+          include: [
+            {
+              model: Job,
+              attributes: ['title']
+            }
+          ]
         })
       } else {
         proposals = await Proposal.findAll({

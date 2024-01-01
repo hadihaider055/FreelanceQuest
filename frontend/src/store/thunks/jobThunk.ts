@@ -68,3 +68,25 @@ export const getUserJobFeedThunk = createAsyncThunk(
     }
   }
 );
+
+export const getJobByIdThunk = createAsyncThunk(
+  "job/get-by-id",
+  async (id: string, { dispatch }) => {
+    try {
+      const res = await axiosInstances.default.get(
+        Paths.default.GET_JOB_BY_ID(id)
+      );
+      const job = res.data.payload.job;
+      return job;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to fetch job";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);

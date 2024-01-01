@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import ChatList from "@/containers/ChatList";
+import ChatList from "../ChatList";
 import ChatBox from "../ChatBox";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";

@@ -109,7 +109,7 @@ const JobModal: React.FC<JobModalProps> = ({ onClose, data }) => {
           </div>
 
           <div className="button">
-            <Link href={`/proposal/submit?job_id=${data.id}`}>
+            <Link href={`/proposals/submit?job_id=${data.id}`}>
               <Button variant="black">Apply Now</Button>
             </Link>
           </div>

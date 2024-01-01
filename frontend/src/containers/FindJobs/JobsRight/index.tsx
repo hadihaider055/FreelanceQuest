@@ -14,11 +14,28 @@ import Button from "@/components/common/Button";
 import Tag from "@/components/common/Tag";
 
 // Utils
-import { useAppSelector } from "@/utils/hooks/store";
+import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
+import { useSession } from "next-auth/react";
+import { getSubmittedProposals } from "@/store/thunks/proposalThunk";
 
 const JobsLeft = () => {
   const { user } = useAppSelector((state) => state.auth);
   const [sticky, setSticky] = useState(false);
+  const session = useSession();
+  const dispatch = useAppDispatch();
+  const [proposalsSubmitted, setProposalsSubmitted] = useState(0);
+
+  const handleFetchProposals = async (userId: string) => {
+    const res = await dispatch(getSubmittedProposals(userId));
+    return res;
+  }
+
+  useEffect(() => {
+    if (session?.data?.user.id) {
+        handleFetchProposals(session.data.user.id)
+        .then(res => setProposalsSubmitted(res.payload.length));
+    }
+  }, [session])
 
   const handlePositionSticky = () => {
     if (window.scrollY > 110) {
@@ -83,7 +100,7 @@ const JobsLeft = () => {
             </h3>
             <Link href="/proposals">
               <p className="font-inter text-green-600 text-xs font-medium hover:underline">
-                2 Submitted Proposal
+                {proposalsSubmitted} Submitted Proposal{proposalsSubmitted > 1 && "s"}
               </p>
             </Link>
           </div>
