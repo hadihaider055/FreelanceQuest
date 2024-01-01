@@ -24,7 +24,7 @@ export const ClientNavbarData = [
   },
   {
     title: "Post a Job",
-    link: "/client/post-job",
+    link: "/post-job",
   },
   {
     title: "My Jobs",

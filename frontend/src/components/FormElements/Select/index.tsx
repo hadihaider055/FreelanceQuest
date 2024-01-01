@@ -5,7 +5,12 @@ import { useFormContext } from "react-hook-form";
 import { IoChevronDownOutline } from "react-icons/io5";
 
 // Styled
-import { SelectWrapper, SelectButtonStyled, SelectStyled } from "./styled";
+import {
+  SelectWrapper,
+  SelectButtonStyled,
+  SelectStyled,
+  SelectContainerStyled,
+} from "./styled";
 
 export type Option = {
   value: string;
@@ -83,52 +88,55 @@ const Select: React.FC<SelectProps> = ({
   const activeOption = options.find((opt) => opt.value === activeValue);
 
   return (
-    <SelectWrapper
-      marginBottom={marginBottom}
-      className="text-small-normal font-poppins text-sm font-normal"
-    >
+    <SelectContainerStyled>
       {label && (
         <label htmlFor={id} className="label">
-          <span className="text text-mdsm">{label}</span>
-          {required && <i className="icon"></i>}
+          <span className="font-inter text-md">{label}</span>
         </label>
       )}
-      <SelectButtonStyled
-        className="text-small-normal font-poppins text-sm font-normal text-[#5A5A5A]"
-        onClick={() => setDropOpen((prev) => !prev)}
-        onBlur={onBlurHandler}
-        type="button"
-        disabled={disabled}
+      <SelectWrapper
+        marginBottom={marginBottom}
+        className="text-small-normal font-inter text-sm font-normal"
       >
-        <span className="text">{activeOption?.label || initialValue}</span>
-        <i className="icon">
-          <IoChevronDownOutline />
-        </i>
-      </SelectButtonStyled>
-      <SelectStyled className={`drop-down-container ${dropOpen ? "open" : ""}`}>
-        {dropOpen && (
-          <div className="drop-down shadow-2xl">
-            {options.map((opt) => {
-              return (
-                <div
-                  className="item text-md"
-                  onClick={() => {
-                    setActiveValue(opt.value);
-                    setDropOpen(false);
-                  }}
-                  id={`${id}-option`}
-                  tabIndex={0}
-                  key={opt.value}
-                >
-                  {opt.label}
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </SelectStyled>
-      {error && <div className="error ">{error}</div>}
-    </SelectWrapper>
+        <SelectButtonStyled
+          className="text-small-normal font-inter text-sm font-normal text-[#5A5A5A]"
+          onClick={() => setDropOpen((prev) => !prev)}
+          onBlur={onBlurHandler}
+          type="button"
+          disabled={disabled}
+        >
+          <span className="text">{activeOption?.label || initialValue}</span>
+          <i className="icon">
+            <IoChevronDownOutline />
+          </i>
+        </SelectButtonStyled>
+        <SelectStyled
+          className={`drop-down-container ${dropOpen ? "open" : ""}`}
+        >
+          {dropOpen && (
+            <div className="drop-down shadow-2xl">
+              {options.map((opt) => {
+                return (
+                  <div
+                    className="item text-md"
+                    onClick={() => {
+                      setActiveValue(opt.value);
+                      setDropOpen(false);
+                    }}
+                    id={`${id}-option`}
+                    tabIndex={0}
+                    key={opt.value}
+                  >
+                    {opt.label}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </SelectStyled>
+        {error && <div className="error ">{error}</div>}
+      </SelectWrapper>
+    </SelectContainerStyled>
   );
 };
 
