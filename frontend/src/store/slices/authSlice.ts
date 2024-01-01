@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // Thunks
 import {
   deleteProfilePictureThunk,
-  freelancerSignupThunk,
+  signupThunk,
   loginThunk,
   logoutThunk,
   updateProfilePictureThunk,
@@ -71,13 +71,13 @@ const authSlice = createSlice({
     });
 
     // Signup
-    builder.addCase(freelancerSignupThunk.pending, (state) => {
+    builder.addCase(signupThunk.pending, (state) => {
       state.signup = {
         ...initialActionTracker,
         isLoading: true,
       };
     });
-    builder.addCase(freelancerSignupThunk.fulfilled, (state, { payload }) => {
+    builder.addCase(signupThunk.fulfilled, (state, { payload }) => {
       state.signup = {
         ...initialActionTracker,
         isSuccess: true,
@@ -85,7 +85,7 @@ const authSlice = createSlice({
       };
     });
 
-    builder.addCase(freelancerSignupThunk.rejected, (state, { error }) => {
+    builder.addCase(signupThunk.rejected, (state, { error }) => {
       state.signup = {
         ...initialActionTracker,
         errorMessage: error.message || "",

@@ -6,7 +6,7 @@ import Head from "next/head";
 // Utils
 import useAuth from "@/utils/hooks/useAuth";
 import { useSession } from "next-auth/react";
-import FreelancerSignupContainer from "@/containers/FreelancerSignup";
+import SignupContainer from "@/containers/Signup";
 
 const FreelancerSignup = () => {
   useAuth({
@@ -24,7 +24,7 @@ const FreelancerSignup = () => {
         <title>FreelanceQuest - Signup</title>
       </Head>
       <>
-        <FreelancerSignupContainer />
+        <SignupContainer />
       </>
     </>
   );

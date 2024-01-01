@@ -119,6 +119,7 @@ export const authOptions: NextAuthOptions = {
           hourlyRate: user?.hourlyRate ?? 0,
           languages: user?.languages ?? [],
           category: user?.category ?? "",
+          role: user?.role ?? "",
         },
       };
     },

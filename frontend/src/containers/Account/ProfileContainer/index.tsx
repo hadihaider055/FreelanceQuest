@@ -139,7 +139,14 @@ const ProfileContainer: React.FC = () => {
                       type="file"
                     />
                   )}
-                  <UploadProfilePictureLabelStyled for="profile-picture-input">
+                  <UploadProfilePictureLabelStyled
+                    for="profile-picture-input"
+                    className={
+                      updateProfilePicture?.isLoading
+                        ? "cursor-not-allowed"
+                        : "cursor-pointer"
+                    }
+                  >
                     <Button
                       isLoading={updateProfilePicture?.isLoading}
                       disabled={updateProfilePicture?.isLoading}
