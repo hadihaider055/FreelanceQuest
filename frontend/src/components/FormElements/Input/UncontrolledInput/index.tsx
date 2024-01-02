@@ -25,6 +25,8 @@ const Input: React.FC<InputBaseProps> = ({
   inputClass,
   disabled,
   button,
+  maxLength,
+  minLength,
   ...props
 }) => {
   const { register, setFocus } = useFormContext();
@@ -41,16 +43,17 @@ const Input: React.FC<InputBaseProps> = ({
       lowercase={lowercase}
       onClick={activeInput}
       disabled={disabled}
+      type={type}
     >
       {label && <label id={id}>{label}</label>}
       <div
-        className={`input-container relative ${error ? "border-error" : ""}`}
+        className={`input-container relative  ${error ? "border-error" : ""}`}
         tabIndex={1}
       >
         <input
           type={type === "password" && passwordVisible ? "text" : type}
           id={id}
-          className={`input text-small-normal font-poppins text-sm font-normal text-[#5A5A5A] ${
+          className={`input text-small-normal text-gray-900  ${
             type === "password" ? "pr-[45px] px-6 py-[19px]" : "px-6 py-[19px]"
           } ${inputClass || ""}`}
           disabled={disabled}
@@ -78,10 +81,14 @@ const Input: React.FC<InputBaseProps> = ({
           </>
         )}
         {preInputText && <span className="pre-input-text">{preInputText}</span>}
-        {postInputText && (
-          <span className="post-input-text">{postInputText}</span>
-        )}
       </div>
+      {(postInputText || minLength || maxLength) && (
+        <span className="post-input-text flex justify-end">
+          {postInputText ||
+            (minLength && `Min ${minLength}`) ||
+            (maxLength && `Max ${maxLength}`)}
+        </span>
+      )}
       {!helperText && error && typeof error === "string" && (
         <p className="error  mt-1 font-inter text-xs font-light text-red-500">
           {error}

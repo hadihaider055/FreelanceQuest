@@ -1,13 +1,13 @@
 import { ReactElement, ReactNode, useEffect, useState } from "react";
 
-// Lottie
-import { Player } from "@lottiefiles/react-lottie-player";
-import Loader from "../../public/images/loader.json";
-
 // Next
 import { NextComponentType, NextPage } from "next";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
+
+// Lottie
+import { Player } from "@lottiefiles/react-lottie-player";
+import Loader from "../../public/images/loader.json";
 
 // Next Auth
 import { type Session } from "next-auth";
@@ -37,11 +37,9 @@ export default function App({
   Component,
   pageProps: { session, ...pageProps },
 }: AppPropsWithLayout) {
-  const getLayout = Component.getLayout ?? ((page) => page);
-
-  const [loading, setLoading] = useState(false);
-
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const getLayout = Component.getLayout ?? ((page) => page);
 
   useEffect(() => {
     const handleStart = (url: string) => {

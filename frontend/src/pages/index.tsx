@@ -11,6 +11,7 @@ export default function Home() {
     redirectTo: "",
     redirectOn: "",
   });
+
   return <main>Hello World</main>;
 }
 

@@ -37,6 +37,7 @@ import { logoutUser } from "@/store/slices/authSlice";
 import {
   ClientNavbarData,
   FreelancerNavbarData,
+  NavbarData,
   NavbarDropdownData,
 } from "@/site-data/Navbar";
 
@@ -70,7 +71,9 @@ const Navbar: React.FC = () => {
         </article>
 
         <article className="flex items-center gap-8 font-poppins text-lg text-black hover:text-gray-900">
-          {(user?.role === UserRoleEnum.CLIENT
+          {(!user
+            ? NavbarData
+            : user?.role === UserRoleEnum.CLIENT
             ? ClientNavbarData
             : FreelancerNavbarData
           ).map((item, index) => (
@@ -149,7 +152,7 @@ const Navbar: React.FC = () => {
                   </NavbarSigninProfile>
                 </NavbarSigninDiv>
               )}
-              {login.isLoading && (
+              {(login.isLoading || status === "loading") && (
                 <PulseLoading backgroundColor="var(--black60)" />
               )}
             </div>
