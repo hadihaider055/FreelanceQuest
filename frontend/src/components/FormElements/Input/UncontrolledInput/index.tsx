@@ -59,7 +59,7 @@ const Input: React.FC<InputBaseProps> = ({
         <input
           type={type === "password" && passwordVisible ? "text" : type}
           id={id}
-          className={`input text-small-normal  text-sm font-normal text-[#5A5A5A] ${
+          className={`input text-small-normal  text-sm font-normal ${
             type === "password" ? "pr-[45px] px-6 py-[19px]" : "px-6 py-[19px]"
           } ${inputClass || ""}`}
           disabled={disabled}

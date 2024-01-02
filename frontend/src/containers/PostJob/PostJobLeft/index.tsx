@@ -22,25 +22,40 @@ import CheckboxSwitch from "@/components/FormElements/Switch";
 // Schema
 import { postJobSchema } from "./schema";
 
+// Site data
+import { JobCategoriesData } from "@/site-data/JobCategories";
+import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
+import { createJobThunk } from "@/store/thunks/jobThunk";
+import { JobTypeStatusEnum } from "@/types/job";
+import { useRouter } from "next/router";
+
 type FormValues = {
   title: string;
   description: string;
   price: string;
   category: string;
-  skills: string[];
+  skills: string;
   type: string;
 };
 
 const PostJobLeft: React.FC = () => {
   const [featured, setFeatured] = useState(false);
 
+  const { push } = useRouter();
+
+  const dispatch = useAppDispatch();
+  const { isLoading } = useAppSelector((state) => state.job.createJob);
+
   const form = useForm<FormValues>({
     resolver: yupResolver(postJobSchema),
   });
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
-    console.log(values);
+    const res = await dispatch(
+      createJobThunk({ ...values, featured })
+    ).unwrap();
   };
+
   return (
     <PostJobLeftStyled className="w-full">
       <div className="flex items-center justify-center">
@@ -57,6 +72,7 @@ const PostJobLeft: React.FC = () => {
               required
               placeholder="Enter job title"
               mb={24}
+              disabled={isLoading}
             />
           </div>
           <div>
@@ -74,7 +90,13 @@ const PostJobLeft: React.FC = () => {
               <h6 className="font-inter text-md mb-2">Type</h6>
               <div className="flex gap-3 flex-col">
                 <div className="flex items-center gap-2">
-                  <Input id="type" type="radio" name="type" />
+                  <Input
+                    id="type"
+                    type="radio"
+                    name="type"
+                    value={JobTypeStatusEnum.HOURLY}
+                    disabled={isLoading}
+                  />
                   <span className="font-inter text-sm flex items-center gap-2">
                     Hourly rate
                     <i>
@@ -83,7 +105,13 @@ const PostJobLeft: React.FC = () => {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Input id="type" type="radio" name="type" />
+                  <Input
+                    id="type"
+                    type="radio"
+                    name="type"
+                    value={JobTypeStatusEnum.FIXED_PRICE}
+                    disabled={isLoading}
+                  />
                   <span className="font-inter text-sm flex items-center gap-2">
                     Fixed price
                     <i className="w-3">
@@ -102,6 +130,7 @@ const PostJobLeft: React.FC = () => {
                 placeholder="Enter Price"
                 mb={24}
                 type="number"
+                disabled={isLoading}
               />
             </article>
 
@@ -109,18 +138,7 @@ const PostJobLeft: React.FC = () => {
               <Select
                 id="category"
                 required
-                options={[
-                  { value: "web-dev", label: "Web Development" },
-                  { value: "mobile-dev", label: "Mobile Development" },
-                  { value: "design", label: "Design" },
-                  { value: "marketing", label: "Marketing" },
-                  { value: "sales", label: "Sales" },
-                  { value: "customer-support", label: "Customer Support" },
-                  { value: "writing", label: "Writing" },
-                  { value: "it-networking", label: "IT & Networking" },
-                  { value: "accounting", label: "Accounting" },
-                  { value: "legal", label: "Legal" },
-                ]}
+                options={JobCategoriesData}
                 disabled={false}
                 label="Category"
               />
@@ -158,6 +176,7 @@ const PostJobLeft: React.FC = () => {
                 id="featured"
                 checked={featured}
                 checkedChanged={() => setFeatured(!featured)}
+                disabled={isLoading}
               />
               <span className="font-inter text-sm">
                 Feature this job for $16.99
@@ -166,7 +185,13 @@ const PostJobLeft: React.FC = () => {
           </article>
 
           <div>
-            <Button variant="grey" size="md" type="submit">
+            <Button
+              variant="grey"
+              size="md"
+              type="submit"
+              disabled={isLoading}
+              isLoading={isLoading}
+            >
               Post Job
             </Button>
           </div>

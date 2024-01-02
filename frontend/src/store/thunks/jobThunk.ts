@@ -94,18 +94,27 @@ export const getJobByIdThunk = createAsyncThunk(
 type CreateJobThunkArgs = {
   title: string;
   description: string;
-  price: number;
+  price: string;
   category: string;
-  featured: boolean;
-  skills: string[];
+  skills: string;
   type: string;
+  featured: boolean;
 };
 
 export const createJobThunk = createAsyncThunk(
   "job/create",
-  async (args: CreateJobThunkArgs, { dispatch }) => {
+  async (args: CreateJobThunkArgs, { dispatch, getState }) => {
+    const state = getState() as RootState;
+    if (!state.auth.user) {
+      throw new Error("No user found");
+    }
+
     try {
-      const res = await axiosInstances.default.get(Paths.default.CREATE_JOB);
+      const res = await axiosInstances.default.post(Paths.default.CREATE_JOB, {
+        ...args,
+        posted_by: state.auth.user.id,
+        skills: ["React", "Node", "Express"],
+      });
 
       const job = res.data.payload.job;
 
