@@ -9,6 +9,13 @@ This repo is for our database management system (DBMS) course project. The proje
 - Payment processing.
 - Messaging between users.
 
+### Project Structure
+
+| Codebase              |      Description          |
+| :-------------------- | :-----------------------: |
+| [Backend](backend)    |      Express.js API       |
+| [Frontend](frontend)  |      Next.js Frontend     |
+
 ## Running the Project with Docker
 
 This project is Dockerized. Follow the steps below to build and run the project using Docker.
