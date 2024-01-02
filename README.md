@@ -19,7 +19,7 @@ Before proceeding, make sure you have Docker installed on your machine. If not, 
 
 ### Build the Docker Image
 
-Use the following command to build the Docker image locally:
+Use the following command to build the Docker images (for frontend and backend) locally:
 
 ```bash
 make build
@@ -27,7 +27,7 @@ make build
 
 ### Run the Docker Container
 
-Once the image is built, you can run the Docker container with the following command:
+Once the images are built, you can run the Docker containers with the following command:
 
 ```bash
 make run
