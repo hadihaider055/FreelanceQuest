@@ -90,3 +90,35 @@ export const getJobByIdThunk = createAsyncThunk(
     }
   }
 );
+
+type CreateJobThunkArgs = {
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  featured: boolean;
+  skills: string[];
+  type: string;
+};
+
+export const createJobThunk = createAsyncThunk(
+  "job/create",
+  async (args: CreateJobThunkArgs, { dispatch }) => {
+    try {
+      const res = await axiosInstances.default.get(Paths.default.CREATE_JOB);
+
+      const job = res.data.payload.job;
+
+      return job;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to fetch job";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);

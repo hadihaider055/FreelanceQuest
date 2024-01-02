@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 // React Icons
 import { LuClock } from "react-icons/lu";
+import { IoDiamondOutline } from "react-icons/io5";
 
 // React Hook Form
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // Styled
@@ -16,6 +17,7 @@ import Textarea from "@/components/FormElements/Textarea";
 import { DollarTagIcon } from "@/components/icons";
 import Select from "@/components/FormElements/Select";
 import Button from "@/components/common/Button";
+import CheckboxSwitch from "@/components/FormElements/Switch";
 
 // Schema
 import { postJobSchema } from "./schema";
@@ -23,18 +25,22 @@ import { postJobSchema } from "./schema";
 type FormValues = {
   title: string;
   description: string;
-  price: number;
+  price: string;
   category: string;
-  featured: boolean;
   skills: string[];
   type: string;
-  duration: number;
 };
 
 const PostJobLeft: React.FC = () => {
+  const [featured, setFeatured] = useState(false);
+
   const form = useForm<FormValues>({
     resolver: yupResolver(postJobSchema),
   });
+
+  const onSubmit: SubmitHandler<FormValues> = async (values) => {
+    console.log(values);
+  };
   return (
     <PostJobLeftStyled className="w-full">
       <div className="flex items-center justify-center">
@@ -43,7 +49,7 @@ const PostJobLeft: React.FC = () => {
         </h1>
       </div>
       <FormProvider {...form}>
-        <form>
+        <form onSubmit={form.handleSubmit(onSubmit)}>
           <div>
             <Input
               id="title"
@@ -59,6 +65,7 @@ const PostJobLeft: React.FC = () => {
               label="Description"
               required
               placeholder="Enter job title"
+              maxLength={5000}
             />
           </div>
 
@@ -94,6 +101,7 @@ const PostJobLeft: React.FC = () => {
                 required
                 placeholder="Enter Price"
                 mb={24}
+                type="number"
               />
             </article>
 
@@ -129,8 +137,36 @@ const PostJobLeft: React.FC = () => {
             />
           </div>
 
+          <article className="flex flex-col gap-3 my-10">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-3">
+                <span className="text-[#384D6C]">
+                  <IoDiamondOutline />
+                </span>
+                <p className="font-inter text-[#384D6C] text-md">
+                  Boost your jobs visibility
+                </p>
+              </div>
+              <p className="font-inter text-sm">
+                We&apos;ll feature your job and promote it to top talent on the
+                platform.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <CheckboxSwitch
+                id="featured"
+                checked={featured}
+                checkedChanged={() => setFeatured(!featured)}
+              />
+              <span className="font-inter text-sm">
+                Feature this job for $16.99
+              </span>
+            </div>
+          </article>
+
           <div>
-            <Button variant="grey" size="md">
+            <Button variant="grey" size="md" type="submit">
               Post Job
             </Button>
           </div>

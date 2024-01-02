@@ -70,7 +70,7 @@ const Textarea: React.FC<TextareaProps> = ({
       <textarea
         id={id}
         placeholder={placeholder}
-        className="textarea text-md"
+        className="textarea text-md text-small-normal  text-sm font-normal text-[#5A5A5A]"
         onChange={(e) => {
           setValue(e.target.value);
           onChange(e);
@@ -80,8 +80,6 @@ const Textarea: React.FC<TextareaProps> = ({
         maxLength={maxLength}
         defaultValue={defaultValue}
       ></textarea>
-      {inputIcon && <span className="input-icon">{inputIcon}</span>}
-      {inputGuide && <p className="input-guide">{inputGuide}</p>}
       {error && <div className="error">{error}</div>}
       {count && <span className="bio-text text-sm">{value?.length}</span>}
     </TextareaWrapper>

@@ -40,32 +40,6 @@ export const TextareaWrapper = styled.div<TextareaWrapperProps>`
     padding: 19px 24px;
   }
 
-  .input-icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    border-radius: 50%;
-    right: 0;
-    top: 0;
-    margin-top: 19px;
-    margin-right: 22px;
-  }
-
-  .input-guide {
-    font-family: "Rubik", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.02em;
-    // font-feature-settings: 'tnum' on, 'lnum' on, 'zero' on;
-    color: #8e909b;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: translateY(calc(100% + 15px));
-  }
-
   .error {
     color: var(--red);
     margin-top: 4px;
@@ -74,8 +48,8 @@ export const TextareaWrapper = styled.div<TextareaWrapperProps>`
   .bio-text {
     color: rgba(35, 35, 35, 0.4);
     position: absolute;
-    right: 0;
+    right: 4px;
     margin-top: 10px;
-    bottom: 0;
+    bottom: 24px;
   }
 `;
