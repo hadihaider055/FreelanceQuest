@@ -8,10 +8,6 @@ export const NavbarData = [
     link: "/",
   },
   {
-    title: "Find Work",
-    link: "/jobs?type=feed",
-  },
-  {
     title: "Find Talent",
     link: "/freelancers",
   },
