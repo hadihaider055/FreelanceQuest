@@ -45,21 +45,15 @@ const Input: React.FC<InputBaseProps> = ({
       disabled={disabled}
       type={type}
     >
-      {label && (
-        <label id={id} className="font-inter text-md">
-          {label}
-        </label>
-      )}
+      {label && <label id={id}>{label}</label>}
       <div
-        className={`input-container relative  font-inter ${
-          error ? "border-error" : ""
-        }`}
+        className={`input-container relative  ${error ? "border-error" : ""}`}
         tabIndex={1}
       >
         <input
           type={type === "password" && passwordVisible ? "text" : type}
           id={id}
-          className={`input text-small-normal  text-sm font-normal ${
+          className={`input text-small-normal text-gray-900  ${
             type === "password" ? "pr-[45px] px-6 py-[19px]" : "px-6 py-[19px]"
           } ${inputClass || ""}`}
           disabled={disabled}

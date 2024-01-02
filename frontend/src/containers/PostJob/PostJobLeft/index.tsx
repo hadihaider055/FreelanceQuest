@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 
+// React Hot Toast
+import toast, { Toaster } from "react-hot-toast";
+
 // React Icons
 import { LuClock } from "react-icons/lu";
 import { IoDiamondOutline } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
 
 // React Hook Form
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
@@ -13,6 +17,7 @@ import { PostJobLeftStyled } from "./styled";
 
 // Components
 import Input from "@/components/FormElements/Input/UncontrolledInput";
+import InputControlled from "@/components/FormElements/Input/ControlledInput";
 import Textarea from "@/components/FormElements/Textarea";
 import { DollarTagIcon } from "@/components/icons";
 import Select from "@/components/FormElements/Select";
@@ -34,12 +39,13 @@ type FormValues = {
   description: string;
   price: string;
   category: string;
-  skills: string;
   type: string;
 };
 
 const PostJobLeft: React.FC = () => {
   const [featured, setFeatured] = useState(false);
+  const [skills, setSkills] = useState<string[]>([]);
+  const [skill, setSkill] = useState<string>("");
 
   const { push } = useRouter();
 
@@ -52,8 +58,31 @@ const PostJobLeft: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (values) => {
     const res = await dispatch(
-      createJobThunk({ ...values, featured })
+      createJobThunk({ ...values, featured, skills })
     ).unwrap();
+
+    toast.success(res.message);
+
+    form.reset();
+  };
+  const handleAddSkills = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" || e.key === " " || e.key === ",") {
+      e.preventDefault();
+
+      const inputValue = (e.target as HTMLInputElement).value.trim();
+
+      if (inputValue === "") return;
+
+      if (skills.length >= 30) return;
+      if (skills.includes(inputValue)) return;
+
+      setSkills((prev) => [...prev, inputValue]);
+      setSkill("");
+    }
+  };
+
+  const handleRemoveSkill = (skill: string) => {
+    setSkills((prev) => prev.filter((s) => s !== skill));
   };
 
   return (
@@ -63,6 +92,7 @@ const PostJobLeft: React.FC = () => {
           Create Job Post
         </h1>
       </div>
+      <Toaster />
       <FormProvider {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div>
@@ -146,13 +176,36 @@ const PostJobLeft: React.FC = () => {
           </div>
 
           <div>
-            <Input
-              id="skills"
-              label="Skills"
+            <InputControlled
+              id="skill"
+              label="Skill"
               required
-              placeholder="Enter skills"
+              placeholder="Enter skill and press enter to add it"
               mb={24}
+              onKeyDown={handleAddSkills}
+              onChange={(e) => setSkill((e.target as HTMLInputElement).value)}
+              value={skill}
             />
+          </div>
+
+          <div
+            className={`w-full flex items-center gap-2 flex-wrap ${
+              skills.length ? "block" : "hidden"
+            }`}
+          >
+            {skills.map((skill, id) => (
+              <div key={id} className="relative">
+                <span className="bg-green-500 text-white font-inter text-sm py-1 px-4 rounded-full flex items-center gap-1">
+                  {skill}
+                </span>
+                <span
+                  className="cursor-pointer text-gray-900 absolute -top-1 -right-1 bg-stone-300 rounded-full p-[2px]"
+                  onClick={() => handleRemoveSkill(skill)}
+                >
+                  <IoMdClose fontSize={13} />
+                </span>
+              </div>
+            ))}
           </div>
 
           <article className="flex flex-col gap-3 my-10">

@@ -96,7 +96,7 @@ type CreateJobThunkArgs = {
   description: string;
   price: string;
   category: string;
-  skills: string;
+  skills: string[];
   type: string;
   featured: boolean;
 };
@@ -113,12 +113,9 @@ export const createJobThunk = createAsyncThunk(
       const res = await axiosInstances.default.post(Paths.default.CREATE_JOB, {
         ...args,
         posted_by: state.auth.user.id,
-        skills: ["React", "Node", "Express"],
       });
 
-      const job = res.data.payload.job;
-
-      return job;
+      return res.data;
     } catch (e: any) {
       console.log(e);
       let errorMessage = e.message || "Failed to fetch job";

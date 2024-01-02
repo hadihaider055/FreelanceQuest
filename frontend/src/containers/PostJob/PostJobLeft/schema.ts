@@ -6,5 +6,4 @@ export const postJobSchema = yup.object().shape({
   price: yup.string().required(),
   type: yup.string().required(),
   category: yup.string().required(),
-  skills: yup.string().required(),
 });
