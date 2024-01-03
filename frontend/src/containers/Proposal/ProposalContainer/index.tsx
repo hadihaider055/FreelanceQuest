@@ -10,6 +10,8 @@ import { getSubmittedProposals } from "@/store/thunks/proposalThunk";
 import { useSession } from "next-auth/react";
 import moment from "moment";
 import { useRouter } from "next/router";
+import { Player } from "@lottiefiles/react-lottie-player";
+import PageBucket from "../../../../public/images/proposals/PageBucket.json";
 
 const ProposalContainer: React.FC = () => {
 
@@ -36,7 +38,19 @@ const ProposalContainer: React.FC = () => {
                 <br/><br/>
                 <h1>Submitted Proposals ({proposals.length})</h1>
                 <br/>
-
+                { proposals.length <= 0 && 
+                <>
+                    
+                    <div className="items-center justify-center">
+                        <Player
+                        autoplay
+                        loop
+                        src={PageBucket}
+                        style={{ height: "300px", width: "300px" }}
+                        />
+                        <p style={{ textAlign: "center" }}>You haven't sent any proposals yet.</p>
+                    </div>
+                </> }
                 {proposals.map(proposal => {
                     return <ProposalDetailsBox>
                         <ProposalDetailsBoxLeft>
