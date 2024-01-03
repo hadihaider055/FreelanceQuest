@@ -2,7 +2,12 @@ import { ReactElement, ReactNode, useEffect, useState } from "react";
 
 // Next
 import { NextComponentType, NextPage } from "next";
+import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
+
+// Lottie
+import { Player } from "@lottiefiles/react-lottie-player";
+import Loader from "../../public/images/loader.json";
 
 // Next Auth
 import { type Session } from "next-auth";
@@ -18,9 +23,6 @@ import { ThemeProvider } from "styled-components";
 // Utils
 import store from "@/store";
 import { primaryTheme } from "@/config/theme";
-import { useRouter } from "next/router";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Loader from "../../public/images/loader.json";
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -40,8 +42,9 @@ export default function App({
   const getLayout = Component.getLayout ?? ((page) => page);
 
   useEffect(() => {
-    const handleStart = (url: string) =>
-      url !== router.asPath && setLoading(true);
+    const handleStart = (url: string) => {
+      url !== router.asPath && router.pathname !== "/jobs" && setLoading(true);
+    };
 
     const handleComplete = (url: string) =>
       url === router.asPath &&

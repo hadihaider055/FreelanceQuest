@@ -26,6 +26,8 @@ const MyFeed: React.FC = () => {
   const { isLoading } = useAppSelector((state) => state.job.getAllJobs);
 
   const handleFetchJobs = async () => {
+    if (!user?.id) return;
+
     const res = await dispatch(
       getUserJobFeedThunk({ user: user?.id || "" })
     ).unwrap();
