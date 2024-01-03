@@ -110,7 +110,7 @@ const PostJobLeft: React.FC = () => {
               id="description"
               label="Description"
               required
-              placeholder="Enter job title"
+              placeholder="Enter job description"
               maxLength={5000}
             />
           </div>

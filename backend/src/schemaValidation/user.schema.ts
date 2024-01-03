@@ -26,3 +26,12 @@ export const getUserMetadataSchema = joi.object().keys({
 export const updateProfilePictureSchema = joi.object().keys({
   user_id: joi.string().uuid({ version: 'uuidv4' }),
 })
+
+export const updateProfileSchema = joi.object().keys({
+  title: joi.string(),
+  description: joi.string(),
+  hourlyRate: joi.number(),
+  skills: joi.array().items(joi.string()),
+  languages: joi.array().items(joi.string()),
+  category: joi.string(),
+})

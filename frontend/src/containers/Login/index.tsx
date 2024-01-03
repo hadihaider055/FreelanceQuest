@@ -24,6 +24,7 @@ import loginSchema from "./schema";
 // Utils
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { loginThunk } from "@/store/thunks/authThunk";
+import { UserRoleEnum } from "@/types/user";
 
 type FormValues = {
   email: string;
@@ -35,6 +36,8 @@ const LoginContainer = () => {
 
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector((state) => state.auth.login);
+
+  const { user } = useAppSelector((state) => state.auth);
 
   const { push } = useRouter();
 
@@ -55,6 +58,7 @@ const LoginContainer = () => {
         rememberMe: remember,
       })
     );
+
     if (res?.payload?.ok! as boolean) {
       push("/account/profile");
     }
