@@ -6,6 +6,7 @@ import {
   getUserMetadataController,
   loginController,
   signupController,
+  updateProfileController,
   updateProfilePictureController,
 } from '../controllers/user.controller'
 
@@ -15,6 +16,7 @@ import {
   getUserMetadataSchema,
   loginUserSchema,
   updateProfilePictureSchema,
+  updateProfileSchema,
 } from '../schemaValidation/user.schema'
 
 // Middleware
@@ -37,5 +39,11 @@ routes.post(
 )
 
 routes.delete('/profile-picture/:userId', deleteProfilePictureController)
+
+routes.patch(
+  '/profile/:userId',
+  validateBody(updateProfileSchema),
+  updateProfileController
+)
 
 export default routes

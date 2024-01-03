@@ -376,3 +376,58 @@ export const deleteProfilePictureController = generateController(
     }
   }
 )
+
+export const updateProfileController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { title, description, skills, category, hourlyRate, languages } =
+        req.body
+      const { userId } = req.params
+
+      console.log('req.body>>', req.body, req.params)
+
+      const user = await User.findOne({
+        where: {
+          id: userId,
+        },
+      })
+
+      if (!user) {
+        raiseException(400, 'User does not exist')
+      }
+
+      const updatedUser = await User.update(
+        {
+          title,
+          description,
+          languages,
+          category,
+          hourlyRate,
+        },
+        {
+          returning: true,
+          where: {
+            id: user.id,
+          },
+        }
+      )
+
+      return {
+        message: 'Profile updated successfully',
+        payload: {
+          user: updatedUser[1][0],
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to login'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(400, e.message)
+    }
+  }
+)
