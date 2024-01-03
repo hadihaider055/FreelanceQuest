@@ -14,6 +14,7 @@ export const Paths = {
     DELETE_PROFILE_PICTURE: (userId: string) =>
       `/user/profile-picture/${userId}`,
     GET_SUBMITTED_PROPOSALS: (userId: string) => `/proposal/?userId=${userId}`,
+    GET_PROPOSALS_BY_JOB_ID: (jobId: string) => `/proposal/?jobId=${jobId}`,
     GET_PROPOSAL_BY_ID: (id: string) => `/proposal/${id}`,
     GET_JOB_BY_ID: (id: string) => `/job/${id}`,
     CREATE_JOB: "/job/create",

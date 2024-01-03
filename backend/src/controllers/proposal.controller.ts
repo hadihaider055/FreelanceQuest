@@ -125,6 +125,16 @@ export const getAllProposalsController = generateController(
           where: {
             job_id: jobId,
           },
+          include: [
+            {
+              model: Job,
+              attributes: ['title']
+            },
+            {
+              model: User,
+              attributes: ['firstName', 'lastName', 'profileImage']
+            }
+          ]
         })
       }
 
