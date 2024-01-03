@@ -43,7 +43,7 @@ const ChatBox = (props) => {
   }, [activeChat]);
 
   return (
-    <>
+    <div className="w-full overflow-hidden relative">
       {activeChat && (
         <>
           <div
@@ -54,6 +54,7 @@ const ChatBox = (props) => {
               display: "flex",
               flexDirection: "column",
             }}
+            className="font-inter text-md"
           >
             <ChatHistoryContainer id="chat-history-container">
               {activeChatMessages &&
@@ -74,23 +75,27 @@ const ChatBox = (props) => {
                   </React.Fragment>
                 ))}
             </ChatHistoryContainer>
-            <SendMessageInputStyled
-              onKeyDown={(e) => {
-                if (e.key == "Enter") {
-                  sendMessage(
-                    activeChat.recipient_member_id,
-                    e.target.value,
-                    activeChat.chat_id
-                  );
-                  e.target.value = "";
-                }
-              }}
-              placeholder="Type a message"
-            />
+
+            <div className="w-full">
+              <SendMessageInputStyled
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    sendMessage(
+                      activeChat.recipient_member_id,
+                      e.target.value,
+                      activeChat.chat_id
+                    );
+                    e.target.value = "";
+                  }
+                }}
+                placeholder="Type a message"
+                className="font-inter text-md "
+              />
+            </div>
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

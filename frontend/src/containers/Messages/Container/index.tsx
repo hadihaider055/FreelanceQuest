@@ -261,7 +261,7 @@ const MessagesContainer = () => {
         >
           <ChatList connections={connections} />
         </div>
-        <div>
+        <div className="w-full relative">
           <ChatBox sendMessage={sendMessage} />
         </div>
       </div>

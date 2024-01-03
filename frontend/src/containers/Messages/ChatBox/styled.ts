@@ -30,6 +30,7 @@ export const SendMessageInputStyled = styled.input`
   outline: none;
   box-sizing: border-box;
   height: 50px;
+
   &::placeholder {
     color: #9dafbd;
   }
@@ -37,11 +38,8 @@ export const SendMessageInputStyled = styled.input`
 
 export const ChatHistoryContainer = styled.div`
   overflow-y: scroll;
-  max-height: 80vh;
+  height: 73vh;
   margin-bottom: 30px;
-  @media (max-height: 690px) {
-    max-height: 70vh;
-  }
 `;
 
 export const ReceivedMessageBoxStyled = styled.div`
