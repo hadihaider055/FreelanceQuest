@@ -8,17 +8,26 @@ type SelectStyledProps = {
   disabled: boolean;
 };
 
+export const SelectContainerStyled = styled.div`
+  label {
+    margin-bottom: 12px;
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+`;
+
 export const SelectWrapper = styled.div<SelectWrapperProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
-  background-color: var(--white);
-  border: 1px solid #d9d9d9;
-  border-radius: 10px;
   width: 100%;
   height: 54px;
   margin-bottom: ${(p) => p.marginBottom}px;
+  border-radius: 10px;
+  background-color: var(--white);
+  border: 1px solid #d9d9d9;
 
   .label {
     display: flex;

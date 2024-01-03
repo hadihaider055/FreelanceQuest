@@ -1,23 +1,16 @@
-import React, { ReactElement, useEffect } from "react";
+import React from "react";
 
 // Next
 import Head from "next/head";
 
-// Utils
-import useAuth from "@/utils/hooks/useAuth";
-import { useSession } from "next-auth/react";
+// Components
 import SignupContainer from "@/containers/Signup";
 
+// Utils
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/server/auth";
+
 const FreelancerSignup = () => {
-  useAuth({
-    redirectTo: "",
-    redirectOn: "",
-  });
-
-  const session = useSession();
-
-  useEffect(() => {}, []);
-
   return (
     <>
       <Head>
@@ -32,6 +25,17 @@ const FreelancerSignup = () => {
 
 export default FreelancerSignup;
 
-// Login.getLayout = function getLayout(page: ReactElement) {
-//   return <>{page}</>;
-// };
+export const getServerSideProps = async ({ req, res }: any) => {
+  const session = await getServerSession(req, res, authOptions);
+
+  if (session) {
+    return {
+      redirect: {
+        destination: "/account/profile",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
+};

@@ -3,7 +3,7 @@ import httpStatus from 'http-status'
 
 // Model
 import Job from '../models/Job'
-import User from '../models/User'
+import User, { UserRoleEnum } from '../models/User'
 import Proposal from '../models/Proposal'
 
 // Utils
@@ -34,6 +34,10 @@ export const createJobController = generateController(
 
       if (!user) {
         raiseException(400, 'User not found')
+      }
+
+      if (user.role !== UserRoleEnum.CLIENT) {
+        raiseException(400, 'Only clients can post jobs')
       }
 
       const job = await Job.create({

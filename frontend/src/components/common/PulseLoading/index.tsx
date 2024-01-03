@@ -12,7 +12,7 @@ type PulseLoadingProps = {
 
 const PulseLoading: React.FC<PulseLoadingProps> = ({
   height = 38,
-  width = 152,
+  width = 160,
   paddingBottom = 0,
   backgroundColor = "rgba(255, 255, 255, 0.25)",
 }) => {

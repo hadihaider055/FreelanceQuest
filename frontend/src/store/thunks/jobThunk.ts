@@ -90,3 +90,41 @@ export const getJobByIdThunk = createAsyncThunk(
     }
   }
 );
+
+type CreateJobThunkArgs = {
+  title: string;
+  description: string;
+  price: string;
+  category: string;
+  skills: string[];
+  type: string;
+  featured: boolean;
+};
+
+export const createJobThunk = createAsyncThunk(
+  "job/create",
+  async (args: CreateJobThunkArgs, { dispatch, getState }) => {
+    const state = getState() as RootState;
+    if (!state.auth.user) {
+      throw new Error("No user found");
+    }
+
+    try {
+      const res = await axiosInstances.default.post(Paths.default.CREATE_JOB, {
+        ...args,
+        posted_by: state.auth.user.id,
+      });
+
+      return res.data;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to fetch job";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);

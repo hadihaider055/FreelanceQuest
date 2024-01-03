@@ -22,7 +22,7 @@ import { convertToSentenceCase } from "@/utils/functions/toSentenceCase";
 import { getProposalsText } from "@/utils/functions/getProposalsText";
 
 // Types
-import { JobType } from "@/types/job";
+import { JobType, JobTypeStatusEnum } from "@/types/job";
 
 type JobCardProps = JobType;
 
@@ -106,7 +106,10 @@ const JobCard: React.FC<JobCardProps> = ({
           </h3>
           <div className="flex items-center">
             <span className="text-neutral-400 text-[11px] font-inter font-medium flex items-center">
-              {convertToSentenceCase(type)}: ${price} - {category},{" "}
+              {convertToSentenceCase(
+                type === JobTypeStatusEnum.FIXED_PRICE ? "Fixed price" : type
+              )}
+              : ${price} - {category},{" "}
               <span className="flex items-center ml-1">
                 <SlLocationPin />
                 <span className="ml-[1px]">{address.country}</span>
