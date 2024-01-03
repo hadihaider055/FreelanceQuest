@@ -47,13 +47,6 @@ export const getServerSideProps = async ({ req, res }: any) => {
         permanent: false,
       },
     };
-  } else if (session.user.role !== UserRoleEnum.FREELANCER) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
   }
 
   return { props: {} };
