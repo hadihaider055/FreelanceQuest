@@ -34,6 +34,9 @@ import {
   deleteProfilePictureThunk,
   updateProfilePictureThunk,
 } from "@/store/thunks/authThunk";
+import Link from "next/link";
+import UpdateProfileModal from "@/containers/Modals/UpdateProfileModal";
+import { UserRoleEnum } from "@/types/user";
 
 const ProfileContainer: React.FC = () => {
   const [lineClamp, setLineClamp] = useState(8);
@@ -118,14 +121,16 @@ const ProfileContainer: React.FC = () => {
                   <p className="text-gray-500 text-lg font-normal font-montserrat">
                     Eastern European Time (EET), Cairo UTC +3
                   </p>
-                  <div className="flex items-center gap-4">
-                    <p className="text-gray-500 text-lg font-medium font-montserrat">
-                      ${user?.hourlyRate}/hr
-                    </p>
-                    <i className="cursor-pointer text-green-500">
+                  {user?.role === UserRoleEnum.FREELANCER && (
+                    <div className="flex items-center gap-4">
+                      <p className="text-gray-500 text-lg font-medium font-montserrat">
+                        ${user?.hourlyRate}/hr
+                      </p>
+                      {/* <i className="cursor-pointer text-green-500">
                       <FaPen />
-                    </i>
-                  </div>
+                    </i> */}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -172,75 +177,79 @@ const ProfileContainer: React.FC = () => {
             </div>
 
             <ProfileContentPartition className="flex">
-              <ProfileContentLeft className="w-1/3 h-full">
-                <div className="flex items-center justify-around  border-b-2 border-stone-300 w-full px-4 pb-4">
-                  <div className="flex items-center flex-col">
-                    <h3 className="font-montserrat font-medium text-2xl text-black">
-                      $3k+
-                    </h3>
-                    <p className="text-black text-lg font-base font-montserrat">
-                      Total earnings
-                    </p>
+              {user?.role === UserRoleEnum.FREELANCER && (
+                <ProfileContentLeft className="w-1/3 h-full">
+                  <div className="flex items-center justify-around  border-b-2 border-stone-300 w-full px-4 pb-4">
+                    <div className="flex items-center flex-col">
+                      <h3 className="font-montserrat font-medium text-2xl text-black">
+                        $0
+                      </h3>
+                      <p className="text-black text-lg font-base font-montserrat">
+                        Total earnings
+                      </p>
+                    </div>
+                    <div className="flex items-center flex-col">
+                      <h3 className="font-montserrat font-medium text-2xl text-black">
+                        0
+                      </h3>
+                      <p className="text-black text-lg font-base font-montserrat">
+                        Total jobs
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center flex-col">
-                    <h3 className="font-montserrat font-medium text-2xl text-black">
-                      5
+
+                  <div className="flex flex-col w-full px-4 pt-4">
+                    <h3 className="font-montserrat font-medium text-2xl text-black text-left">
+                      Languages
                     </h3>
-                    <p className="text-black text-lg font-base font-montserrat">
-                      Total jobs
-                    </p>
+
+                    <ul className="mt-4 flex flex-col gap-2">
+                      {user?.languages?.map((language, _index) => (
+                        <li key={_index}>
+                          <p className="text-black text-lg font-normal font-montserrat">
+                            {language}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-
-                <div className="flex flex-col w-full px-4 pt-4">
-                  <h3 className="font-montserrat font-medium text-2xl text-black text-left">
-                    Languages
-                  </h3>
-
-                  <ul className="mt-4 flex flex-col gap-2">
-                    {user?.languages.map((language, _index) => (
-                      <li key={_index}>
-                        <p className="text-black text-lg font-normal font-montserrat">
-                          {language}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </ProfileContentLeft>
+                </ProfileContentLeft>
+              )}
 
               <ProfileContentRight className="w-full">
-                <ProfileContentRightInfo>
-                  <div>
-                    <h2
-                      className="font-poppins text-3xl font-bold text-slate-600"
-                      style={{ marginBottom: "1.5rem" }}
-                    >
-                      {user?.title}
-                    </h2>
-                  </div>
-                  <div>
-                    <p
-                      className={`font-montserrat text-lg text-slate-600`}
-                      style={{
-                        WebkitLineClamp: lineClamp,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                        display: "-webkit-box",
-                        lineClamp: lineClamp,
-                      }}
-                    >
-                      {user?.description}
-                    </p>
+                {user?.role === UserRoleEnum.FREELANCER && (
+                  <ProfileContentRightInfo>
+                    <div>
+                      <h2
+                        className="font-poppins text-3xl font-bold text-slate-600"
+                        style={{ marginBottom: "1.5rem" }}
+                      >
+                        {user?.title}
+                      </h2>
+                    </div>
+                    <div>
+                      <p
+                        className={`font-montserrat text-lg text-slate-600`}
+                        style={{
+                          WebkitLineClamp: lineClamp,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                          display: "-webkit-box",
+                          lineClamp: lineClamp,
+                        }}
+                      >
+                        {user?.description}
+                      </p>
 
-                    <span
-                      className="cursor-pointer font-montserrat text-lg font-medium text-green-500 underline"
-                      onClick={() => setLineClamp(lineClamp === 0 ? 8 : 0)}
-                    >
-                      {lineClamp === 0 ? "less" : "more"}
-                    </span>
-                  </div>
-                </ProfileContentRightInfo>
+                      <span
+                        className="cursor-pointer font-montserrat text-lg font-medium text-green-500 underline"
+                        onClick={() => setLineClamp(lineClamp === 0 ? 8 : 0)}
+                      >
+                        {lineClamp === 0 ? "less" : "more"}
+                      </span>
+                    </div>
+                  </ProfileContentRightInfo>
+                )}
 
                 <ProfileContentRightHistory>
                   <h2
@@ -252,29 +261,44 @@ const ProfileContainer: React.FC = () => {
 
                   <div className="flex items-center gap-3">
                     <p className="font-poppins text-lg text-gray-500  font-bold">
-                      11 reviews
+                      0 reviews
                     </p>
                     <div className="flex items-center gap-2">
                       {Array(5)
                         .fill(0)
                         .map((_, i) => (
-                          <i className="text-green-500" key={i}>
+                          <i
+                            className={
+                              i < 0 ? "text-green-500" : "text-stone-300"
+                            }
+                            key={i}
+                          >
                             <FaStar />
                           </i>
                         ))}
                       <p className="font-poppins text-lg text-gray-500  font-bold">
-                        (5)
+                        (0)
                       </p>
                     </div>
                   </div>
 
                   <hr className="my-5 text-grey-800 h-1" />
 
-                  {Array(5)
+                  {/* {Array(5)
                     .fill(0)
                     .map((_, i) => (
                       <ReviewCard key={i} />
-                    ))}
+                    ))} */}
+
+                  <div className="flex items-center justify-center flex-col my-11 gap-3">
+                    <p className="font-inter text-xl text-gray-500  font-semibold">
+                      No reviews yet
+                    </p>
+
+                    <Link href="/jobs">
+                      <Button variant="grey">Find work</Button>
+                    </Link>
+                  </div>
                 </ProfileContentRightHistory>
               </ProfileContentRight>
             </ProfileContentPartition>

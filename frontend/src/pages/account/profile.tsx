@@ -16,6 +16,7 @@ import ProfileContainer from "@/containers/Account/ProfileContainer";
 import useAuth from "@/utils/hooks/useAuth";
 import { authOptions } from "@/server/auth";
 import { useAppSelector } from "@/utils/hooks/store";
+import { UserRoleEnum } from "@/types/user";
 
 const Profile = () => {
   useAuth({ redirectTo: "/login", redirectOn: "logout" });
@@ -55,6 +56,16 @@ export const getServerSideProps = async ({ req, res }: any) => {
     return {
       redirect: {
         destination: "/login",
+        permanent: false,
+      },
+    };
+  } else if (
+    session.user.role === UserRoleEnum.FREELANCER &&
+    !session.user.title
+  ) {
+    return {
+      redirect: {
+        destination: "/jobs",
         permanent: false,
       },
     };

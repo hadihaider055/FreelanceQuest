@@ -1,6 +1,9 @@
 // @ts-ignore
 // @ts-nocheck
 
+// React Icons
+import { LuSend } from "react-icons/lu";
+
 import { fetchChatMessages } from "@/store/thunks/chatThunk";
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { useSession } from "next-auth/react";
@@ -22,6 +25,8 @@ const ChatBox = (props) => {
   );
   const session = useSession();
 
+  const [message, setMessage] = useState("");
+
   const scrollToBottomOfChat = () => {
     try {
       const messageHistoryContainer = document.getElementById(
@@ -41,6 +46,16 @@ const ChatBox = (props) => {
       dispatch(fetchChatMessages(activeChat.chat_id));
     }
   }, [activeChat]);
+
+  const handleSendMessage = () => {
+    if (message.trim() == "") return;
+
+    if (!message) return;
+
+    sendMessage(activeChat.recipient_member_id, message, activeChat.chat_id);
+
+    setMessage("");
+  };
 
   return (
     <div className="w-full overflow-hidden relative">
@@ -76,21 +91,25 @@ const ChatBox = (props) => {
                 ))}
             </ChatHistoryContainer>
 
-            <div className="w-full">
+            <div className="w-full relative">
               <SendMessageInputStyled
                 onKeyDown={(e) => {
                   if (e.key == "Enter") {
-                    sendMessage(
-                      activeChat.recipient_member_id,
-                      e.target.value,
-                      activeChat.chat_id
-                    );
-                    e.target.value = "";
+                    handleSendMessage();
                   }
                 }}
-                placeholder="Type a message"
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+                placeholder="Type message and press enter to send"
                 className="font-inter text-md "
               />
+
+              <span
+                className="absolute right-1 top-1/2 -translate-y-1/2 bg-green-400 hover:bg-green-500 cursor-pointer p-3 rounded-xl"
+                onClick={handleSendMessage}
+              >
+                <LuSend />
+              </span>
             </div>
           </div>
         </>

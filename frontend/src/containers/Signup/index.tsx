@@ -41,8 +41,6 @@ const SignupContainer = () => {
 
   const { push, asPath, pathname, query } = useRouter();
 
-  console.log(" asPath, pathname, query", asPath, pathname, query);
-
   const dispatch = useAppDispatch();
   const { isLoading } = useAppSelector((state) => state.auth.signup);
 
@@ -65,8 +63,6 @@ const SignupContainer = () => {
         role: values.role,
       })
     ).unwrap();
-
-    console.log("Res", res);
 
     push("/account/profile");
   };

@@ -174,3 +174,44 @@ export const deleteProfilePictureThunk = createAsyncThunk(
     }
   }
 );
+
+type UpdateUserProfileThunkArgs = {
+  title: string;
+  description: string;
+  hourlyRate: number;
+  category: string;
+  languages: string[];
+  skills: string[];
+};
+
+export const updateUserProfileThunk = createAsyncThunk(
+  "auth/update/user-profile",
+  async (args: UpdateUserProfileThunkArgs, { dispatch, getState }) => {
+    const state = getState() as RootState;
+
+    if (!state.auth.user) {
+      throw new Error("User not found");
+    }
+
+    try {
+      const user = await axiosInstances.default.patch(
+        Paths.default.UPDATE_PROFILE(state.auth.user.id),
+        args
+      );
+
+      const data = user.data.payload.user;
+
+      //   Swal.fire("Success", "Profile picture updated successfuly", "success");
+      return data;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to update profile picture";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);
