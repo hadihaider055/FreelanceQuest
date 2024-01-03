@@ -50,7 +50,7 @@ export default function App({
       url === router.asPath &&
       setTimeout(() => {
         setLoading(false);
-      }, 100);
+      }, 10);
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);

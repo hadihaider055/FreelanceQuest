@@ -31,8 +31,14 @@ export const StyledChatListRow = styled.div`
   padding-bottom: 20px;
   cursor: pointer;
   transition: 0.25s;
-  &:hover {
-    background: var(--black60);
+
+  &:hover,
+  &.active {
+    background: rgb(34 197 94);
     color: var(--white);
+
+    p {
+      color: var(--white);
+    }
   }
 `;

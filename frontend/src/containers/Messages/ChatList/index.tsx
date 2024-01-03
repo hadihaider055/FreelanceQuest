@@ -12,6 +12,7 @@ const ChatList = (props) => {
   const { connections } = props;
 
   const userChats = useAppSelector((state) => state.chat.chats);
+  const { user } = useAppSelector((state) => state.auth);
   const activeChat = useAppSelector((state) => state.chat.activeChat);
   const dispatch = useAppDispatch();
 
@@ -24,6 +25,7 @@ const ChatList = (props) => {
         width: "100%",
         backgroundColor: "#f2f2f2",
       }}
+      className="font-inter"
     >
       <div
         style={{
@@ -58,7 +60,9 @@ const ChatList = (props) => {
                 dispatch(setActiveChatMessages(null));
               }
             }}
-            className="flex"
+            className={`flex duration-700 transition-all ease-in-out ${
+              activeChat ? "active shadow-lg" : ""
+            }`}
           >
             <img
               style={{
@@ -67,12 +71,10 @@ const ChatList = (props) => {
                 marginRight: "20px",
                 borderRadius: "100%",
               }}
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Fs8Arl_LnQwQ8ppF4IpZJ88JMXu4SHf7iFLcKQtUqg&s"
+              src={user?.profileImage}
             />
             <div className="flex-col">
-              <p className="text-xl" style={{ color: "var(--green-dark)" }}>
-                {chat.recipient_name}
-              </p>
+              <p className="text-xl text-green-500">{chat.recipient_name}</p>
               <p className="text-sm">
                 {Object.keys(connections).includes(chat.recipient_member_id) &&
                 connections[chat.recipient_member_id]
