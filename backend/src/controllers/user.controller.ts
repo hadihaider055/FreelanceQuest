@@ -22,9 +22,6 @@ import ErrorLogger from '../services/ErrorLogger'
 import multer from 'multer'
 import { deleteFile, uploadFile } from '../config/s3'
 
-// const upload = multer({ dest: 'uploads/profile_pictures/' })
-// const saveProfilePicture = upload.single('profile_picture')
-
 export const signupController = generateController(
   async (req, res, raiseException) => {
     try {
