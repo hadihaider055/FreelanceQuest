@@ -1,6 +1,9 @@
 // @ts-ignore
 // @ts-nocheck
 
+// React Icons
+import { LuSend } from "react-icons/lu";
+
 import { fetchChatMessages } from "@/store/thunks/chatThunk";
 import { useAppDispatch, useAppSelector } from "@/utils/hooks/store";
 import { useSession } from "next-auth/react";
@@ -22,6 +25,8 @@ const ChatBox = (props) => {
   );
   const session = useSession();
 
+  const [message, setMessage] = useState("");
+
   const scrollToBottomOfChat = () => {
     try {
       const messageHistoryContainer = document.getElementById(
@@ -42,8 +47,18 @@ const ChatBox = (props) => {
     }
   }, [activeChat]);
 
+  const handleSendMessage = () => {
+    if (message.trim() == "") return;
+
+    if (!message) return;
+
+    sendMessage(activeChat.recipient_member_id, message, activeChat.chat_id);
+
+    setMessage("");
+  };
+
   return (
-    <>
+    <div className="w-full overflow-hidden relative">
       {activeChat && (
         <>
           <div
@@ -54,6 +69,7 @@ const ChatBox = (props) => {
               display: "flex",
               flexDirection: "column",
             }}
+            className="font-inter text-md"
           >
             <ChatHistoryContainer id="chat-history-container">
               {activeChatMessages &&
@@ -74,23 +90,31 @@ const ChatBox = (props) => {
                   </React.Fragment>
                 ))}
             </ChatHistoryContainer>
-            <SendMessageInputStyled
-              onKeyDown={(e) => {
-                if (e.key == "Enter") {
-                  sendMessage(
-                    activeChat.recipient_member_id,
-                    e.target.value,
-                    activeChat.chat_id
-                  );
-                  e.target.value = "";
-                }
-              }}
-              placeholder="Type a message"
-            />
+
+            <div className="w-full relative">
+              <SendMessageInputStyled
+                onKeyDown={(e) => {
+                  if (e.key == "Enter") {
+                    handleSendMessage();
+                  }
+                }}
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+                placeholder="Type message and press enter to send"
+                className="font-inter text-md "
+              />
+
+              <span
+                className="absolute right-1 top-1/2 -translate-y-1/2 bg-green-400 hover:bg-green-500 cursor-pointer p-3 rounded-xl"
+                onClick={handleSendMessage}
+              >
+                <LuSend />
+              </span>
+            </div>
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

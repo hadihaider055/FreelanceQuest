@@ -41,16 +41,17 @@ export default function App({
   const [loading, setLoading] = useState(false);
   const getLayout = Component.getLayout ?? ((page) => page);
 
+  const avoidLoading = ["/jobs", "/proposals"];
+
   useEffect(() => {
     const handleStart = (url: string) => {
-      url !== router.asPath && router.pathname !== "/jobs" && setLoading(true);
+      url !== router.asPath &&
+        !avoidLoading.includes(router.pathname) &&
+        setLoading(true);
     };
 
     const handleComplete = (url: string) =>
-      url === router.asPath &&
-      setTimeout(() => {
-        setLoading(false);
-      }, 100);
+      url === router.asPath && setLoading(false);
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);

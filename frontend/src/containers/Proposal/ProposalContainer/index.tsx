@@ -1,7 +1,11 @@
 // @ts-nocheck
 
 import Container from "@/components/common/Container";
-import { ProposalContainerStyled, ProposalDetailsBox, ProposalDetailsBoxLeft } from "./styled";
+import {
+  ProposalContainerStyled,
+  ProposalDetailsBox,
+  ProposalDetailsBoxLeft,
+} from "./styled";
 import { FaArrowCircleRight, FaArrowRight, FaEye } from "react-icons/fa";
 import Button from "@/components/common/Button";
 import { useAppDispatch } from "@/utils/hooks/store";
@@ -14,33 +18,34 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import PageBucket from "../../../../public/images/proposals/PageBucket.json";
 
 const ProposalContainer: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const [proposals, setProposals] = useState([]);
+  const session = useSession();
+  const router = useRouter();
 
-    const dispatch = useAppDispatch();
-    const [proposals, setProposals] = useState([]);
-    const session = useSession();
-    const router = useRouter();
+  const fetchProposals = async (userId) => {
+    const res = await dispatch(getSubmittedProposals(userId));
+    return res;
+  };
 
-    const fetchProposals = async (userId) => {
-        const res = await dispatch(getSubmittedProposals(userId));
-        return res;
+  useEffect(() => {
+    if (session?.data?.user.id) {
+      fetchProposals(session.data.user.id).then((res) =>
+        setProposals(res.payload)
+      );
     }
+  }, [session]);
 
-    useEffect(() => {
-        if (session?.data?.user.id) {
-            fetchProposals(session.data.user.id)
-            .then(res => setProposals(res.payload));
-        }
-    }, [session])
-
-    return <>
+  return (
+    <>
         <ProposalContainerStyled>
             <Container>
                 <br/><br/>
                 <h1>Submitted Proposals ({proposals.length})</h1>
                 <br/>
-                { proposals.length <= 0 && 
+                { proposals.length <= 0 &&
                 <>
-                    
+
                     <div className="items-center justify-center">
                         <Player
                         autoplay
@@ -83,6 +88,7 @@ const ProposalContainer: React.FC = () => {
             </Container>
         </ProposalContainerStyled>
     </>
-}
+  );
+};
 
 export default ProposalContainer;

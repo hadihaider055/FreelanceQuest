@@ -59,7 +59,7 @@ export const NavbarDropdownData = [
   },
   {
     title: "Settings",
-    link: "/settings",
+    link: "/account/settings",
     icon: <TbSettingsCog fontSize={14} />,
   },
 ];

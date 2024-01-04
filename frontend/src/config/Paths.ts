@@ -18,5 +18,6 @@ export const Paths = {
     GET_PROPOSAL_BY_ID: (id: string) => `/proposal/${id}`,
     GET_JOB_BY_ID: (id: string) => `/job/${id}`,
     CREATE_JOB: "/job/create",
+    UPDATE_PROFILE: (userId: string) => `/user/profile/${userId}`,
   },
 };
