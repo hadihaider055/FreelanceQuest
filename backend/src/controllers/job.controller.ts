@@ -185,8 +185,11 @@ export const getUserJobFeedController = generateController(
         raiseException(400, 'User not found')
       }
 
-      const query = `
-      SELECT
+      let jobs = []
+
+      if (user.role === UserRoleEnum.FREELANCER) {
+        const query = `
+        SELECT
         jobs.id,
         jobs.title,
         jobs.description,
@@ -202,28 +205,67 @@ export const getUserJobFeedController = generateController(
         users."firstName",
         users."lastName",
         users.address
-      FROM
+        FROM
         jobs
-      LEFT JOIN
+        LEFT JOIN
         users ON jobs.posted_by = users.id
-      LEFT JOIN
+        LEFT JOIN
         proposals ON jobs.id = proposals.job_id
-      WHERE
+        WHERE
         (jobs.category = :userCategory OR :userCategory IS NULL)
-      GROUP BY
+        GROUP BY
         jobs.id, users.id
-      ORDER BY
+        ORDER BY
         jobs."createdAt" DESC;
-  `
+        `
 
-      const replacements = {
-        userCategory: user.category,
+        const replacements = {
+          userCategory: user.category,
+        }
+
+        jobs = await Job.sequelize.query(query, {
+          replacements,
+          type: QueryTypes.SELECT,
+        })
+      } else {
+        const query = `
+        SELECT
+        jobs.id,
+        jobs.title,
+        jobs.description,
+        jobs.posted_by,
+        jobs.price,
+        jobs.category,
+        jobs."createdAt",
+        jobs."updatedAt",
+        jobs.featured,
+        jobs.skills,
+        jobs.type,
+        COUNT(DISTINCT proposals.id) AS proposalCount,
+        users."firstName",
+        users."lastName",
+        users.address
+        FROM
+        jobs
+        LEFT JOIN
+        users ON jobs.posted_by = users.id
+        LEFT JOIN
+        proposals ON jobs.id = proposals.job_id
+        GROUP BY
+        jobs.id, users.id
+        ORDER BY
+        jobs."createdAt" DESC;
+        `
+
+        const replacements = {
+          userCategory: user.category,
+        }
+
+        jobs = await Job.sequelize.query(query, {
+          replacements,
+          type: QueryTypes.SELECT,
+        })
       }
-
-      const jobs = await Job.sequelize.query(query, {
-        replacements,
-        type: QueryTypes.SELECT,
-      })
 
       return {
         message: 'Jobs fetched successfully',

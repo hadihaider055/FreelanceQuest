@@ -43,7 +43,7 @@ export const ClientNavbarData = [
   },
   {
     title: "My Jobs",
-    link: "/client/my-jobs",
+    link: "/my-jobs",
   },
   {
     title: "Find Talent",
