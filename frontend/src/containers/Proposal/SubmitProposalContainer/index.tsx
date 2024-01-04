@@ -40,7 +40,7 @@ const SubmitProposalContainer: React.FC = () => {
   }, [params]);
 
   const cancelAction = () => {
-    router.push("/");
+    router.push("/proposals");
   };
 
   const submitProposalAction = () => {

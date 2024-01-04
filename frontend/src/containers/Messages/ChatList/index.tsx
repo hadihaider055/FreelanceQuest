@@ -7,6 +7,8 @@ import { useAppDispatch } from "@/utils/hooks/store";
 
 // Styled
 import { InputStyled, StyledChatListRow } from "./styled";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const ChatList = (props) => {
   const { connections } = props;
@@ -15,6 +17,29 @@ const ChatList = (props) => {
   const { user } = useAppSelector((state) => state.auth);
   const activeChat = useAppSelector((state) => state.chat.activeChat);
   const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.query?.chatId) {
+      const chatId = router.query.chatId
+      if (
+        !activeChat ||
+        (activeChat && activeChat.chat_id != chatId)
+      ) {
+        let _chat = null;
+        userChats.forEach(chat => {
+          if (chatId == chat.chat_id) {
+            _chat = chat
+          }
+        })
+
+        if (_chat) {
+          dispatch(setActiveChat(_chat));
+          dispatch(setActiveChatMessages(null));
+        }
+      }
+    }
+  }, [router.query, userChats])
 
   return (
     <div
@@ -58,6 +83,8 @@ const ChatList = (props) => {
               ) {
                 dispatch(setActiveChat(chat));
                 dispatch(setActiveChatMessages(null));
+                delete router.query;
+                router.push({ query: {...router.query, chatId: chat.chat_id} }, undefined, { shallow: true})
               }
             }}
             className={`flex duration-700 transition-all ease-in-out ${

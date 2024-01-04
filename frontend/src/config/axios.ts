@@ -13,8 +13,11 @@ const getAxiosInstance = (baseURL: string) => {
 
 const axiosInstances = {
   default: getAxiosInstance(
-    process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1"
+    "http://localhost:8001/api/v1"
   ),
+  auth: getAxiosInstance(
+    process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1"
+  )
 };
 
 export default axiosInstances;

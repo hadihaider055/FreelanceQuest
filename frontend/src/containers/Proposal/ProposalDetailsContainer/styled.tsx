@@ -35,3 +35,30 @@ export const ProposalInformationContainer = styled.div`
     background-color: white;
     margin-top: 20px;
 `;
+
+export const ProposedByContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    
+    p {
+        margin-top: 14px;
+    }
+
+    img {
+        min-width: 50px;
+        margin-right: 15px;
+        min-height: 50px;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+    }
+
+`;
+
+export const AcceptProposalModal = styled.div`
+    width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+`;

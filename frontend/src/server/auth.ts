@@ -26,7 +26,7 @@ declare module "next-auth" {
 }
 
 const fetchUserMetadata = async (email: string) => {
-  const response = await axiosInstances.default.get(
+  const response = await axiosInstances.auth.get(
     Paths.default.METADATA(email)
   );
 
@@ -68,7 +68,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         try {
-          const response = await axiosInstances.default.post(
+          const response = await axiosInstances.auth.post(
             Paths.default.LOGIN,
             {
               email: credentials.email,

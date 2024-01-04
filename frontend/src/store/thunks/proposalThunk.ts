@@ -88,3 +88,49 @@ export const getProposalById = createAsyncThunk(
     }
   }
 );
+
+export const getProposalsByJobId = createAsyncThunk(
+  "proposal/get-proposals-by-job-id",
+  async (jobId: string, { dispatch }) => {
+    try {
+      const res = await axiosInstances.default.get(
+        Paths.default.GET_PROPOSALS_BY_JOB_ID(jobId)
+      );
+
+      const proposal = res.data.payload.proposals;
+
+      return proposal;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to fetch proposals for job";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);
+
+export const acceptProposalThunk = createAsyncThunk(
+  "proposal/accept-proposal",
+  async (id: string, { dispatch }) => {
+    try {
+      const res = await axiosInstances.default.get(
+        Paths.default.ACCEPT_PROPOSAL(id)
+      );
+
+      return res.data.payload;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to accept proposal";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);

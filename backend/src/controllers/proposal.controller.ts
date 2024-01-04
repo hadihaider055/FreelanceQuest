@@ -2,13 +2,17 @@ import { AxiosError } from 'axios'
 import httpStatus from 'http-status'
 
 // Model
-import Proposal from '../models/Proposal'
+import Proposal, { ProposalStatusEnum } from '../models/Proposal'
 import Job from '../models/Job'
 import User from '../models/User'
+import Chat from '../models/Chat'
+import ChatMember from '../models/ChatMember'
 
 // Utils
 import ErrorLogger from '../services/ErrorLogger'
 import { generateController } from '../utils/generateController'
+import { QueryTypes } from 'sequelize'
+import { db } from '../config/db'
 
 export const createProposalController = generateController(
   async (req, res, raiseException) => {
@@ -125,6 +129,16 @@ export const getAllProposalsController = generateController(
           where: {
             job_id: jobId,
           },
+          include: [
+            {
+              model: Job,
+              attributes: ['title']
+            },
+            {
+              model: User,
+              attributes: ['firstName', 'lastName', 'profileImage']
+            }
+          ]
         })
       }
 
@@ -178,6 +192,58 @@ export const getProposalByIdController = generateController(
       const axiosError: AxiosError = e
 
       let errorMessage = 'Failed to create job'
+      if (e.message) {
+        errorMessage = e.message
+      }
+
+      raiseException(400, e.message)
+    }
+  }
+)
+
+export const acceptProposalController = generateController(
+  async (req, res, raiseException) => {
+    try {
+      const { proposalId } = req.params
+
+      const proposal: any = await Proposal.findOne({
+        where: {
+          id: proposalId,
+        },
+        include: [{
+          model: Job,
+        }]
+      })
+
+      if (!proposal) {
+        raiseException(400, 'Proposal does not exist')
+      }
+      
+      if (proposal.status === ProposalStatusEnum.ACCEPTED) {
+        raiseException(400, 'Proposal already accepted')
+      }
+
+      // Set proposal status to accepted
+      const sql = `UPDATE proposals SET status = '${ProposalStatusEnum.ACCEPTED}' WHERE id = '${proposalId}'`;
+      await db.query(sql, { type: QueryTypes.UPDATE })
+      
+      // Create chat for freelancer and client
+      const chat = await Chat.create()
+      await ChatMember.create({ chat_id: chat.id, member_id: proposal.user_id })
+      await ChatMember.create({ chat_id: chat.id, member_id: proposal.Job.posted_by })
+
+      return {
+        message: 'Proposal accepted successfully!',
+        payload: {
+          proposal,
+          chat
+        },
+      }
+    } catch (e) {
+      ErrorLogger.write(e)
+      const axiosError: AxiosError = e
+
+      let errorMessage = 'Failed to accept proposal'
       if (e.message) {
         errorMessage = e.message
       }
