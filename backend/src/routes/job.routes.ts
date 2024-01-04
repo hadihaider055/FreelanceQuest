@@ -5,6 +5,7 @@ import {
   createJobController,
   getAllJobsController,
   getJobById,
+  getUserJobFeedController,
 } from '../controllers/job.controller'
 
 // Schema
@@ -37,6 +38,14 @@ router.get(
   authMiddleware(),
   validateParams(getJobByIdSchema),
   getJobById
+)
+
+// Fetch user job feed
+router.get(
+  '/user/:id',
+  authMiddleware(),
+  validateParams(getJobByIdSchema),
+  getUserJobFeedController
 )
 
 export default router

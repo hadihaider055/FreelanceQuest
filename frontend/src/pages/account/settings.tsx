@@ -1,18 +1,51 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import { ReactElement } from "react";
+
+// Next
+import Head from "next/head";
+import { getServerSession } from "next-auth";
+
+// Components
+import SettingsContainer from "@/containers/Account/SettingsContainer";
+import Layout from "@/components/common/Layout";
+
+// Utils
 import useAuth from "@/utils/hooks/useAuth";
+import { authOptions } from "@/server/auth";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function AccountSettings() {
+const AccountSettings = () => {
   useAuth({
     redirectTo: "/login",
     redirectOn: "logout",
   });
-  return <main>Hello World</main>;
-}
+  return (
+    <>
+      <Head>
+        <title>FreelanceQuest - Settings</title>
+      </Head>
+      <>
+        <SettingsContainer />
+      </>
+    </>
+  );
+};
+
+export default AccountSettings;
 
 AccountSettings.getLayout = function getLayout(page: ReactElement) {
-  return <>{page}</>;
+  return <Layout>{page}</Layout>;
+};
+
+export const getServerSideProps = async ({ req, res }: any) => {
+  const session = await getServerSession(req, res, authOptions);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
 };

@@ -15,10 +15,10 @@ export const ProfileContainerContent = styled.article`
   }
 
   .btns {
-    width: 176px;
+    width: 196px;
 
     button {
-      width: 176px;
+      width: 196px;
       height: 60px;
     }
   }
@@ -45,4 +45,26 @@ export const ProfileContentRightInfo = styled.div`
 export const ProfileContentRightHistory = styled.div`
   border-top: 2px solid rgb(214 211 209 / 1);
   padding: 30px 20px 0 20px;
+`;
+
+export const UploadProfilePictureLabelStyled = styled.label`
+  position: relative;
+  transition: ease-out all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 10px;
+  gap: 8px;
+  width: 100%;
+  color: white;
+  border: none;
+  white-space: nowrap;
+  height: 60px;
+  position: relative;
+
+  button {
+    position: absolute;
+    z-index: -1;
+  }
 `;

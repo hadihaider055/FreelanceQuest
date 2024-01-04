@@ -2,11 +2,13 @@ import React, { ReactElement } from "react";
 
 // Next
 import Head from "next/head";
+import { getServerSession } from "next-auth";
 
 // Utils
-import MessagesContainer from "@/containers/Messages";
+import MessagesContainer from "@/containers/Messages/Container";
 import Layout from "@/components/common/Layout";
 import useAuth from "@/utils/hooks/useAuth";
+import { authOptions } from "@/server/auth";
 
 const Messages = () => {
   useAuth({
@@ -41,3 +43,18 @@ Messages.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default Messages;
+
+export const getServerSideProps = async ({ req, res }: any) => {
+  const session = await getServerSession(req, res, authOptions);
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return { props: {} };
+};

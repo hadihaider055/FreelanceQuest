@@ -2,9 +2,12 @@ import express from 'express'
 
 // Controllers
 import {
+  deleteProfilePictureController,
   getUserMetadataController,
   loginController,
   signupController,
+  updateProfileController,
+  updateProfilePictureController,
 } from '../controllers/user.controller'
 
 // Schema
@@ -12,6 +15,8 @@ import {
   createUserSchema,
   getUserMetadataSchema,
   loginUserSchema,
+  updateProfilePictureSchema,
+  updateProfileSchema,
 } from '../schemaValidation/user.schema'
 
 // Middleware
@@ -26,5 +31,19 @@ routes.post('/signup', validateBody(createUserSchema), signupController)
 routes.post('/signin', validateBody(loginUserSchema), loginController)
 
 routes.get('/metadata', getUserMetadataController)
+
+routes.post(
+  '/update-profile-picture',
+  validateBody(updateProfilePictureSchema),
+  updateProfilePictureController
+)
+
+routes.delete('/profile-picture/:userId', deleteProfilePictureController)
+
+routes.patch(
+  '/profile/:userId',
+  validateBody(updateProfileSchema),
+  updateProfileController
+)
 
 export default routes

@@ -6,14 +6,14 @@ const getAxiosInstance = (baseURL: string) => {
     headers: {
       "Content-Type": "application/json",
       Accept: "*/*",
-      Authorization: "Bearer 123"
+      Authorization: "Bearer 123",
     },
   });
 };
 
 const axiosInstances = {
   default: getAxiosInstance(
-    process.env.BACKEND_BASE_URL_FOR_CONTAINER || "http://localhost:8001/api/v1"
+    process.env.BACKEND_BASE_URL || "http://localhost:8001/api/v1"
   ),
 };
 

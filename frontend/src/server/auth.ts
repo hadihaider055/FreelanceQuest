@@ -92,7 +92,7 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
         } catch (err: any) {
-          console.log(err)
+          console.log(err);
           throw new Error(
             err?.response?.data?.message || "Something went wrong!"
           );
@@ -118,6 +118,8 @@ export const authOptions: NextAuthOptions = {
           profileImage: user?.profileImage ?? "",
           hourlyRate: user?.hourlyRate ?? 0,
           languages: user?.languages ?? [],
+          category: user?.category ?? "",
+          role: user?.role ?? "",
         },
       };
     },

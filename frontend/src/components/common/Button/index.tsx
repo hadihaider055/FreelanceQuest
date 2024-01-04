@@ -21,7 +21,8 @@ interface ButtonProps {
     | "black"
     | "blue-dark"
     | "grey-transparent"
-    | "grey";
+    | "grey"
+    | "light-grey";
   size?: "sm" | "md";
   onClick?: () => void;
   iconStart?: React.ReactNode | string;
@@ -62,7 +63,7 @@ const Button: React.FC<ButtonProps> = ({
           )}
         </>
       )}
-      <ButtonText className="font-normal font-poppins leading-none">
+      <ButtonText className="font-normal font-inter leading-none">
         {children}
       </ButtonText>
       {iconEnd && (
@@ -80,7 +81,7 @@ const Button: React.FC<ButtonProps> = ({
       {isLoading && (
         <i className={`icon-loading`}>
           <LoaderComponent
-            size={size === "md" ? 16 : 14}
+            size={size === "md" ? 20 : 14}
             color={
               [
                 "black",
@@ -89,9 +90,10 @@ const Button: React.FC<ButtonProps> = ({
                 "red",
                 "dark-blue",
                 "blue-dark",
+                "grey",
               ].includes(variant)
                 ? "var(--white)"
-                : "var(--black60)"
+                : "var(--black20)"
             }
           />
         </i>

@@ -8,6 +8,11 @@ import { Models } from 'model'
 import Chat from './Chat'
 import ChatMember from './ChatMember'
 
+export enum UserRoleEnum {
+  FREELANCER = 'FREELANCER',
+  CLIENT = 'CLIENT',
+}
+
 class User extends Model {
   public id!: string
   public firstName!: string
@@ -19,6 +24,14 @@ class User extends Model {
   public languages: string[]
   public hourlyRate: number
   public profileImage: string
+  public category: string
+  public address: {
+    country: string
+    city: string
+    state: string
+    zip: number
+  }
+  public role!: UserRoleEnum
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -79,6 +92,11 @@ User.init(
     profileImage: {
       type: DataTypes.STRING(256),
       allowNull: true,
+      defaultValue: 'https://fafen.org/wp-content/uploads/2023/01/dummy.jpg',
+    },
+    category: {
+      type: DataTypes.STRING(128),
+      allowNull: true,
       defaultValue: '',
     },
     createdAt: {
@@ -90,6 +108,16 @@ User.init(
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
       allowNull: false,
+    },
+    address: {
+      type: DataTypes.JSON,
+      allowNull: true,
+      defaultValue: {},
+    },
+    role: {
+      type: DataTypes.ENUM('FREELANCER', 'CLIENT'),
+      allowNull: false,
+      defaultValue: 'FREELANCER',
     },
   },
   {
