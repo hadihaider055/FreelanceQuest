@@ -8,6 +8,12 @@ import Job from './Job'
 // Types
 import { Models } from 'model'
 
+export enum ProposalStatusEnum {
+  ACTIVE = 'ACTIVE',
+  ACCEPTED = 'ACCEPTED',
+  EXPIRED = 'EXPIRED'
+}
+
 class Proposal extends Model {
   public id!: string
   public cover_letter: string
@@ -15,6 +21,8 @@ class Proposal extends Model {
 
   public user_id!: string
   public job_id!: string
+
+  public status: ProposalStatusEnum
 
   public readonly createdAt!: Date
   public readonly updatedAt!: Date
@@ -56,6 +64,11 @@ Proposal.init(
         model: 'jobs',
         key: 'id',
       },
+    },
+    status: {
+      type: DataTypes.ENUM('ACCEPTED', 'ACTIVE', 'EXPIRED'),
+      allowNull: false,
+      defaultValue: 'ACTIVE',
     },
   },
   {

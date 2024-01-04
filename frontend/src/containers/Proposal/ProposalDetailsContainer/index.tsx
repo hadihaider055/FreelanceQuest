@@ -1,16 +1,20 @@
 // @ts-nocheck
 
-import { getProposalById } from "@/store/thunks/proposalThunk";
+import { acceptProposalThunk, getProposalById } from "@/store/thunks/proposalThunk";
 import { useAppDispatch } from "@/utils/hooks/store";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { ProposalDetailsContainerStyled, ProposalInformationContainer, ProposedByContainer } from "./styled";
+import { AcceptProposalModal, ProposalDetailsContainerStyled, ProposalInformationContainer, ProposedByContainer } from "./styled";
 import Container from "@/components/common/Container";
 import { SubmitProposalCategoryContainer } from "../SubmitProposalContainer/styled";
 import Button from "@/components/common/Button";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { useSession } from "next-auth/react";
 import { UserRoleEnum } from "@/types/user";
+import toast, { Toaster } from "react-hot-toast";
+
+// import Modal from "@/components/common/Modal";
+// import { IoCloseOutline } from "react-icons/io5";
 
 const ProposalDetailsContainer: React.FC = () => {
 
@@ -18,10 +22,23 @@ const ProposalDetailsContainer: React.FC = () => {
     const [proposal, setProposal] = useState(null);
     const router = useRouter();
     const session = useSession();
+    // const [modalOpen, setModalOpen] = useState(false);
 
     const fetchProposal = async (id) => {
         const res = await dispatch(getProposalById(id));
         return res;
+    }
+
+    const acceptProposal = async () => {
+        const proposalId = router.query["id"];
+
+        if (proposalId) {
+            const res = await dispatch(acceptProposalThunk(proposalId));
+
+            if (res.payload) {
+                router.push(`/messages?chatId=${res.payload.chat.id}`);
+            }
+        }
     }
 
     useEffect(() => {
@@ -36,8 +53,25 @@ const ProposalDetailsContainer: React.FC = () => {
 
     return <>
         <ProposalDetailsContainerStyled>
+            {/* {modalOpen && 
+            <Modal>
+                <AcceptProposalModal>
+                <div className="w-full flex justify-between">
+                    <h3 className="font-inter text-xl font-semibold text-black">
+                        Accept Proposal
+                    </h3>
+                    <div
+                        className="cursor-pointer w-10 h-10 flex items-center justify-center rounded-xl"
+                        onClick={() => setModalOpen(false)}
+                    >
+                    <IoCloseOutline fontSize={28} />
+                    </div>
+                </div>
+                </AcceptProposalModal>
+            </Modal>} */}
             <Container>
                 <h1>Proposal Details</h1>
+                <Toaster />
                 {proposal &&
                     <ProposalInformationContainer>
                         <h2>{proposal.Job.title}</h2>
@@ -79,9 +113,7 @@ const ProposalDetailsContainer: React.FC = () => {
                         </span>
                     </Button>
                     {session?.data?.user.role === UserRoleEnum.CLIENT &&
-                    <Button onClick={() => {
-                        // router.push(`/proposals/`);
-                    }} variant="blue">
+                    <Button onClick={acceptProposal} variant="blue">
                         <span style={{ display: "inline-flex" }}>
                             Accept Proposal
                         </span>

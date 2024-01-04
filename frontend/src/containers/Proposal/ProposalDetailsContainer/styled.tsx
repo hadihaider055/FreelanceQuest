@@ -55,3 +55,10 @@ export const ProposedByContainer = styled.div`
     }
 
 `;
+
+export const AcceptProposalModal = styled.div`
+    width: 800px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+`;

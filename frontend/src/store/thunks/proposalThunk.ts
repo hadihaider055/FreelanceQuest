@@ -112,3 +112,25 @@ export const getProposalsByJobId = createAsyncThunk(
     }
   }
 );
+
+export const acceptProposalThunk = createAsyncThunk(
+  "proposal/accept-proposal",
+  async (id: string, { dispatch }) => {
+    try {
+      const res = await axiosInstances.default.get(
+        Paths.default.ACCEPT_PROPOSAL(id)
+      );
+
+      return res.data.payload;
+    } catch (e: any) {
+      console.log(e);
+      let errorMessage = e.message || "Failed to accept proposal";
+      if (e?.response?.data?.message) {
+        errorMessage = e.response.data.message;
+        Swal.fire("", `<p>${errorMessage}</p>`, "error");
+      }
+
+      throw new Error(errorMessage);
+    }
+  }
+);

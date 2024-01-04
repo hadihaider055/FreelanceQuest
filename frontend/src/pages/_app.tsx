@@ -41,7 +41,7 @@ export default function App({
   const [loading, setLoading] = useState(false);
   const getLayout = Component.getLayout ?? ((page) => page);
 
-  const avoidLoading = ["/jobs", "/proposals"];
+  const avoidLoading = ["/jobs", "/proposals", "/messages"];
 
   useEffect(() => {
     const handleStart = (url: string) => {

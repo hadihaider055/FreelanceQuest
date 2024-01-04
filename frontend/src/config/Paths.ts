@@ -19,5 +19,6 @@ export const Paths = {
     GET_JOB_BY_ID: (id: string) => `/job/${id}`,
     CREATE_JOB: "/job/create",
     UPDATE_PROFILE: (userId: string) => `/user/profile/${userId}`,
+    ACCEPT_PROPOSAL: (id: string) => `/proposal/${id}/accept`
   },
 };

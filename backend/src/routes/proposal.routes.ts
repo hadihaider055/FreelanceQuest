@@ -2,6 +2,7 @@ import express from 'express'
 
 // Controllers
 import {
+  acceptProposalController,
   createProposalController,
   getAllProposalsController,
   getProposalByIdController,
@@ -43,6 +44,13 @@ router.get(
   authMiddleware(),
   validateParams(getProposalByIdSchema),
   getProposalByIdController
+)
+
+// Accept proposal
+router.get(
+  '/:proposalId/accept',
+  authMiddleware(),
+  acceptProposalController
 )
 
 export default router
