@@ -63,6 +63,8 @@ const PostJobLeft: React.FC = () => {
 
     toast.success(res.message);
 
+    setSkills([])
+
     form.reset();
   };
   const handleAddSkills = (e: React.KeyboardEvent<HTMLInputElement>) => {

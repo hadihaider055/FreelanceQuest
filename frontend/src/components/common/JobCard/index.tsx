@@ -24,7 +24,9 @@ import { getProposalsText } from "@/utils/functions/getProposalsText";
 // Types
 import { JobType, JobTypeStatusEnum } from "@/types/job";
 
-type JobCardProps = JobType;
+type JobCardProps = JobType & {
+  isModal?: boolean;
+};
 
 const JobCard: React.FC<JobCardProps> = ({
   title,
@@ -38,6 +40,7 @@ const JobCard: React.FC<JobCardProps> = ({
   type,
   address,
   featured,
+  isModal = true,
 }) => {
   const { query, push } = useRouter();
 
@@ -56,6 +59,7 @@ const JobCard: React.FC<JobCardProps> = ({
   };
 
   const handleOpenModal = () => {
+    if (!isModal) return;
     push(
       {
         query: { ...query, id },
@@ -112,7 +116,7 @@ const JobCard: React.FC<JobCardProps> = ({
               : ${price} - {category},{" "}
               <span className="flex items-center ml-1">
                 <SlLocationPin />
-                <span className="ml-[1px]">{address.country}</span>
+                <span className="ml-[1px]">{address?.country}</span>
               </span>
             </span>
           </div>
@@ -123,16 +127,17 @@ const JobCard: React.FC<JobCardProps> = ({
 
         <div className="my-5">
           <div className="flex items-center gap-3 flex-wrap">
-            {skills?.map((skill, i) => (
-              <Tag
-                key={i}
-                text={skill}
-                bgColor="bg-stone-200"
-                color="text-black"
-                padding="px-3 py-2"
-                rounded="rounded-[16px]"
-              />
-            ))}
+            {skills.length &&
+              skills?.map((skill, i) => (
+                <Tag
+                  key={i}
+                  text={skill}
+                  bgColor="bg-stone-200"
+                  color="text-black"
+                  padding="px-3 py-2"
+                  rounded="rounded-[16px]"
+                />
+              ))}
           </div>
         </div>
 
