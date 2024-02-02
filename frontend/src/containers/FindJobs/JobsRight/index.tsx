@@ -28,14 +28,15 @@ const JobsLeft = () => {
   const handleFetchProposals = async (userId: string) => {
     const res = await dispatch(getSubmittedProposals(userId));
     return res;
-  }
+  };
 
   useEffect(() => {
     if (session?.data?.user.id) {
-        handleFetchProposals(session.data.user.id)
-        .then(res => setProposalsSubmitted(res.payload.length));
+      handleFetchProposals(session.data.user.id).then((res) =>
+        setProposalsSubmitted(res?.payload?.length)
+      );
     }
-  }, [session])
+  }, [session]);
 
   const handlePositionSticky = () => {
     if (window.scrollY > 110) {
@@ -100,7 +101,8 @@ const JobsLeft = () => {
             </h3>
             <Link href="/proposals">
               <p className="font-inter text-green-600 text-xs font-medium hover:underline">
-                {proposalsSubmitted} Submitted Proposal{proposalsSubmitted > 1 && "s"}
+                {proposalsSubmitted} Submitted Proposal
+                {proposalsSubmitted > 1 && "s"}
               </p>
             </Link>
           </div>

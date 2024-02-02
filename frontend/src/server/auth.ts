@@ -22,23 +22,22 @@ import Swal from "sweetalert2";
 declare module "next-auth" {
   interface Session extends DefaultSession {
     user: User & DefaultSession["user"];
+    token: string;
   }
 }
 
-const fetchUserMetadata = async (email: string) => {
-  const response = await axiosInstances.auth.get(
-    Paths.default.METADATA(email)
-  );
+// const fetchUserMetadata = async (email: string) => {
+//   const response = await axiosInstances.auth.get(Paths.default.METADATA(email));
 
-  if (response.data.error) {
-    Swal.fire({
-      title: "Error!",
-      text: response.data.message || "Something went wrong!",
-      icon: "error",
-    });
-  }
-  return response.data.payload;
-};
+//   if (response.data.error) {
+//     Swal.fire({
+//       title: "Error!",
+//       text: response.data.message || "Something went wrong!",
+//       icon: "error",
+//     });
+//   }
+//   return response.data.payload;
+// };
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -62,19 +61,24 @@ export const authOptions: NextAuthOptions = {
       },
       type: "credentials",
       id: "credentials",
-      async authorize(credentials, req): Promise<any> {
+      async authorize(
+        credentials,
+        req
+      ): Promise<
+        | (User & {
+            token: string;
+          })
+        | null
+      > {
         if (!credentials?.email || !credentials.password) {
           throw new Error("Please provide both email and password!");
         }
 
         try {
-          const response = await axiosInstances.auth.post(
-            Paths.default.LOGIN,
-            {
-              email: credentials.email,
-              password: credentials.password,
-            }
-          );
+          const response = await axiosInstances.auth.post(Paths.default.LOGIN, {
+            email: credentials.email,
+            password: credentials.password,
+          });
 
           const { user, token } = response.data.payload;
 
@@ -86,7 +90,7 @@ export const authOptions: NextAuthOptions = {
                 token,
               };
             } else {
-              return { user, token };
+              return { ...user, token };
             }
           } else {
             return null;
@@ -102,29 +106,29 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     session: async ({ session, token }: any) => {
-      const { user } = await fetchUserMetadata(token.email);
-
+      // const { user } = await fetchUserMetadata(token.email);
       return {
         ...session,
         user: {
           id: token?.sub ?? "",
           email: session?.user?.email ?? "",
-          firstName: user?.firstName ?? "",
-          lastName: user?.lastName ?? "",
-          createdAt: user?.createdAt ?? "",
-          updatedAt: user?.updatedAt ?? "",
-          title: user?.title ?? "",
-          description: user?.description ?? "",
-          profileImage: user?.profileImage ?? "",
-          hourlyRate: user?.hourlyRate ?? 0,
-          languages: user?.languages ?? [],
-          category: user?.category ?? "",
-          role: user?.role ?? "",
+          firstName: token?.firstName ?? "",
+          lastName: token?.lastName ?? "",
+          createdAt: token?.createdAt ?? "",
+          updatedAt: token?.updatedAt ?? "",
+          title: token?.title ?? "",
+          description: token?.description ?? "",
+          profileImage: token?.profileImage ?? "",
+          hourlyRate: token?.hourlyRate ?? 0,
+          languages: token?.languages ?? [],
+          category: token?.category ?? "",
+          role: token?.role ?? "",
         },
+        token: token?.token ?? "",
       };
     },
-    jwt: ({ token }) => {
-      return token;
+    jwt: ({ token, user }) => {
+      return { ...token, ...user };
     },
   },
 };

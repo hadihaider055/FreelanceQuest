@@ -31,7 +31,7 @@ const useAuth = ({ redirectOn, redirectTo }: UseAuthArgs) => {
 
   useEffect(() => {
     if (status === "authenticated" && !user) {
-      dispatch(loginUser(data?.user));
+      dispatch(loginUser({ user: data?.user, token: data?.token }));
     }
 
     if (status === "authenticated" && pathname === "/login") {

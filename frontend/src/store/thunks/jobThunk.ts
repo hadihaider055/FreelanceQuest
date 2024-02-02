@@ -19,10 +19,21 @@ type GetAllJobsThunkArgs = {
 
 export const getAllJobsThunk = createAsyncThunk(
   "job/get-all",
-  async (args: GetAllJobsThunkArgs, { dispatch }) => {
+  async (args: GetAllJobsThunkArgs, { dispatch, getState }) => {
+    const state = getState() as RootState;
+
+    if (!state.auth.user) {
+      throw new Error("User not found");
+    }
+
     try {
       const res = await axiosInstances.default.get(
-        Paths.default.GET_ALL_JOBS(args?.featured || null)
+        Paths.default.GET_ALL_JOBS(args?.featured || null),
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth?.token}`,
+          },
+        }
       );
 
       const jobs = res.data.payload.jobs;
@@ -47,10 +58,21 @@ type getUserJobFeedThunkArgs = {
 
 export const getUserJobFeedThunk = createAsyncThunk(
   "job/get/user-feed",
-  async (args: getUserJobFeedThunkArgs, { dispatch }) => {
+  async (args: getUserJobFeedThunkArgs, { dispatch, getState }) => {
+    const state = getState() as RootState;
+
+    if (!state.auth.user) {
+      throw new Error("User not found");
+    }
+
     try {
       const res = await axiosInstances.default.get(
-        Paths.default.GET_USER_JOBS_FEED(args.user)
+        Paths.default.GET_USER_JOBS_FEED(args.user),
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth?.token}`,
+          },
+        }
       );
 
       const jobs = res.data.payload.jobs;
@@ -71,10 +93,21 @@ export const getUserJobFeedThunk = createAsyncThunk(
 
 export const getJobByIdThunk = createAsyncThunk(
   "job/get-by-id",
-  async (id: string, { dispatch }) => {
+  async (id: string, { dispatch, getState }) => {
+    const state = getState() as RootState;
+
+    if (!state.auth.user) {
+      throw new Error("User not found");
+    }
+
     try {
       const res = await axiosInstances.default.get(
-        Paths.default.GET_JOB_BY_ID(id)
+        Paths.default.GET_JOB_BY_ID(id),
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth?.token}`,
+          },
+        }
       );
       const job = res.data.payload.job;
       return job;
@@ -110,10 +143,18 @@ export const createJobThunk = createAsyncThunk(
     }
 
     try {
-      const res = await axiosInstances.default.post(Paths.default.CREATE_JOB, {
-        ...args,
-        posted_by: state.auth.user.id,
-      });
+      const res = await axiosInstances.default.post(
+        Paths.default.CREATE_JOB,
+        {
+          ...args,
+          posted_by: state.auth.user.id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth?.token}`,
+          },
+        }
+      );
 
       return res.data;
     } catch (e: any) {
