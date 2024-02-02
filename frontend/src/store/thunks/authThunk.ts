@@ -196,7 +196,12 @@ export const updateUserProfileThunk = createAsyncThunk(
     try {
       const user = await axiosInstances.default.patch(
         Paths.default.UPDATE_PROFILE(state.auth.user.id),
-        args
+        args,
+        {
+          headers: {
+            Authorization: `Bearer ${state.auth?.token}`,
+          },
+        }
       );
 
       const data = user.data.payload.user;

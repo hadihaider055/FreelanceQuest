@@ -25,6 +25,7 @@ type AuthState = {
   updateUserProfile: ActionTracker;
 
   user: User | null;
+  token: string | null;
 };
 
 const initialState: AuthState = {
@@ -36,6 +37,7 @@ const initialState: AuthState = {
   updateUserProfile: initialActionTracker,
 
   user: null,
+  token: null,
 };
 
 const authSlice = createSlice({
@@ -45,8 +47,17 @@ const authSlice = createSlice({
     logoutUser: (state) => {
       state.user = null;
     },
-    loginUser: (state, { payload }: PayloadAction<User>) => {
-      state.user = payload;
+    loginUser: (
+      state,
+      {
+        payload,
+      }: PayloadAction<{
+        user: User;
+        token: string;
+      }>
+    ) => {
+      state.user = payload.user;
+      state.token = payload.token;
     },
   },
   extraReducers: (builder) => {
